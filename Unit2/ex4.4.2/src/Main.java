@@ -16,9 +16,13 @@ public class Main
         {
             byte[] data = new byte[128];
             int bytesRead = is.read(data);
-            while( bytesRead != -1 )
+            if ( bytesRead != -1 )
             {
-
+                
+            }
+            else
+            {
+                System.out.println("File empty");
             }
         }
         catch( IOException e )
