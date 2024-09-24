@@ -12,11 +12,11 @@ public class Main
     public  static void detectFormat()
     {
 
-        try (InputStream is = new FileInputStream("descarga.gif"))
+        try (FileInputStream is = new FileInputStream("descarga.gif"))
         {
-            byte[] data = new byte[128];
+            byte[] data = new byte[6];
             int bytesRead = is.read(data);
-            if ( bytesRead != -1 )
+            if ((bytesRead = is.read(data)) > 0 )
             {
                 
             }
