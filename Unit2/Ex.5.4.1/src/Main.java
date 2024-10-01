@@ -1,6 +1,7 @@
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -11,24 +12,32 @@ public class Main {
         if (path.isEmpty())
             throw new Exception("The path not can be empty");
         File fil = new File(path);
-        boolean setting  = false;
+        boolean append  = false;
         boolean willExit = false;
         long lines = 0;
         if (fil.exists())
         {
-            System.out.println("This route already exists if you want overwrite write O , to append write A");
-            if (scan.nextLine() == "A");
+            System.out.println("This route already exists,you want append (Y)es or (N)o");
+            String answer = scan.nextLine();
+            while(!Objects.equals(answer, "Y") && !Objects.equals(answer, "N"))
             {
-                lines =  Files.lines(Path.of(path)).count();
-                setting = true;
+                System.out.println("This answer is not Y or N plis write Y or  N");
+                answer = scan.nextLine();
             }
+            if (Objects.equals(answer, "Y"))
+            {
+                lines = Files.lines(Path.of(path)).count();
+                append = true;
+            }
+
         }
+
 
         PrintWriter printWriter = null;
         try
         {
             printWriter = new PrintWriter(new BufferedWriter(
-                new FileWriter( path, setting)));
+                new FileWriter( path, append)));
             while (!willExit)
             {
 
