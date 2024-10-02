@@ -24,23 +24,29 @@ public class Main
         {
             BufferedReader file1 = new BufferedReader(new FileReader(path1));
             BufferedReader file2 = new BufferedReader(new FileReader(path2));
-            printWriter = new PrintWriter(new BufferedWriter(new FileWriter(pathexit)));
+            printWriter = new PrintWriter(new BufferedWriter(new FileWriter(pathexit,false)));
             String linef1 = file1.readLine();
             String linef2 = file2.readLine();
             while(linef2 != null && linef1 != null)
             {
                 if (linef1.compareTo(linef2) > 0)
                 {
-                    printWriter.println(linef1);
-                    linef1 = file1.readLine();
-                }
-                else
-                {
                     printWriter.println(linef2);
                     linef2 = file2.readLine();
                 }
+                else
+                {
+                    printWriter.println(linef1);
+                    linef1 = file1.readLine();
+                }
             }
-            printWriter.println();
+            BufferedReader file1notempty = linef2 != null ? file2 : file1;
+            String linenotnull = linef1 != null ? linef1 : linef2;
+            while (linenotnull!= null)
+            {
+                printWriter.println(linenotnull);
+                linenotnull = file1notempty.readLine();
+            }
         }
         catch ( IOException e )
         {
@@ -63,18 +69,5 @@ public class Main
             path = scan.nextLine();
         }
         return  path;
-    }
-    public static String[] FileToArray(String path)
-    {
-        String[] result  = new String[5];
-        try
-        {
-            FileReader fileReader = new FileReader(path);
-        }
-        catch (FileNotFoundException e)
-        {
-            throw new RuntimeException(e);
-        }
-        return  result;
     }
 }
