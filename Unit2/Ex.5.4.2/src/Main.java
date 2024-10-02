@@ -22,27 +22,25 @@ public class Main
         PrintWriter printWriter = null;
         try
         {
-            printWriter = new PrintWriter(new BufferedWriter(
-                    new FileWriter( pathexit, true)));
-            String[] array1 = FileToArray(path1);
-            String[] array2 =  FileToArray(path2);
-            int countMayor = Math.max(array2.length, array1.length);
-            int pos1 = 0;
-            int pos2 = 0;
-            while(pos1 < countMayor && pos2 < countMayor)
+            BufferedReader file1 = new BufferedReader(new FileReader(path1));
+            BufferedReader file2 = new BufferedReader(new FileReader(path2));
+            printWriter = new PrintWriter(new BufferedWriter(new FileWriter(pathexit)));
+            String linef1 = file1.readLine();
+            String linef2 = file2.readLine();
+            while(linef2 != null && linef1 != null)
             {
-                if (array1[pos1].compareTo(array2[pos2]) > 0)
+                if (linef1.compareTo(linef2) > 0)
                 {
-                    //añadir
-                    pos1++;
+                    printWriter.println(linef1);
+                    linef1 = file1.readLine();
                 }
                 else
                 {
-                    //añadir
-                    pos2++;
+                    printWriter.println(linef2);
+                    linef2 = file2.readLine();
                 }
             }
-            //añadir lo que queda del mas pequño
+            printWriter.println();
         }
         catch ( IOException e )
         {
