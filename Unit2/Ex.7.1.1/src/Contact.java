@@ -16,4 +16,24 @@ public class Contact implements Serializable
         phone = _phone;
         description = _description;
     }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public String getPhone()
+    {
+        return phone;
+    }
+
+    public void write()
+    {
+        System.out.println("Name: " + name);
+        System.out.println("Surname: " + surname);
+        System.out.println("E-mail: " + e_mail);
+        System.out.println("Phone: " + phone);
+        System.out.println("Description: " + description);
+        System.out.println();
+    }
 }
