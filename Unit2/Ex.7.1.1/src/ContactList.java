@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -10,15 +9,25 @@ public class ContactList
     private final Scanner scanner = new Scanner(System.in);
 
 
-    public void Start() throws IOException, ClassNotFoundException {
-        System.out.println("Write (A) to add new Contact,(S) to see the current list of contacts");
+    public void start() throws IOException, ClassNotFoundException
+    {
+        contacts = readContacts();
+        System.out.println("Write (A) to add new Contact,(S) to see the current list of contacts," +
+                "(F) to search a contact for name or phone,(E) to exit");
         String option = scanner.nextLine();
-        if (option.equals("A"))
-            addContact();
-        else if (option.equals("S"))
-            showContacts(readContacts());
-        else
-            searchContacts();
+        while (!option.equals("E"))
+        {
+            switch (option)
+            {
+                case "A" -> addContact();
+                case "S" -> showContacts(contacts);
+                case "F" -> searchContacts();
+            }
+            System.out.println("Write (A) to add new Contact,(S) to see the current list of contacts," +
+                    "(F) to search a contact for name or phone,other to exit");
+            option = scanner.nextLine();
+        }
+        writeContact();
     }
 
     private void searchContacts() throws IOException, ClassNotFoundException
@@ -31,16 +40,22 @@ public class ContactList
             searchWithPhone();
     }
 
-    private void searchWithPhone()
+    private void searchWithPhone() throws IOException, ClassNotFoundException
     {
-
+        System.out.println("Write the phone");
+        String phone = scanner.nextLine();
+        for (Contact contact: contacts)
+        {
+            if (contact.getPhone().contains(phone))
+                contact.write();
+        }
     }
 
     private void searchWithName() throws IOException, ClassNotFoundException
     {
         System.out.println("Write the name");
         String name = scanner.nextLine();
-        for (Contact contact: readContacts())
+        for (Contact contact: contacts)
         {
             if (contact.getName().contains(name))
                 contact.write();
@@ -59,12 +74,9 @@ public class ContactList
         }
         return contactsFile;
     }
-    private void showContacts(Set<Contact> contacts)
-    {
+    private void showContacts(Set<Contact> contacts) throws IOException, ClassNotFoundException {
         for (Contact contact: contacts)
-        {
             contact.write();
-        }
     }
 
     private void addContact() throws IOException, ClassNotFoundException
@@ -88,8 +100,6 @@ public class ContactList
         answer  = answerValid(scanner.nextLine());
         if (answer.equals("Y"))
             addContact();
-        writeContact();
-        Start();
     }
 
     private String answerValid(String answer)
@@ -104,13 +114,12 @@ public class ContactList
     private void writeContact() throws IOException
     {
         ObjectOutputStream objectsFile = new ObjectOutputStream(
-                new FileOutputStream( new File("contacts.obj"),true));
+                new FileOutputStream( new File("contacts.obj"),false));
         objectsFile.writeInt(contacts.size());
         for (Contact contact: contacts)
         {
             objectsFile.writeObject(contact);
         }
-        contacts.clear();
         objectsFile.close();
     }
 }
