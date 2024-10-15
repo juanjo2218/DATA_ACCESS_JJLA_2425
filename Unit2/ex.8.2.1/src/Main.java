@@ -7,14 +7,13 @@ import javax.xml.parsers.SAXParserFactory;
 class myXMLContactsHandler extends DefaultHandler {
     protected String tagContent;
     protected String fullName;
+    protected String phoneNumber;
     protected boolean isPhone;
+    protected Phonetype phonetype;
     // Tag opening found
     //
     public void startElement(String uri, String localName,
                              String qName, Attributes attributes) throws SAXException {
-        if ( qName.equals("contact") )
-            System.out.println( "ID: " + attributes.getValue("id"));
-
         if ( qName.equals("phones") )
             isPhone = true;
     }
@@ -34,6 +33,24 @@ class myXMLContactsHandler extends DefaultHandler {
                 fullName = tagContent;
             if (qName.equals("surname"))
                 System.out.println(fullName + " " + tagContent);
+            if (qName.equals("cell"))
+            {
+                phoneNumber = tagContent;
+                phonetype = Phonetype.CELL;
+            }
+            if (qName.equals("work") && isPhone && phonetype != Phonetype.CELL)
+            {
+                phoneNumber = tagContent;
+                phonetype = Phonetype.WORK;
+            }
+
+            if (qName.equals("home") && isPhone && phonetype != Phonetype.CELL && phonetype != Phonetype.WORK)
+            {
+                phoneNumber = tagContent;
+                phonetype = Phonetype.HOME;
+            }
+            if (qName.equals("phones"))
+                System.out.println(phonetype + ": " + phoneNumber);
         }
     }
 }
@@ -42,7 +59,7 @@ public class Main {
         try {
             SAXParser saxParser = SAXParserFactory.
                     newInstance().newSAXParser();
-            saxParser.parse("contacts.xml", new
+            saxParser.parse("xml.xml", new
                     myXMLContactsHandler());
         }
 
