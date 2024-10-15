@@ -2,11 +2,32 @@ import java.io.Serializable;
 
 public class Contact implements Serializable
 {
-    private String name;
-    private String surname;
-    private String e_mail;
-    private String phone;
-    private String description;
+    protected String name;
+    protected String surname;
+    protected String e_mail;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setE_mail(String e_mail) {
+        this.e_mail = e_mail;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    protected String phone;
+    protected String description;
 
     public Contact(String _name, String _surname, String _e_mail, String _phone, String _description)
     {
@@ -15,6 +36,10 @@ public class Contact implements Serializable
         e_mail = _e_mail;
         phone = _phone;
         description = _description;
+    }
+    public Contact()
+    {
+
     }
 
     public String getName()

@@ -13,21 +13,22 @@ public class Main {
         String url = "jdbc:postgresql://localhost:5432/VTInstitute";
         String user = "postgres";
         String password = "postgres";
-        try(Connection con = DriverManager.getConnection(url, user, password);)
+        try(Connection con = DriverManager.getConnection(url, user, password))
         {
             Statement statement = con.createStatement();
             String SQLsentence = "SELECT * FROM subjects ORDER BY code";
             ResultSet rs = statement.executeQuery(SQLsentence);
-            System.out.println("Code" + "\t" + "Name");
+            System.out.println("Code" + "\t" + "Name"+ "\t" + "Year");
             System.out.println("-----------------------------------------");
             while (rs.next())
             {
-                System.out.println(rs.getString("name"));
+                System.out.println(rs.getString("code")+ " " +rs.getString("name")+ " " + rs.getString("year"));
             }
             rs.close();
         }
         catch (Exception e)
         {
+            System.out.println("Connection couldn't be established!");
         }
 
     }
