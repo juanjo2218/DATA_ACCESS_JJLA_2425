@@ -7,7 +7,6 @@ import javax.xml.parsers.SAXParserFactory;
 class myXMLContactsHandler extends DefaultHandler {
     protected String tagContent;
     protected String fullName;
-    protected Enum phoneType type;
     protected boolean isPhone;
     // Tag opening found
     //
@@ -33,9 +32,8 @@ class myXMLContactsHandler extends DefaultHandler {
         {
             if (qName.equals("name"))
                 fullName = tagContent;
-            if (qName.equals("suname"))
+            if (qName.equals("surname"))
                 System.out.println(fullName + " " + tagContent);
-            if (q)
         }
     }
 }
@@ -46,7 +44,9 @@ public class Main {
                     newInstance().newSAXParser();
             saxParser.parse("contacts.xml", new
                     myXMLContactsHandler());
-        } catch ( Exception e ) {
+        }
+
+        catch ( Exception e ) {
             e.printStackTrace();
         }
     }

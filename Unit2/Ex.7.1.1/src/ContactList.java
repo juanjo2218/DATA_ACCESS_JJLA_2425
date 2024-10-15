@@ -74,7 +74,8 @@ public class ContactList
         }
         return contactsFile;
     }
-    private void showContacts(Set<Contact> contacts) throws IOException, ClassNotFoundException {
+    private void showContacts(Set<Contact> contacts) throws IOException, ClassNotFoundException 
+	{
         for (Contact contact: contacts)
             contact.write();
     }
