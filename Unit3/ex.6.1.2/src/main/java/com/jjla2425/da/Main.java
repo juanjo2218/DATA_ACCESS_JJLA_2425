@@ -12,10 +12,15 @@ public class Main {
         String password = "postgres";
         try(Connection con = DriverManager.getConnection(url, user, password))
         {
-            String sql = "INSERT INTO subjects (name,year) VALUES (?,?)";
+            String sql =  "CREATE TABLE courses ("
+                    + "code SERIAL PRIMARY KEY, "
+                    + "name VARCHAR(90) NOT NULL)";
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate(sql);
+            sql = "INSERT INTO courses (name) VALUES (?),(?)";
             PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, "FOL");
-            pstmt.setInt(2, 1);
+            pstmt.setString(1, "Multiplatform app development");
+            pstmt.setString(2, "Web development");
             System.out.println(pstmt.executeUpdate());
             pstmt.close();
         }

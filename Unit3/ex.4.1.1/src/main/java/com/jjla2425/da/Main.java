@@ -16,19 +16,19 @@ public class Main {
         try(Connection con = DriverManager.getConnection(url, user, password))
         {
             Statement statement = con.createStatement();
-            String SQLsentence = "SELECT * FROM subjects ORDER BY code";
+            String SQLsentence = "SELECT * FROM courses ORDER BY code";
             ResultSet rs = statement.executeQuery(SQLsentence);
             System.out.println("Code" + "\t" + "Name"+ "\t" + "Year");
             System.out.println("-----------------------------------------");
             while (rs.next())
             {
-                System.out.println(rs.getString("code")+ " " +rs.getString("name")+ " " + rs.getString("year"));
+                System.out.println(rs.getString("code")+ " " +rs.getString("name"));
             }
             rs.close();
         }
         catch (Exception e)
         {
-            System.out.println("Connection couldn't be established!");
+            System.out.println(e.getMessage());
         }
 
     }
