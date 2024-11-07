@@ -34,11 +34,10 @@ public class DataBaseManager {
     }
     public SellersEntity getSellerByCIF(String usernameFieldText)
     {
-        Session session = sessionFactory.openSession();
-        Query<SellersEntity> myQuery =
-                session.createQuery("from com.jjla2425.da.practica.SellersEntity" +
-                        "where cif = :cif");
+        Session session =  SessionMnager.getInstance().getSession();
+        Query<SellersEntity> myQuery = session.createQuery("from SellersEntity where cif = :cif", SellersEntity.class);
         myQuery.setParameter("cif", usernameFieldText);
+        System.out.println(myQuery.getSingleResult().getCif());
         return myQuery.getSingleResult();
     }
     //public String getPasswordByUsername(SellersEntity sellerdb)

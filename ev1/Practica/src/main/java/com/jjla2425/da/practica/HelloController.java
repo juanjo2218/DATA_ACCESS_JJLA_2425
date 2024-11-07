@@ -10,7 +10,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HelloController {
-    private TextField usernameField;
+    @FXML
+    private TextField CIFField;
     private SellersEntity sellerlogin;
 
     @FXML
@@ -19,18 +20,20 @@ public class HelloController {
     protected void validatePassword()
     {
         // Obtener los valores de los campos
-        String CIF = usernameField.getText();
+        String CIF = CIFField.getText();
         String passwordFieldText = passwordField.getText();
         SellersEntity sellerdb = DataBaseManager.getInstance().getSellerByCIF(CIF);
+        System.out.println("hola");
         if (sellerdb != null)
         {
-            if (sellerdb.getPassword().equals(Utils.getHash(passwordFieldText)))
+            if (sellerdb.getPassword().equals(Utils.getHash(passwordFieldText).toUpperCase()))
             {
                 try {
                     sellerlogin = sellerdb;
+                    System.out.println("entrar");
                     // Cargar la nueva escena (pantalla) desde un archivo FXML
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
-                    Stage currentStage = (Stage) usernameField.getScene().getWindow();
+                    Stage currentStage = (Stage) CIFField.getScene().getWindow();
                     Scene nextScene = new Scene(loader.load());
                     currentStage.setScene(nextScene); // Cambiar la escena actual
                     currentStage.show();
