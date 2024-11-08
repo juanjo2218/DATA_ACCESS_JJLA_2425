@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" spacing="10.0" style="-fx-background-color: #f4f4f4; -fx-padding: 20;">
+
+    <VBox alignment="CENTER" spacing="15" style="-fx-background-color: #c3c4c6; -fx-padding: 10; -fx-background-radius: 10;">
+        <ImageView fitHeight="50" fitWidth="50">
+            <Image url="@icon-user.png" />
+        </ImageView>
+        <ImageView fitHeight="50" fitWidth="50">
+            <Image url="@icon-add-product.png" />
+        </ImageView>
+        <ImageView fitHeight="50" fitWidth="50">
+            <Image url="@icon-dollar.png" />
+        </ImageView>
+        <ImageView fitHeight="50" fitWidth="50">
+            <Image url="@icon-logout.png" />
+        </ImageView>
+    </VBox>
+
+    <VBox alignment="TOP_LEFT" spacing="10" style="-fx-padding: 10; -fx-background-radius: 10; -fx-pref-width: 300;">
+
+        <Label text="Add to store" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #333;" />
+
+        <GridPane hgap="10" vgap="10">
+
+            <Label text="Category:" style="-fx-font-weight: bold;" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <ComboBox fx:id="categoryComboBox" promptText="Select Category" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+
+            <Label text="Product:" style="-fx-font-weight: bold;" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+            <ComboBox fx:id="productComboBox" promptText="Select Product" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+            <Label text="Stock:" style="-fx-font-weight: bold;" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+            <HBox alignment="CENTER" spacing="10" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                <Slider fx:id="stockSlider" min="0" max="25" blockIncrement="1" style="-fx-pref-width: 150;" />
+                <Label text="Units" style="-fx-text-fill: #333;" />
+            </HBox>
+
+            <Label text="Price:" style="-fx-font-weight: bold;" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+            <TextField fx:id="priceField" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+        </GridPane>
+
+        <!-- Botón -->
+        <Button text="Add" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 5 20;" alignment="CENTER_RIGHT" />
+
+    </VBox>
+</HBox>

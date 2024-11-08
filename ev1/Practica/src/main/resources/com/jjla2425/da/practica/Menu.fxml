@@ -1,10 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
+<HBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.MenuController" alignment="CENTER" spacing="10.0" style="-fx-background-color: #e9ebee; -fx-padding: 20;">
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.Menu">
-   <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" />
-   </children>
-</AnchorPane>
+   <!-- Columna Izquierda (para iconos) -->
+   <VBox alignment="CENTER" spacing="15" style="-fx-background-color: #9ca3af; -fx-padding: 10; -fx-background-radius: 10;">
+      <ImageView fitHeight="50" fitWidth="50">
+         <Image url="@icon-user.png" />
+      </ImageView>
+      <ImageView onMouseClicked="#goToAddProductMenu" fitHeight="50" fitWidth="50">
+         <Image url="@icon-box.png" />
+      </ImageView>
+      <ImageView  onMouseClicked="#goToAddOfferMenu" fitHeight="50" fitWidth="50">
+         <Image url="@icon-dollar.png" />
+      </ImageView>
+      <ImageView fitHeight="50" fitWidth="50">
+         <Image url="@icon-logout.png" />
+      </ImageView>
+   </VBox>
+
+   <!-- Columna Derecha (Formulario) -->
+   <VBox alignment="TOP_LEFT" spacing="10" style="-fx-padding: 10; -fx-background-radius: 10; -fx-pref-width: 300;">
+
+      <!-- Título -->
+      <Label text="Seller Data" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #333;" />
+
+      <!-- Formulario de Datos -->
+      <GridPane hgap="10" vgap="10">
+         <Label text="CIF:" style="-fx-font-weight: bold;" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+         <TextField fx:id="cifField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+         <Label text="Name:" style="-fx-font-weight: bold;" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+         <TextField fx:id="nameField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+         <Label text="Business name:" style="-fx-font-weight: bold;" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+         <TextField fx:id="businessNameField" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+         <Label text="Phone:" style="-fx-font-weight: bold;" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+         <TextField fx:id="phoneField" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+         <Label text="Email:" style="-fx-font-weight: bold;" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+         <TextField fx:id="emailField" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+
+         <Label text="Password:" style="-fx-font-weight: bold;" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+         <PasswordField fx:id="passwordFieldMenu" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+      </GridPane>
+
+      <Button text="Ok" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 5 20;" alignment="CENTER_RIGHT" />
+
+   </VBox>
+</HBox>

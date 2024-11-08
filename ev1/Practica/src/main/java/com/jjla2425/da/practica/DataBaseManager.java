@@ -2,8 +2,12 @@ package com.jjla2425.da.practica;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
+
+import java.util.ArrayList;
+
 public class DataBaseManager {
 
     private static DataBaseManager instance;
@@ -37,8 +41,77 @@ public class DataBaseManager {
         Session session =  SessionMnager.getInstance().getSession();
         Query<SellersEntity> myQuery = session.createQuery("from SellersEntity where cif = :cif", SellersEntity.class);
         myQuery.setParameter("cif", usernameFieldText);
-        System.out.println(myQuery.getSingleResult().getCif());
         return myQuery.getSingleResult();
+    }
+    public ArrayList<CategoriesEntity> getCategories()
+    {
+        Session session =  SessionMnager.getInstance().getSession();
+        Query<CategoriesEntity> myQuery = session.createQuery("from CategoriesEntity ", CategoriesEntity.class);
+
+        return (ArrayList<CategoriesEntity>) myQuery.list();
+    }
+    public ArrayList<ProductsEntity> getProductsByIdCategory(String category_id)
+    {
+        Session session =  SessionMnager.getInstance().getSession();
+        Query<ProductsEntity> myQuery = session.createQuery("from ProductsEntity where categoryId = :category_id", ProductsEntity.class);
+        myQuery.setParameter("category_id", category_id);
+        return (ArrayList<ProductsEntity>) myQuery.list();
+    }
+    public ArrayList<SellerProductsEntity> getProductsSeller(String CIF,String category_id)
+    {
+        SellersEntity seller = getSellerByCIF(CIF);
+        ArrayList<ProductsEntity> products = getProductsByIdCategory(category_id);
+        ArrayList<Integer> productsId = Utils.getProductsId(products);
+        Session session =  SessionMnager.getInstance().getSession();
+        Query<SellerProductsEntity> myQuery = session.createQuery("from SellerProductsEntity where productId in :productsId " +
+                "and sellerId = :idSeller", SellerProductsEntity.class);
+        myQuery.setParameter("productsId", productsId);
+        myQuery.setParameter("idSeller", seller.getSellerId());
+        return (ArrayList<SellerProductsEntity>) myQuery.list();
+    }
+    public ArrayList<ProductsEntity> getProductsSeller(ArrayList<SellerProductsEntity> sellerProducts)
+    {
+        ArrayList<Integer> sellersProductsId = Utils.getSellersProductsId(sellerProducts);
+        Session session =  SessionMnager.getInstance().getSession();
+        Query<ProductsEntity> myQuery = session.createQuery("from ProductsEntity where productId not in : sellersProductsId", ProductsEntity.class);
+        myQuery.setParameter("sellersProductsId", sellersProductsId);
+        return (ArrayList<ProductsEntity>) myQuery.list();
+    }
+    public void addProductsSeller(ProductsEntity product)
+    {
+        try ( Session session = SessionMnager.getInstance().getSession() ) {
+            session.beginTransaction();
+            session.persist( product );
+            session.getTransaction().commit();
+        }
+        catch( Exception e )
+        {
+            System.out.println( e.getMessage() );
+        }
+    }
+    public void addOfferProductsSeller(ProductsEntity product)
+    {
+        try ( Session session = SessionMnager.getInstance().getSession() ) {
+            session.beginTransaction();
+            session.persist( product );
+            session.getTransaction().commit();
+        }
+        catch( Exception e )
+        {
+            System.out.println( e.getMessage() );
+        }
+    }
+    public void updateSeller(ProductsEntity product)
+    {
+        try ( Session session = SessionMnager.getInstance().getSession() ) {
+            session.beginTransaction();
+            session.persist( product );
+            session.getTransaction().commit();
+        }
+        catch( Exception e )
+        {
+            System.out.println( e.getMessage() );
+        }
     }
     //public String getPasswordByUsername(SellersEntity sellerdb)
     //{
