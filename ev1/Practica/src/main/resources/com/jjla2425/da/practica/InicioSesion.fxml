@@ -4,20 +4,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" spacing="15.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.LogInController" styleClass="main-container">
+<VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" spacing="15.0" styleClass="main-container" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.LogInController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
     <!-- Título -->
-    <Label text="Inicio de Sesión" styleClass="title-label" />
+    <Label styleClass="title-label" text="Inicio de Sesión" />
 
     <!-- Contenedor de campos de entrada -->
     <VBox alignment="CENTER" spacing="15.0">
-        <TextField fx:id="CIFField" promptText="Introduce tu CIF" styleClass="text-field-custom"/>
-        <PasswordField fx:id="passwordField" promptText="Contraseña" styleClass="password-field-custom"/>
+        <TextField fx:id="CIFField" promptText="Introduce tu CIF" styleClass="text-field-custom" text="A12345678" />
+        <PasswordField fx:id="passwordField" promptText="Contraseña" styleClass="password-field-custom" text="password1" />
     </VBox>
 
     <!-- Botón de inicio de sesión -->
-    <Button onAction="#validatePassword" text="Login" styleClass="login-button" />
+    <Button onAction="#validatePassword" styleClass="login-button" text="Login" />
 </VBox>

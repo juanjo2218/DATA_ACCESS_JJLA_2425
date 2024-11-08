@@ -11,14 +11,14 @@ import java.io.IOException;
 
 public class MenuController
 {
+    static SellersEntity sellerlogin;
 
     @FXML
     private TextField businessNameField;
 
     @FXML
     private TextField phoneField;
-    @FXML
-    private TextField discountField;
+
 
     @FXML
     private TextField emailField;
@@ -30,6 +30,10 @@ public class MenuController
     @FXML
     private TextField nameField;
 
+    public static void setSellerActive(SellersEntity sellerlogin)
+    {
+        MenuController.sellerlogin = sellerlogin;
+    }
     @FXML
     public void initialize()
     {
@@ -47,13 +51,17 @@ public class MenuController
     @FXML
     protected void goToAddProductMenu()
     {
+        AddProductController.setSellerActive(sellerlogin);
         changeMenu("AddProduct.fxml",cifField);
 
     }
     @FXML
-    protected void goToAddOfferMenu() {
+    protected void goToAddOfferMenu()
+    {
+        AddOfferController.setSellerActive(sellerlogin);
         changeMenu("AddOffer.fxml",cifField);
     }
+    @FXML
     protected void changeMenu(String nameFXML, TextField field) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(nameFXML));

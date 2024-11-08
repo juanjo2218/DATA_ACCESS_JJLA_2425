@@ -19,39 +19,14 @@ public class LogInController {
     @FXML
     private PasswordField passwordField;
 
-    @FXML
-    private ComboBox<String> categoryComboBox;
-    @FXML
-    private ComboBox<String> productComboBox;
-
-
-    public void viewCategories()
-    {
-        // Obtener las categorías desde la base de datos
-        ArrayList<CategoriesEntity> categoriesFromDb = DataBaseManager.getInstance().getCategories();
-
-        // Crear una lista de nombres de categorías (String)
-        ArrayList<String> categoryNames = new ArrayList<>();
-
-        // Extraer solo los nombres de las categorías de cada objeto CategoriesEntity
-        for (CategoriesEntity category : categoriesFromDb) {
-            categoryNames.add(category.getCategoryName());
-        }
-
-        // Convertir la lista de nombres a un ObservableList para usar en el ComboBox
-        ObservableList<String> observableCategories = FXCollections.observableArrayList(categoryNames);
-
-        // Asignar la lista de nombres al ComboBox
-        categoryComboBox.setItems(observableCategories);
-    }
-
 
     @FXML
-    protected void goToSellerMenu()
+    protected void goToSellerMenu(SellersEntity sellersEntity)
     {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
             Stage currentStage = (Stage) CIFField.getScene().getWindow();
+            MenuController.setSellerActive(sellersEntity);
             Scene nextScene = new Scene(loader.load());
             currentStage.setScene(nextScene);
             currentStage.show();
@@ -72,7 +47,7 @@ public class LogInController {
         {
             if (sellerdb.getPassword().equals(Utils.getHash(passwordFieldText).toUpperCase()))
             {
-                goToSellerMenu();
+                goToSellerMenu(sellerdb);
             }
             else
             {
@@ -84,5 +59,4 @@ public class LogInController {
             Utils.showErrorAlert("Login Error","Usuario no registrado");
         }
     }
-
 }

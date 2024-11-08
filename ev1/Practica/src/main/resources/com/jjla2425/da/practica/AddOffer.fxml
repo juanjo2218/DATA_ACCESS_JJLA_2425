@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"   fx:controller="com.jjla2425.da.practica.MenuController" alignment="CENTER" spacing="10.0" style="-fx-background-color: #f4f4f4; -fx-padding: 20;">
+<HBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #f4f4f4; -fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.AddOfferController">
     <VBox alignment="CENTER" spacing="15" style="-fx-background-color: #c3c4c6; -fx-padding: 10; -fx-background-radius: 10;">
         <ImageView fitHeight="50" fitWidth="50">
             <Image url="@icon-user.png" />
@@ -23,25 +22,35 @@
 
     <VBox alignment="TOP_LEFT" spacing="10" style="-fx-padding: 10; -fx-background-radius: 10; -fx-pref-width: 300;">
 
-        <Label text="Add offer" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #333;" />
+        <Label style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #333;" text="Add offer" />
 
         <GridPane hgap="10" vgap="10">
 
-            <Label text="Product:" style="-fx-font-weight: bold;" GridPane.rowIndex="0" GridPane.columnIndex="0" />
-            <ComboBox fx:id="productComboBox" promptText="Select Product" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+            <Label style="-fx-font-weight: bold;" text="Product:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <ComboBox fx:id="productComboBox" promptText="Select Product" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-            <Label  text="From:" style="-fx-font-weight: bold;" GridPane.rowIndex="1" GridPane.columnIndex="0" />
-            <DatePicker fx:id="fromDatePicker" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+            <Label style="-fx-font-weight: bold;" text="From:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <DatePicker fx:id="fromDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-            <Label  text="To:" style="-fx-font-weight: bold;" GridPane.rowIndex="2" GridPane.columnIndex="0" />
-            <DatePicker fx:id="toDatePicker" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+            <Label style="-fx-font-weight: bold;" text="To:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <DatePicker fx:id="toDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-            <Label text="Discount:" style="-fx-font-weight: bold;" GridPane.rowIndex="3" GridPane.columnIndex="0" />
-            <TextField fx:id="discountField" promptText="Enter discount" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+            <Label style="-fx-font-weight: bold;" text="Discount:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <TextField fx:id="discountField" promptText="Enter discount" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
 
         </GridPane>
 
-        <Button text="Add" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 5 20;" alignment="CENTER_RIGHT" />
+        <Button alignment="CENTER_RIGHT" onAction="#validateAndAddOffer" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 5 20;" text="Add" />
 
     </VBox>
 </HBox>

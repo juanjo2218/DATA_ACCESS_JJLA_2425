@@ -59,6 +59,7 @@ public class Utils {
         }
         return ids;
     }
+
     public static int getMaxDiscount(int daysDiff)
     {
         if (daysDiff >= 30)
