@@ -6,6 +6,7 @@
 
 <HBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #f4f4f4; -fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.AddProductController">
 
+    <!-- Sidebar for Icons -->
     <VBox alignment="CENTER" spacing="15" style="-fx-background-color: #c3c4c6; -fx-padding: 10; -fx-background-radius: 10;">
         <ImageView fitHeight="50" fitWidth="50">
             <Image url="@icon-user.png" />
@@ -21,42 +22,43 @@
         </ImageView>
     </VBox>
 
-    <VBox alignment="TOP_LEFT" spacing="10" style="-fx-padding: 10; -fx-background-radius: 10; -fx-pref-width: 300;">
+    <!-- Main Content Area -->
+    <VBox alignment="TOP_CENTER" spacing="15" style="-fx-padding: 10; -fx-background-radius: 10; -fx-pref-width: 300;">
 
-        <Label style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #333;" text="Add to store" />
+        <!-- Title -->
+        <Label style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #333;" text="Add to store" />
 
-        <GridPane hgap="10" vgap="10">
-
+        <!-- Form Area -->
+        <GridPane hgap="10" style="-fx-padding: 10;" vgap="10">
             <Label style="-fx-font-weight: bold;" text="Category:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
             <ComboBox fx:id="categoryComboBox" onAction="#viewProductsRemaning" promptText="Select Category" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-
 
             <Label style="-fx-font-weight: bold;" text="Product:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
             <ComboBox fx:id="productComboBox" promptText="Select Product" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
             <Label style="-fx-font-weight: bold;" text="Stock:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                <Slider fx:id="stockSlider" blockIncrement="1" max="25" min="0" style="-fx-pref-width: 150;" />
-                <Label style="-fx-text-fill: #333;" text="Units" />
+            <HBox alignment="CENTER" spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <Slider fx:id="stockSlider" blockIncrement="1" majorTickUnit="5" max="25" min="0" minorTickCount="4" showTickLabels="true" showTickMarks="true" style="-fx-pref-width: 150;" />
+                <Label fx:id="stockLabel" style="-fx-text-fill: #333;" text="0 Units" />
             </HBox>
 
             <Label style="-fx-font-weight: bold;" text="Price:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
             <TextField fx:id="priceField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-         <columnConstraints>
-            <ColumnConstraints />
-            <ColumnConstraints />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
 
+            <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
         </GridPane>
 
-        <!-- Botón -->
-        <Button alignment="CENTER_RIGHT" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 5 20;" text="Add" />
+        <!-- Add Button -->
+        <Button alignment="CENTER" onAction="#AddProduct" style="-fx-background-color: linear-gradient(#bfc2c7, #8a8e94); -fx-text-fill: white; -fx-background-radius: 5; -fx-font-weight: bold; -fx-padding: 5 20;" text="Add" />
 
     </VBox>
 </HBox>

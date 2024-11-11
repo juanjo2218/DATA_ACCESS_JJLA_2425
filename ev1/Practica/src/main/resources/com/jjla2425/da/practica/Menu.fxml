@@ -4,64 +4,64 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #e9ebee; -fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.MenuController">
+<HBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #f4f6f9; -fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.MenuController">
 
-   <!-- Columna Izquierda (para iconos) -->
-   <VBox alignment="CENTER" spacing="15" style="-fx-background-color: #9ca3af; -fx-padding: 10; -fx-background-radius: 10;">
-      <ImageView fitHeight="50" fitWidth="50">
-      </ImageView>
-      <Button mnemonicParsing="false" onAction="#goToAddProductMenu" text="Button" />
-      <ImageView fitHeight="50" fitWidth="50" onMouseClicked="#goToAddProductMenu">
-
-      </ImageView>
-      <Button mnemonicParsing="false" onAction="#goToAddOfferMenu" text="Button" />
-      <ImageView fitHeight="50" fitWidth="50" onMouseClicked="#goToAddOfferMenu">
-      </ImageView>
-      <ImageView fitHeight="50" fitWidth="50">
-
+   <!-- Columna Izquierda (Espacio vacío o decorativo) -->
+   <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #9ca3af; -fx-padding: 20; -fx-background-radius: 10; -fx-pref-width: 150;">
+      <!-- Sección vacía para decoración o futuros elementos -->
+      <ImageView fitHeight="60" fitWidth="60" style="-fx-opacity: 0.8;">
+         <!-- Aquí puedes poner una imagen decorativa si lo deseas -->
       </ImageView>
    </VBox>
 
    <!-- Columna Derecha (Formulario) -->
-   <VBox alignment="TOP_LEFT" spacing="10" style="-fx-padding: 10; -fx-background-radius: 10; -fx-pref-width: 300;">
+   <VBox alignment="TOP_LEFT" spacing="15" style="-fx-background-color: #ffffff; -fx-padding: 20; -fx-background-radius: 10; -fx-pref-width: 400; -fx-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
 
       <!-- Título -->
-      <Label style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #333;" text="Seller Data" />
+      <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333333; -fx-margin-bottom: 15px;" text="Seller Data" />
 
       <!-- Formulario de Datos -->
-      <GridPane hgap="10" vgap="10">
-         <Label style="-fx-font-weight: bold;" text="CIF:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-         <TextField fx:id="cifField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+      <GridPane hgap="15" vgap="15">
+         <!-- CIF -->
+         <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="CIF:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+         <TextField fx:id="cifField" editable="false" style="-fx-background-color: #f0f4f8; -fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-         <Label style="-fx-font-weight: bold;" text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-         <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <!-- Nombre -->
+         <Label fx:id="nameLabel" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+         <TextField fx:id="nameField" style="-fx-background-color: #f0f4f8; -fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-         <Label style="-fx-font-weight: bold;" text="Business name:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-         <TextField fx:id="businessNameField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <!-- Nombre Comercial -->
+         <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Business name:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+         <TextField fx:id="businessNameField" style="-fx-background-color: #f0f4f8; -fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-         <Label style="-fx-font-weight: bold;" text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-         <TextField fx:id="phoneField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <!-- Teléfono -->
+         <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+         <TextField fx:id="phoneField" style="-fx-background-color: #f0f4f8; -fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-         <Label style="-fx-font-weight: bold;" text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-         <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         <!-- Correo Electrónico -->
+         <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+         <TextField fx:id="emailField" style="-fx-background-color: #f0f4f8; -fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-         <Label style="-fx-font-weight: bold;" text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-         <PasswordField fx:id="passwordFieldMenu" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+         <!-- Contraseña -->
+         <Label fx:id="passwordLabel" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+         <PasswordField fx:id="passwordFieldMenu" style="-fx-background-color: #f0f4f8; -fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+         <!-- Configuración de columnas -->
          <columnConstraints>
-            <ColumnConstraints />
-            <ColumnConstraints />
+            <ColumnConstraints hgrow="ALWAYS" />
+            <ColumnConstraints hgrow="ALWAYS" />
          </columnConstraints>
+
+         <!-- Configuración de filas -->
          <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
+            <RowConstraints vgrow="ALWAYS" />
+            <RowConstraints vgrow="ALWAYS" />
+            <RowConstraints vgrow="ALWAYS" />
+            <RowConstraints vgrow="ALWAYS" />
+            <RowConstraints vgrow="ALWAYS" />
+            <RowConstraints vgrow="ALWAYS" />
          </rowConstraints>
       </GridPane>
-
-      <Button alignment="CENTER_RIGHT" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 5 20;" text="Ok" />
-
+      <Button alignment="CENTER" onAction="#updateDatabase" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20; -fx-font-size: 16px;" text="Update" />
    </VBox>
 </HBox>

@@ -3,6 +3,7 @@ package com.jjla2425.da.practica;
 import jakarta.persistence.NoResultException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
@@ -120,7 +121,7 @@ public class DataBaseManager {
         result.removeAll( convertSellerProductsEntityToProductsEntity(getProductsSellerByCategory(CIF,category)));
         return result;
     }
-    public void addProductsSeller(ProductsEntity product)
+    public void addProductsSeller(SellerProductsEntity product)
     {
         try ( Session session = SessionMnager.getInstance().getSession() ) {
             session.beginTransaction();
@@ -144,17 +145,41 @@ public class DataBaseManager {
             System.out.println( e.getMessage() );
         }
     }
-    public void updateSeller(ProductsEntity product)
+    public void updateSeller(SellersEntity sellersEntity)
     {
-        try ( Session session = SessionMnager.getInstance().getSession() ) {
-            session.beginTransaction();
-            session.persist( product );
-            session.getTransaction().commit();
-        }
-        catch( Exception e )
-        {
-            System.out.println( e.getMessage() );
+        Session session = SessionMnager.getInstance().getSession();
+        Transaction transaction = null;
+        try {
+            // Iniciar transacción
+            transaction = session.beginTransaction();
+
+            if (sellersEntity != null) {
+                // Hacer la actualización
+                session.merge(sellersEntity);
+            }
+
+            // Confirmar transacción
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();  // Revertir en caso de error
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();  // Cerrar la sesión al final
         }
     }
 
+    public ProductsEntity getProductsByIdName(String name)
+    {
+        Session session =  SessionMnager.getInstance().getSession();
+        Query<ProductsEntity> myQuery = session.createQuery("from ProductsEntity where productName = :name", ProductsEntity.class);
+        myQuery.setParameter("name", name);
+        try {
+            return myQuery.getSingleResult();
+        }
+        catch (NoResultException e) {
+            return null; // Devolver null si no se encuentra ningún resultado
+        }
+    }
 }

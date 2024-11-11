@@ -11,6 +11,12 @@ public class SessionMnager {
 
     private SessionMnager() {
         sessionFactory = new Configuration().configure().buildSessionFactory();
+        try (Session testSession = sessionFactory.openSession()) {
+            testSession.beginTransaction();
+            testSession.getTransaction().commit();
+        } catch (Exception e) {
+            Utils.showErrorAlert("Error", "No se pudo conectar a la base de datos..");
+        }
     }
 
     public static SessionMnager getInstance() {

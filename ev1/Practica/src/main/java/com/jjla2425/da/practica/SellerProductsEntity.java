@@ -35,6 +35,16 @@ public class SellerProductsEntity {
     @Column(name = "stock")
     private int stock;
 
+    public SellerProductsEntity(Integer sellerId,Integer productId,BigDecimal price,int stock)
+    {
+        this.sellerId = sellerId;
+        this.productId = productId;
+        this.price = price;
+        this.stock = stock;
+    }
+    public SellerProductsEntity()
+    {}
+
     public int getSellerProductId() {
         return sellerProductId;
     }

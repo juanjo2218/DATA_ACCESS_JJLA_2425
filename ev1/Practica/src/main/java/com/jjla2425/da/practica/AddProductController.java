@@ -4,7 +4,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 
+import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class AddProductController
@@ -14,6 +18,10 @@ public class AddProductController
     private ComboBox<String> categoryComboBox;
     @FXML
     private ComboBox<String> productComboBox;
+    @FXML
+    private Slider stockSlider;
+    @FXML
+    private TextField priceField;
 
     @FXML
     public void initialize()
@@ -63,5 +71,17 @@ public class AddProductController
 
         // Asignar la lista de nombres al ComboBox
         productComboBox.setItems(observableCategories);
+    }
+    public void  AddProduct()
+    {
+        Integer idProduct = DataBaseManager.getInstance().getProductsByIdName(productComboBox.getSelectionModel().getSelectedItem()).getCategoryId();
+        BigDecimal price = Utils.getPriceAsBigDecimal(priceField.getText());
+        if (price == null)
+            Utils.showErrorAlert("Error: Valor de precio inválido","Ingrese un número válido.");
+        else
+        {
+            DataBaseManager.getInstance().addProductsSeller(new SellerProductsEntity(sellerlogin.getSellerId(),idProduct,price,(int)stockSlider.getValue()));
+            viewProductsRemaning();
+        }
     }
 }

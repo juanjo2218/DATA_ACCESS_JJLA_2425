@@ -1,5 +1,6 @@
 package com.jjla2425.da.practica;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -7,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -78,5 +80,29 @@ public class Utils {
         alert.setHeaderText(null); // Header opcional, aquí lo dejamos vacío
         alert.setContentText(message);
         alert.showAndWait();
+    }
+    public static BigDecimal getPriceAsBigDecimal(String string) {
+        try {
+            return new BigDecimal(string);
+        } catch (NumberFormatException e) {
+            return null;
+        }
+    }
+    @FXML
+    public static void changeView(String nameFXML, TextField field) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Utils.class.getResource(nameFXML));
+            Stage currentStage = (Stage) field.getScene().getWindow();
+            Scene nextScene = new Scene(loader.load());
+            currentStage.setScene(nextScene); // Cambiar la escena actual
+            currentStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean isNumberValid(String phone)
+    {
+        return phone != null && phone.matches("^[0-9\\-()\\s]+$");
     }
 }
