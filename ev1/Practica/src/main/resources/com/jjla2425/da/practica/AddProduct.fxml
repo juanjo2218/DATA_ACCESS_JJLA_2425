@@ -39,7 +39,7 @@
             <Label style="-fx-font-weight: bold;" text="Stock:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
             <HBox alignment="CENTER" spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
                 <Slider fx:id="stockSlider" blockIncrement="1" majorTickUnit="5" max="25" min="0" minorTickCount="4" showTickLabels="true" showTickMarks="true" style="-fx-pref-width: 150;" />
-                <Label fx:id="stockLabel" style="-fx-text-fill: #333;" text="0 Units" />
+                <Label fx:id="stockLabel" style="-fx-text-fill: #333;" text="Units" />
             </HBox>
 
             <Label style="-fx-font-weight: bold;" text="Price:" GridPane.columnIndex="0" GridPane.rowIndex="3" />

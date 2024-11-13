@@ -61,30 +61,26 @@ public class MenuController
         String password = passwordFieldMenu.getText();
         if (name.isEmpty()  || password.isEmpty())
         {
-            Utils.showErrorAlert("Error update", "Los campos " + nameLabel.getText() + passwordLabel.getText() +" son obligatorios.", Alert.AlertType.ERROR);
+            Utils.showErrorAlert("Error update", "The fields: " + nameLabel.getText() + passwordLabel.getText() +" are mandatory.", Alert.AlertType.ERROR);
             return;
         }
         String passwordHash = Utils.getHash(password);
         if(!Utils.isNumberValid(phone))
         {
-            Utils.showErrorAlert("Error phone", "Phone no admite letras ", Alert.AlertType.ERROR);
+            Utils.showErrorAlert("Error phone", "Phone does not support letters ", Alert.AlertType.ERROR);
             return;
         }
         if(!Utils.isEmailValid(email))
         {
-            Utils.showErrorAlert("Error email", "Email no tiene un formato corrrecto", Alert.AlertType.ERROR);
+            Utils.showErrorAlert("Error email", "Email is not formatted correctly", Alert.AlertType.ERROR);
             return;
         }
 
         if (!sellerlogin.getPassword().equals(passwordHash.toUpperCase())) {
-            // Mostramos el diálogo para cambiar la contraseña
             ChangePasswordController.setSellerActive(sellerlogin);
             ChangePasswordController passwordChangeController = showPasswordChangeDialog();
             assert passwordChangeController != null;
-
-            // Verificamos si el usuario realmente cambió la contraseña
             if (passwordChangeController.isPasswordChanged()) {
-                // Solo actualizamos la contraseña si realmente se cambió
                 sellerlogin.setPassword(Utils.getHash(passwordChangeController.getNewPassword()).toUpperCase());
                 sellerlogin.setPlainPassword(passwordChangeController.getNewPassword());
             }
@@ -94,7 +90,7 @@ public class MenuController
         sellerlogin.setEmail(email);
         sellerlogin.setPhone(phone);
         DataBaseManager.getInstance().updateSeller(sellerlogin);
-        Utils.showErrorAlert("Update", "Actualizacion hecha correctamente", Alert.AlertType.INFORMATION);
+        Utils.showErrorAlert("Update", "Update done correctly", Alert.AlertType.INFORMATION);
         setSellerDates();
     }
 
@@ -105,7 +101,7 @@ public class MenuController
 
             Stage dialogStage = new Stage();
             dialogStage.initModality(Modality.APPLICATION_MODAL);
-            dialogStage.setTitle("Cambiar Contraseña");
+            dialogStage.setTitle("Change Password");
             dialogStage.setScene(new Scene(root));
             dialogStage.showAndWait();
 

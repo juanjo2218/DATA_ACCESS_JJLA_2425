@@ -6,7 +6,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
+import java.time.ZoneId;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class DataBaseManager {
@@ -45,7 +47,7 @@ public class DataBaseManager {
         try {
             return myQuery.getSingleResult();
         } catch (NoResultException e) {
-            return null; // Devolver null si no se encuentra ningún resultado
+            return null;
         }    }
     public ArrayList<CategoriesEntity> getCategories()
     {
@@ -132,16 +134,28 @@ public class DataBaseManager {
             System.out.println( e.getMessage() );
         }
     }
-    public void addOfferProductsSeller(ProductsEntity product)
+    public void addOfferProductsSeller(SellerProductsEntity sellerProduct)
     {
-        try ( Session session = SessionMnager.getInstance().getSession() ) {
-            session.beginTransaction();
-            session.persist( product );
-            session.getTransaction().commit();
-        }
-        catch( Exception e )
-        {
-            System.out.println( e.getMessage() );
+        Session session = SessionMnager.getInstance().getSession();
+        Transaction transaction = null;
+        try {
+            // Iniciar transacción
+            transaction = session.beginTransaction();
+
+            if (sellerProduct != null) {
+                // Hacer la actualización
+                session.merge(sellerProduct);
+            }
+
+            // Confirmar transacción
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();  // Revertir en caso de error
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();  // Cerrar la sesión al final
         }
     }
     public void updateSeller(SellersEntity sellersEntity)
@@ -180,5 +194,44 @@ public class DataBaseManager {
         catch (NoResultException e) {
             return null; // Devolver null si no se encuentra ningún resultado
         }
+    }
+
+    public SellerProductsEntity getProductSeller(String CIF,int productId)
+    {
+        SellersEntity seller = getSellerByCIF(CIF);
+        Session session = SessionMnager.getInstance().getSession();
+        Query<SellerProductsEntity> myQuery = session.createQuery("from SellerProductsEntity where sellerId = :idSeller " +
+                "and productId = :productId", SellerProductsEntity.class);
+        myQuery.setParameter("productId", productId);
+        myQuery.setParameter("idSeller", seller.getSellerId());
+        try {
+            return myQuery.getSingleResult();
+        }
+        catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    public ArrayList<SellerProductsEntity> getProductsSellerNotOfferYet(String cif)
+    {
+        ArrayList<SellerProductsEntity> productsSeller = DataBaseManager.getInstance().getProductsSeller(cif);
+        productsSeller.removeIf(sellerProductsEntity -> sellerProductsEntity.getOfferStartDate() != null || sellerProductsEntity.getOfferEndDate() != null);
+        return  productsSeller;
+    }
+    public boolean getProductsSellerInThisDate(String cif, LocalDate fromDate, LocalDate toDate) {
+        ArrayList<SellerProductsEntity> productsSeller = DataBaseManager.getInstance().getProductsSeller(cif);
+
+        for (SellerProductsEntity productEntity : productsSeller) {
+            // Convertir las fechas de tipo Date a LocalDate
+            LocalDate offerStartDate = productEntity.getOfferStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate offerEndDate = productEntity.getOfferEndDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+            // Verifica si la nueva oferta se solapa con alguna oferta existente
+            if ((fromDate.isBefore(offerEndDate) && toDate.isAfter(offerStartDate)) ||
+                    fromDate.isEqual(offerStartDate) || toDate.isEqual(offerEndDate)) {
+                return true; // Las fechas se solapan
+            }
+        }
+        return false; // No hay solapamiento
     }
 }

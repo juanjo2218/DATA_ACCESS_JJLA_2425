@@ -71,7 +71,6 @@ public class AddProductController
             }
         });
 
-        // Configurar cómo se muestra el elemento seleccionado
         productComboBox.setButtonCell(new ListCell<ProductsEntity>() {
             @Override
             protected void updateItem(ProductsEntity item, boolean empty) {
@@ -83,13 +82,21 @@ public class AddProductController
     public void  AddProduct()
     {
         BigDecimal price = Utils.getPriceAsBigDecimal(priceField.getText());
+        ProductsEntity productsEntity =  productComboBox.getSelectionModel().getSelectedItem();
+        if (productsEntity == null)
+        {
+            Utils.showErrorAlert("Error: Product","Choose a product to add.", Alert.AlertType.ERROR);
+            return;
+        }
+
         if (price == null)
-            Utils.showErrorAlert("Error: Valor de precio inválido","Ingrese un número válido.", Alert.AlertType.ERROR);
+            Utils.showErrorAlert("Error: Price not valid","Please enter a valid number.", Alert.AlertType.ERROR);
         else
         {
-            DataBaseManager.getInstance().addProductsSeller(new SellerProductsEntity(sellerlogin.getSellerId(),
-                    productComboBox.getSelectionModel().getSelectedItem().getProductId(),price,(int)stockSlider.getValue()));
+            DataBaseManager.getInstance().addProductsSeller(new SellerProductsEntity(sellerlogin.getSellerId(),productsEntity.getProductId()
+                    ,price,(int)stockSlider.getValue()));
             viewProductsRemaning();
+            Utils.showErrorAlert("Add product","Product added successfully.", Alert.AlertType.INFORMATION);
         }
     }
 }
