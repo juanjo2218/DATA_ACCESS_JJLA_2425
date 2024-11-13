@@ -1,5 +1,6 @@
 package com.jjla2425.da.practica;
 
+import javafx.scene.control.Alert;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -15,7 +16,7 @@ public class SessionMnager {
             testSession.beginTransaction();
             testSession.getTransaction().commit();
         } catch (Exception e) {
-            Utils.showErrorAlert("Error", "No se pudo conectar a la base de datos..");
+            Utils.showErrorAlert("Error", "No se pudo conectar a la base de datos..", Alert.AlertType.ERROR);
         }
     }
 

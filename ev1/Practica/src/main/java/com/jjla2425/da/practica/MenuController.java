@@ -3,6 +3,7 @@ package com.jjla2425.da.practica;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -49,7 +50,6 @@ public class MenuController
         businessNameField.setText(sellerlogin.getBusinessName());
         phoneField.setText(sellerlogin.getPhone());
         emailField.setText(sellerlogin.getEmail());
-        passwordFieldMenu.setText(sellerlogin.getPlainPassword());
     }
     @FXML
     public void updateDatabase() {
@@ -61,13 +61,18 @@ public class MenuController
         String password = passwordFieldMenu.getText();
         if (name.isEmpty()  || password.isEmpty())
         {
-            Utils.showErrorAlert("Error update", "Los campos " + nameLabel.getText() + passwordLabel.getText() +" son obligatorios.");
+            Utils.showErrorAlert("Error update", "Los campos " + nameLabel.getText() + passwordLabel.getText() +" son obligatorios.", Alert.AlertType.ERROR);
             return;
         }
         String passwordHash = Utils.getHash(password);
         if(!Utils.isNumberValid(phone))
         {
-            Utils.showErrorAlert("Error phone", "Phone no admite letras ");
+            Utils.showErrorAlert("Error phone", "Phone no admite letras ", Alert.AlertType.ERROR);
+            return;
+        }
+        if(!Utils.isEmailValid(email))
+        {
+            Utils.showErrorAlert("Error email", "Email no tiene un formato corrrecto", Alert.AlertType.ERROR);
             return;
         }
 
@@ -89,6 +94,7 @@ public class MenuController
         sellerlogin.setEmail(email);
         sellerlogin.setPhone(phone);
         DataBaseManager.getInstance().updateSeller(sellerlogin);
+        Utils.showErrorAlert("Update", "Actualizacion hecha correctamente", Alert.AlertType.INFORMATION);
         setSellerDates();
     }
 

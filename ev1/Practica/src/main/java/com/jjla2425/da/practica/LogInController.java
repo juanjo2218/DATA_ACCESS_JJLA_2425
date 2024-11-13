@@ -24,9 +24,9 @@ public class LogInController {
     protected void goToSellerMenu(SellersEntity sellersEntity)
     {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddProduct.fxml"));
             Stage currentStage = (Stage) CIFField.getScene().getWindow();
-            MenuController.setSellerActive(sellersEntity);
+            AddProductController.setSellerActive(sellersEntity);
             Scene nextScene = new Scene(loader.load());
             currentStage.setScene(nextScene);
             currentStage.show();
@@ -42,6 +42,11 @@ public class LogInController {
         // Obtener los valores de los campos
         String CIF = CIFField.getText();
         String passwordFieldText = passwordField.getText();
+        if (CIF == null && passwordFieldText == null)
+        {
+            Utils.showErrorAlert("Login Error","Todos los campos son obligatorios", Alert.AlertType.ERROR);
+            return;
+        }
         SellersEntity sellerdb = DataBaseManager.getInstance().getSellerByCIF(CIF);
         if (sellerdb != null)
         {
@@ -51,12 +56,12 @@ public class LogInController {
             }
             else
             {
-                Utils.showErrorAlert("Login Error","Contraseña incorrecta");
+                Utils.showErrorAlert("Login Error","Contraseña incorrecta", Alert.AlertType.ERROR);
             }
         }
         else
         {
-            Utils.showErrorAlert("Login Error","Usuario no registrado");
+            Utils.showErrorAlert("Login Error","Usuario no registrado", Alert.AlertType.ERROR);
         }
     }
 }

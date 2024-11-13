@@ -54,7 +54,7 @@ public class DataBaseManager {
 
         return (ArrayList<CategoriesEntity>) myQuery.list();
     }
-    public ArrayList<ProductsEntity> getProductsByIdCategory(String category_id)
+    public ArrayList<ProductsEntity> getProductsByIdCategory(int category_id)
     {
         Session session =  SessionMnager.getInstance().getSession();
         Query<ProductsEntity> myQuery = session.createQuery("from ProductsEntity where categoryId = :category_id", ProductsEntity.class);
@@ -84,9 +84,8 @@ public class DataBaseManager {
             return null; // Devolver null si no se encuentra ningún resultado
         }
     }
-    public ArrayList<SellerProductsEntity> getProductsSellerByCategory(String CIF, String category_id)
+    public ArrayList<SellerProductsEntity> getProductsSellerByCategory(String CIF, int category_id)
     {
-        ArrayList<SellerProductsEntity> sellerProducts = getProductsSeller(CIF);
         SellersEntity seller = getSellerByCIF(CIF);
         ArrayList<ProductsEntity> productsCategory = getProductsByIdCategory(category_id);
         ArrayList<Integer> productsId = Utils.getProductsId(productsCategory);
@@ -115,10 +114,10 @@ public class DataBaseManager {
         myQuery.setParameter("idSeller", seller.getSellerId());
         return (ArrayList<SellerProductsEntity>) myQuery.list();
     }
-    public ArrayList<ProductsEntity> getProductsRemainingSellerWithCategory(String CIF, String category)
+    public ArrayList<ProductsEntity> getProductsRemainingSellerWithCategoryId(String CIF, int categoryId)
     {
-        ArrayList<ProductsEntity> result = getProductsByIdCategory(category);
-        result.removeAll( convertSellerProductsEntityToProductsEntity(getProductsSellerByCategory(CIF,category)));
+        ArrayList<ProductsEntity> result = getProductsByIdCategory(categoryId);
+        result.removeAll( convertSellerProductsEntityToProductsEntity(getProductsSellerByCategory(CIF,categoryId)));
         return result;
     }
     public void addProductsSeller(SellerProductsEntity product)
@@ -170,11 +169,11 @@ public class DataBaseManager {
         }
     }
 
-    public ProductsEntity getProductsByIdName(String name)
+    public ProductsEntity getProductsById(int idProduct)
     {
         Session session =  SessionMnager.getInstance().getSession();
-        Query<ProductsEntity> myQuery = session.createQuery("from ProductsEntity where productName = :name", ProductsEntity.class);
-        myQuery.setParameter("name", name);
+        Query<ProductsEntity> myQuery = session.createQuery("from ProductsEntity where productId = :idProduct", ProductsEntity.class);
+        myQuery.setParameter("idProduct", idProduct);
         try {
             return myQuery.getSingleResult();
         }

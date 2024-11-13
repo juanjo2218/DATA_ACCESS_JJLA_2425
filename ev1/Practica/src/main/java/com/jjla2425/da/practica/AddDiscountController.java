@@ -1,6 +1,7 @@
 package com.jjla2425.da.practica;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
@@ -29,6 +30,6 @@ public class AddDiscountController
             DataBaseManager.getInstance().addOfferProductsSeller(new ProductsEntity());
         else
             Utils.showErrorAlert("Discount Error","El descuento es mayor de lo permitido por esa " +
-                    "cantidad de dias(" + maxOffer + ")");
+                    "cantidad de dias(" + maxOffer + ")", Alert.AlertType.ERROR);
     }
 }

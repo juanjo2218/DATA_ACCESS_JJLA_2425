@@ -74,13 +74,14 @@ public class Utils {
             return 30;
         return 50;
     }
-    public static void showErrorAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+    public static void showErrorAlert(String title, String message, Alert.AlertType alertType) {
+        Alert alert = new Alert(alertType);
         alert.setTitle(title);
-        alert.setHeaderText(null); // Header opcional, aquí lo dejamos vacío
+        alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
     }
+
     public static BigDecimal getPriceAsBigDecimal(String string) {
         try {
             return new BigDecimal(string);
@@ -103,6 +104,9 @@ public class Utils {
 
     public static boolean isNumberValid(String phone)
     {
-        return phone != null && phone.matches("^[0-9\\-()\\s]+$");
+        return phone != null && phone.matches("^\\+?[0-9]{1,3}?[\\s-]?[(]?[0-9]{1,4}[)]?[\\s-]?[0-9]{1,4}[\\s-]?[0-9]{1,4}$");
+    }
+    public static boolean isEmailValid(String email) {
+        return email != null && email.matches("^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$");
     }
 }
