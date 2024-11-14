@@ -61,18 +61,18 @@ public class MenuController
         String password = passwordFieldMenu.getText();
         if (name.isEmpty()  || password.isEmpty())
         {
-            Utils.showErrorAlert("Error update", "The fields: " + nameLabel.getText() + passwordLabel.getText() +" are mandatory.", Alert.AlertType.ERROR);
+            Utils.showScreen("Error update", "The fields: " + nameLabel.getText() + passwordLabel.getText() +" are mandatory.", Alert.AlertType.ERROR);
             return;
         }
         String passwordHash = Utils.getHash(password);
         if(!Utils.isNumberValid(phone))
         {
-            Utils.showErrorAlert("Error phone", "Phone does not support letters ", Alert.AlertType.ERROR);
+            Utils.showScreen("Error phone", "Phone does not support letters ", Alert.AlertType.ERROR);
             return;
         }
         if(!Utils.isEmailValid(email))
         {
-            Utils.showErrorAlert("Error email", "Email is not formatted correctly", Alert.AlertType.ERROR);
+            Utils.showScreen("Error email", "Email is not formatted correctly", Alert.AlertType.ERROR);
             return;
         }
 
@@ -90,7 +90,7 @@ public class MenuController
         sellerlogin.setEmail(email);
         sellerlogin.setPhone(phone);
         DataBaseManager.getInstance().updateSeller(sellerlogin);
-        Utils.showErrorAlert("Update", "Update done correctly", Alert.AlertType.INFORMATION);
+        Utils.showScreen("Update", "Update done correctly", Alert.AlertType.INFORMATION);
         setSellerDates();
     }
 

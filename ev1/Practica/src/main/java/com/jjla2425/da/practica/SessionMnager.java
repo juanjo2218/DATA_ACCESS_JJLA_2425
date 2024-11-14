@@ -16,7 +16,7 @@ public class SessionMnager {
             testSession.beginTransaction();
             testSession.getTransaction().commit();
         } catch (Exception e) {
-            Utils.showErrorAlert("Error", "No se pudo conectar a la base de datos..", Alert.AlertType.ERROR);
+            Utils.showScreen("Error", "No se pudo conectar a la base de datos..", Alert.AlertType.ERROR);
         }
     }
 

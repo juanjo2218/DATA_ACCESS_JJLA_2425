@@ -74,7 +74,7 @@ public class Utils {
             return 30;
         return 50;
     }
-    public static void showErrorAlert(String title, String message, Alert.AlertType alertType) {
+    public static void showScreen(String title, String message, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setHeaderText(null);

@@ -40,26 +40,26 @@ public class AddOfferController
         ProductsEntity productSelected = productComboBox.getSelectionModel().getSelectedItem();
         if (productSelected == null)
         {
-            Utils.showErrorAlert("AddOffer","Choose a product", Alert.AlertType.ERROR);
+            Utils.showScreen("AddOffer","Choose a product", Alert.AlertType.ERROR);
             return;
         }
         LocalDate fromDate = fromDatePicker.getValue();
         LocalDate toDate = toDatePicker.getValue();
         if (toDate == null || fromDate == null)
         {
-            Utils.showErrorAlert("Error","Dates can not be null", Alert.AlertType.ERROR);
+            Utils.showScreen("Error","Dates can not be null", Alert.AlertType.ERROR);
             return;
         }
         int daysDiff = (int) ChronoUnit.DAYS.between(fromDate,toDate);
 
         if (daysDiff < 0 )
         {
-            Utils.showErrorAlert("Error","FromDate can not be higher than toDate", Alert.AlertType.ERROR);
+            Utils.showScreen("Error","FromDate can not be higher than toDate", Alert.AlertType.ERROR);
             return;
         }
         BigDecimal discount = Utils.getPriceAsBigDecimal(discountField.getText());
         if (discount == null) {
-            Utils.showErrorAlert("Error", "Discount can only be a number", Alert.AlertType.ERROR);
+            Utils.showScreen("Error", "Discount can only be a number", Alert.AlertType.ERROR);
             return;
         }
         int maxOffer = Utils.getMaxDiscount(daysDiff);
@@ -77,15 +77,15 @@ public class AddOfferController
                         .setScale(2, RoundingMode.HALF_UP);
                 sellerProduct.setOfferPrice(offerPrice);
                 DataBaseManager.getInstance().addOfferProductsSeller(sellerProduct);
-                Utils.showErrorAlert("AddOffer","Offer add correct.Price before:" + sellerProduct.getPrice() +
+                Utils.showScreen("AddOffer","Offer add correct.Price before:" + sellerProduct.getPrice() +
                         "price after:" + sellerProduct.getOfferPrice(), Alert.AlertType.INFORMATION);
                 viewProductsSeller();
             }
             else
-                Utils.showErrorAlert("Discount Error","There is already an offer on these dates", Alert.AlertType.ERROR);
+                Utils.showScreen("Discount Error","There is already an offer on these dates", Alert.AlertType.ERROR);
         }
         else
-            Utils.showErrorAlert("Discount Error","The discount is greater than what is allowed by that " +
+            Utils.showScreen("Discount Error","The discount is greater than what is allowed by that " +
                     "number of days(max: " + maxOffer + ")", Alert.AlertType.ERROR);
     }
     private void viewProductsSeller()

@@ -4,64 +4,53 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #f4f6f9; -fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.MenuController">
+<HBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #f5ece3; -fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.MenuController">
 
-   <!-- Columna Izquierda (Espacio vacío o decorativo) -->
-   <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #9ca3af; -fx-padding: 20; -fx-background-radius: 10; -fx-pref-width: 150;">
-      <!-- Sección vacía para decoración o futuros elementos -->
-      <ImageView fitHeight="60" fitWidth="60" style="-fx-opacity: 0.8;">
-         <!-- Aquí puedes poner una imagen decorativa si lo deseas -->
+   <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #ffd5b5; -fx-padding: 20; -fx-background-radius: 15; -fx-pref-width: 150; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 12, 0, 2, 4);">
+      <ImageView fitHeight="60" fitWidth="60" style="-fx-opacity: 0.9;">
+         <Image url="@icon-placeholder.png" />
       </ImageView>
+      <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #6b4e3d;" text="Welcome Back!" />
+      <Label style="-fx-font-size: 12px; -fx-text-fill: #6b4e3d; -fx-opacity: 0.8;" text="Manage your seller data here" />
    </VBox>
 
-   <!-- Columna Derecha (Formulario) -->
-   <VBox alignment="TOP_LEFT" spacing="15" style="-fx-background-color: #ffffff; -fx-padding: 20; -fx-background-radius: 10; -fx-pref-width: 400; -fx-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+   <VBox alignment="TOP_LEFT" spacing="20" style="-fx-background-color: #ffffff; -fx-padding: 30; -fx-background-radius: 12; -fx-pref-width: 420; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 8, 0, 2, 3);">
 
-      <!-- Título -->
-      <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333333; -fx-margin-bottom: 15px;" text="Seller Data" />
+      <Label style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #6b4e3d; -fx-padding-bottom: 10px;" text="Seller Data" />
 
-      <!-- Formulario de Datos -->
       <GridPane hgap="15" vgap="15">
-         <!-- CIF -->
-         <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="CIF:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-         <TextField fx:id="cifField" editable="false" style="-fx-background-color: #f0f4f8; -fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+         <Label style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #6b4e3d;" text="CIF:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+         <TextField fx:id="cifField" editable="false" style="-fx-background-color: #f0e9e3; -fx-border-color: #d1b7a5; -fx-border-radius: 8; -fx-padding: 10;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-         <!-- Nombre -->
-         <Label fx:id="nameLabel" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-         <TextField fx:id="nameField" style="-fx-background-color: #f0f4f8; -fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <Label fx:id="nameLabel" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #6b4e3d;" text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+         <TextField fx:id="nameField" style="-fx-background-color: #f0e9e3; -fx-border-color: #d1b7a5; -fx-border-radius: 8; -fx-padding: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-         <!-- Nombre Comercial -->
-         <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Business name:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-         <TextField fx:id="businessNameField" style="-fx-background-color: #f0f4f8; -fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <Label style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #6b4e3d;" text="Business name:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+         <TextField fx:id="businessNameField" style="-fx-background-color: #f0e9e3; -fx-border-color: #d1b7a5; -fx-border-radius: 8; -fx-padding: 10;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-         <!-- Teléfono -->
-         <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-         <TextField fx:id="phoneField" style="-fx-background-color: #f0f4f8; -fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <Label style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #6b4e3d;" text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+         <TextField fx:id="phoneField" style="-fx-background-color: #f0e9e3; -fx-border-color: #d1b7a5; -fx-border-radius: 8; -fx-padding: 10;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-         <!-- Correo Electrónico -->
-         <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-         <TextField fx:id="emailField" style="-fx-background-color: #f0f4f8; -fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         <Label style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #6b4e3d;" text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+         <TextField fx:id="emailField" style="-fx-background-color: #f0e9e3; -fx-border-color: #d1b7a5; -fx-border-radius: 8; -fx-padding: 10;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-         <!-- Contraseña -->
-         <Label fx:id="passwordLabel" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-         <PasswordField fx:id="passwordFieldMenu" style="-fx-background-color: #f0f4f8; -fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 5;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+         <Label fx:id="passwordLabel" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #6b4e3d;" text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+         <PasswordField fx:id="passwordFieldMenu" style="-fx-background-color: #f0e9e3; -fx-border-color: #d1b7a5; -fx-border-radius: 8; -fx-padding: 10;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-         <!-- Configuración de columnas -->
          <columnConstraints>
             <ColumnConstraints hgrow="ALWAYS" />
             <ColumnConstraints hgrow="ALWAYS" />
          </columnConstraints>
 
-         <!-- Configuración de filas -->
          <rowConstraints>
-            <RowConstraints vgrow="ALWAYS" />
-            <RowConstraints vgrow="ALWAYS" />
-            <RowConstraints vgrow="ALWAYS" />
-            <RowConstraints vgrow="ALWAYS" />
-            <RowConstraints vgrow="ALWAYS" />
-            <RowConstraints vgrow="ALWAYS" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <Button alignment="CENTER" onAction="#updateDatabase" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20; -fx-font-size: 16px;" text="Update" />
+      <Button alignment="CENTER" onAction="#updateDatabase" style="-fx-background-color: linear-gradient(to right, #ff7e5f, #f25c5c); -fx-text-fill: white; -fx-background-radius: 12; -fx-padding: 12 24; -fx-font-size: 16px; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 6, 0, 0, 3);" text="Update" />
    </VBox>
 </HBox>

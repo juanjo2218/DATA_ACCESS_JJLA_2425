@@ -3,19 +3,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.ChangePasswordController">
-    <Label text="Cambiar Contraseña" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+<VBox alignment="CENTER" spacing="20" style="-fx-background-color: #fafafa; -fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.ChangePasswordController">
 
-    <GridPane hgap="10" vgap="10">
-        <Label text="Contraseña Antigua:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-        <PasswordField fx:id="oldPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+    <Label text="Cambiar Contraseña" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #5c3e3a; -fx-padding: 10;" />
 
-        <Label text="Nueva Contraseña:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <PasswordField fx:id="newPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <GridPane hgap="15" vgap="15" style="-fx-padding: 20; -fx-background-color: #ffffff; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 6);">
 
-        <Label text="Confirmar Contraseña:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-        <PasswordField fx:id="confirmPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Label text="Contraseña Antigua:" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #5c3e3a;" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <PasswordField fx:id="oldPasswordField" style="-fx-background-color: #f3e4d8; -fx-border-color: #d3b59c; -fx-border-radius: 8; -fx-padding: 8;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="Nueva Contraseña:" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #5c3e3a;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <PasswordField fx:id="newPasswordField" style="-fx-background-color: #f3e4d8; -fx-border-color: #d3b59c; -fx-border-radius: 8; -fx-padding: 8;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="Confirmar Contraseña:" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #5c3e3a;" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <PasswordField fx:id="confirmPasswordField" style="-fx-background-color: #f3e4d8; -fx-border-color: #d3b59c; -fx-border-radius: 8; -fx-padding: 8;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
     </GridPane>
-
-    <Button text="Confirmar" onAction="#handlePasswordChange" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+    <Button text="Confirmar" onAction="#handlePasswordChange" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 10; -fx-font-size: 16px; -fx-padding: 10 20; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 4, 0, 0, 2);" />
 </VBox>

@@ -1,7 +1,5 @@
 package com.jjla2425.da.practica;
 
-import com.jjla2425.da.practica.SellersEntity;
-import com.jjla2425.da.practica.Utils;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
@@ -35,12 +33,12 @@ public class ChangePasswordController
 
         // Validar contraseñas
         if (!newPassword.equals(confirmPassword)) {
-            Utils.showErrorAlert("Error", "La nueva contraseña y la confirmación no coinciden.", Alert.AlertType.ERROR);
+            Utils.showScreen("Error", "La nueva contraseña y la confirmación no coinciden.", Alert.AlertType.ERROR);
             return;
         }
         // Aquí deberías validar la contraseña antigua usando Utils
         if (!Utils.getHash(oldPassword).toUpperCase().equals(sellerlogin.getPassword())) {
-            Utils.showErrorAlert("Error", "La contraseña antigua es incorrecta.",Alert.AlertType.ERROR);
+            Utils.showScreen("Error", "La contraseña antigua es incorrecta.",Alert.AlertType.ERROR);
             return;
         }
 
