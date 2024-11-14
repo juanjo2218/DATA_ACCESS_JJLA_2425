@@ -37,31 +37,17 @@ public class AddOfferController
     @FXML
     protected void validateAndAddOffer()
     {
-        SellerProductsEntity sellerProduct = DataBaseManager.getInstance().getProductSeller(sellerlogin.getCif(),
-                productComboBox.getSelectionModel().getSelectedItem().getProductId());
-        if (sellerProduct == null)
-        {
-            Utils.showErrorAlert("AddOffer","Choose a product", Alert.AlertType.ERROR);
-            return;
-        }
+        Validates();
         LocalDate fromDate = fromDatePicker.getValue();
         LocalDate toDate = toDatePicker.getValue();
-        if (toDate == null || fromDate == null)
-        {
-            Utils.showErrorAlert("Error","Dates can not be null", Alert.AlertType.ERROR);
-            return;
-        }
         int daysDiff = (int) ChronoUnit.DAYS.between(fromDate,toDate);
-        if (daysDiff < 0 )
-        {
-            Utils.showErrorAlert("Error","FromDate can not be higher than toDate", Alert.AlertType.ERROR);
-            return;
-        }
         int maxOffer =  Utils.getMaxDiscount(daysDiff);
         if (Integer.parseInt(discountField.getText()) <= maxOffer)
         {
             if (!DataBaseManager.getInstance().getProductsSellerInThisDate(sellerlogin.getCif(), fromDate, toDate))
             {
+                SellerProductsEntity sellerProduct = DataBaseManager.getInstance().getProductSeller(sellerlogin.getCif(),productComboBox.getSelectionModel().getSelectedItem()
+                        .getProductId());
                 sellerProduct.setOfferStartDate(Date.valueOf(fromDate));
                 sellerProduct.setOfferEndDate(Date.valueOf(toDate));
                 BigDecimal discountFraction = new BigDecimal(discountField.getText()).divide(new BigDecimal(100));
@@ -78,6 +64,31 @@ public class AddOfferController
         else
             Utils.showErrorAlert("Discount Error","The discount is greater than what is allowed by that " +
                     "number of days(max: " + maxOffer + ")", Alert.AlertType.ERROR);
+    }
+    private void Validates()
+    {
+        if (productComboBox.getSelectionModel().getSelectedItem() == null)
+        {
+            Utils.showErrorAlert("AddOffer","Choose a product", Alert.AlertType.ERROR);
+            return;
+        }
+        LocalDate fromDate = fromDatePicker.getValue();
+        LocalDate toDate = toDatePicker.getValue();
+        if (toDate == null || fromDate == null)
+        {
+            Utils.showErrorAlert("Error","Dates can not be null", Alert.AlertType.ERROR);
+            return;
+        }
+        if (ChronoUnit.DAYS.between(fromDate,toDate) < 0 )
+        {
+            Utils.showErrorAlert("Error","FromDate can not be higher than toDate", Alert.AlertType.ERROR);
+            return;
+        }
+        if (!Utils.isNumeric(discountField.getText()))
+        {
+            Utils.showErrorAlert("Error","Discount only can be numbers", Alert.AlertType.ERROR);
+            return;
+        }
     }
 
     private void viewProductsSeller()

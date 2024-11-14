@@ -10,6 +10,7 @@ import java.time.ZoneId;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DataBaseManager {
 
@@ -221,17 +222,44 @@ public class DataBaseManager {
     public boolean getProductsSellerInThisDate(String cif, LocalDate fromDate, LocalDate toDate) {
         ArrayList<SellerProductsEntity> productsSeller = DataBaseManager.getInstance().getProductsSeller(cif);
 
-        for (SellerProductsEntity productEntity : productsSeller) {
-            // Convertir las fechas de tipo Date a LocalDate
-            LocalDate offerStartDate = productEntity.getOfferStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            LocalDate offerEndDate = productEntity.getOfferEndDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        // Convertimos las fechas de entrada a Date para compararlas con las fechas de las ofertas
+        Date fromDateAsDate = Date.from(fromDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Date toDateAsDate = Date.from(toDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
-            // Verifica si la nueva oferta se solapa con alguna oferta existente
-            if ((fromDate.isBefore(offerEndDate) && toDate.isAfter(offerStartDate)) ||
-                    fromDate.isEqual(offerStartDate) || toDate.isEqual(offerEndDate)) {
-                return true; // Las fechas se solapan
+        for (SellerProductsEntity productEntity : productsSeller) {
+            Date offerStartDate = productEntity.getOfferStartDate();
+            Date offerEndDate = productEntity.getOfferEndDate();
+
+            // Ignorar productos sin oferta (ambas fechas a null)
+            if (offerStartDate == null && offerEndDate == null) {
+                continue;
+            }
+
+            // Caso: solo fecha de inicio válida (la oferta dura indefinidamente desde offerStartDate)
+            if (offerStartDate != null && offerEndDate == null) {
+                if (!toDateAsDate.before(offerStartDate)) {
+                    return true; // Hay solapamiento porque el rango de la oferta no tiene fin
+                }
+            }
+
+            // Caso: solo fecha de fin válida (la oferta es válida hasta offerEndDate)
+            if (offerStartDate == null && offerEndDate != null) {
+                if (!fromDateAsDate.after(offerEndDate)) {
+                    return true; // Hay solapamiento porque la oferta aún es válida hasta offerEndDate
+                }
+            }
+
+            // Caso: ambas fechas válidas (la oferta tiene un rango definido)
+            if (offerStartDate != null && offerEndDate != null) {
+                boolean startOverlap = !toDateAsDate.before(offerStartDate);
+                boolean endOverlap = !fromDateAsDate.after(offerEndDate);
+
+                if (startOverlap && endOverlap) {
+                    return true; // Hay solapamiento dentro del rango específico de la oferta
+                }
             }
         }
+
         return false; // No hay solapamiento
     }
 }

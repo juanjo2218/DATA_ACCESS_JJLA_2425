@@ -109,4 +109,16 @@ public class Utils {
     public static boolean isEmailValid(String email) {
         return email != null && email.matches("^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$");
     }
+    public static boolean  isNumeric(String str) {
+        if (str == null || str.isEmpty()) {
+            return false; // Si es null o está vacía, no es un número
+        }
+
+        try {
+            Double.parseDouble(str); // Intenta convertir el string a un número
+            return true; // Si no hay excepción, es un número
+        } catch (NumberFormatException e) {
+            return false; // Si lanza NumberFormatException, no es un número
+        }
+    }
 }
