@@ -59,9 +59,9 @@ public class MenuController
         String phone = phoneField.getText();
         String email = emailField.getText();
         String password = passwordFieldMenu.getText();
-        if (name.isEmpty()  || password.isEmpty())
+        if (name.isEmpty())
         {
-            Utils.showScreen("Error update", "The fields: " + nameLabel.getText() + passwordLabel.getText() +" are mandatory.", Alert.AlertType.ERROR);
+            Utils.showScreen("Error update", "The name is mandatory.", Alert.AlertType.ERROR);
             return;
         }
         String passwordHash = Utils.getHash(password);
@@ -111,7 +111,7 @@ public class MenuController
             return null;
         }
     }
-        @FXML
+    @FXML
     protected void goToAddProductMenu()
     {
         AddProductController.setSellerActive(sellerlogin);
@@ -123,5 +123,16 @@ public class MenuController
     {
         AddOfferController.setSellerActive(sellerlogin);
         Utils.changeView("AddOffer.fxml",cifField);
+    }
+    @FXML
+    protected void goToMenu()
+    {
+        MenuController.setSellerActive(sellerlogin);
+        Utils.changeView("Menu.fxml",cifField);
+    }
+    @FXML
+    protected void goToLogin()
+    {
+        Utils.changeView("InicioSesion.fxml",cifField);
     }
 }

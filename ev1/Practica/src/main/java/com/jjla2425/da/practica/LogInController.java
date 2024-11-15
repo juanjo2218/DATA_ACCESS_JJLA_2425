@@ -25,8 +25,8 @@ public class LogInController {
         {
             if (sellerdb.getPassword().equals(Utils.getHash(passwordFieldText).toUpperCase()))
             {
-                AddOfferController.setSellerActive(sellerdb);
-                Utils.changeView("AddOffer.fxml",CIFField);
+                MenuController.setSellerActive(sellerdb);
+                Utils.changeView("Menu.fxml",CIFField);
             }
             else
             {

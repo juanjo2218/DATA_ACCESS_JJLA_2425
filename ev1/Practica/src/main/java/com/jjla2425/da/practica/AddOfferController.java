@@ -111,4 +111,29 @@ public class AddOfferController
             }
         });
     }
+    @FXML
+    protected void goToAddProductMenu()
+    {
+        AddProductController.setSellerActive(sellerlogin);
+        Utils.changeView("AddProduct.fxml",discountField);
+
+    }
+    @FXML
+    protected void goToAddOfferMenu()
+    {
+        AddOfferController.setSellerActive(sellerlogin);
+        Utils.changeView("AddOffer.fxml",discountField);
+    }
+    @FXML
+    protected void goToMenu()
+    {
+        MenuController.setSellerActive(sellerlogin);
+        Utils.changeView("Menu.fxml",discountField);
+    }
+    @FXML
+    protected void goToLogin()
+    {
+        Utils.changeView("InicioSesion.fxml",discountField);
+    }
+
 }

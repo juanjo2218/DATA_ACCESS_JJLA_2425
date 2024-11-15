@@ -99,5 +99,29 @@ public class AddProductController
             Utils.showScreen("Add product","Product added successfully.", Alert.AlertType.INFORMATION);
         }
     }
+    @FXML
+    protected void goToAddProductMenu()
+    {
+        AddProductController.setSellerActive(sellerlogin);
+        Utils.changeView("AddProduct.fxml",priceField);
+
+    }
+    @FXML
+    protected void goToAddOfferMenu()
+    {
+        AddOfferController.setSellerActive(sellerlogin);
+        Utils.changeView("AddOffer.fxml",priceField);
+    }
+    @FXML
+    protected void goToMenu()
+    {
+        MenuController.setSellerActive(sellerlogin);
+        Utils.changeView("Menu.fxml",priceField);
+    }
+    @FXML
+    protected void goToLogin()
+    {
+        Utils.changeView("InicioSesion.fxml",priceField);
+    }
 }
 
