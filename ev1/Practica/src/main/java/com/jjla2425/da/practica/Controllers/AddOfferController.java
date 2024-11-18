@@ -55,16 +55,25 @@ public class AddOfferController
             Utils.showScreen("Error","Dates can not be null", Alert.AlertType.ERROR);
             return;
         }
+        if (toDate.isBefore(LocalDate.now()) || toDate.isBefore(LocalDate.now()))
+        {
+            Utils.showScreen("Error","Dates can not be older than the actual date", Alert.AlertType.ERROR);
+            return;
+        }
         int daysDiff = (int) ChronoUnit.DAYS.between(fromDate,toDate);
-
         if (daysDiff < 0 )
         {
             Utils.showScreen("Error","FromDate can not be higher than toDate", Alert.AlertType.ERROR);
             return;
         }
+        if (daysDiff > 30 )
+        {
+            Utils.showScreen("Error","The number of days of the offer cannot be more than 30 days", Alert.AlertType.ERROR);
+            return;
+        }
         BigDecimal discount = Utils.getPriceAsBigDecimal(discountField.getText());
-        if (discount == null) {
-            Utils.showScreen("Error", "Discount can only be a number", Alert.AlertType.ERROR);
+        if (discount == null ||discount.compareTo(new BigDecimal(0)) < 0) {
+            Utils.showScreen("Error", "Discount can only be a number and a postive number", Alert.AlertType.ERROR);
             return;
         }
         int maxOffer = Utils.getMaxDiscount(daysDiff);

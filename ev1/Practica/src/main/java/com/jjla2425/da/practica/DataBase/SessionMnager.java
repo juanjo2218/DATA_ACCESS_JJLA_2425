@@ -17,7 +17,7 @@ public class SessionMnager {
             testSession.beginTransaction();
             testSession.getTransaction().commit();
         } catch (Exception e) {
-            Utils.showScreen("Error", "No se pudo conectar a la base de datos..", Alert.AlertType.ERROR);
+            Utils.showScreen("Error", "Could not connect to database", Alert.AlertType.ERROR);
         }
     }
 
@@ -47,5 +47,4 @@ public class SessionMnager {
     {
         return getSessionFactory().openSession();
     }
-
 }
