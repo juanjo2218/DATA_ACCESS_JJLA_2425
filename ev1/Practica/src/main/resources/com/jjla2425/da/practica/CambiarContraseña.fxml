@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" spacing="20" style="-fx-background-color: #fafafa; -fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.ChangePasswordController">
+<VBox alignment="CENTER" spacing="20" style="-fx-background-color: #fafafa; -fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.Controllers.ChangePasswordController">
 
     <Label text="Cambiar Contraseña" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #5c3e3a; -fx-padding: 10;" />
 

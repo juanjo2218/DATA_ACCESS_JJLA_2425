@@ -1,5 +1,6 @@
-package com.jjla2425.da.practica;
+package com.jjla2425.da.practica.DataBase;
 
+import com.jjla2425.da.practica.Utils;
 import javafx.scene.control.Alert;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

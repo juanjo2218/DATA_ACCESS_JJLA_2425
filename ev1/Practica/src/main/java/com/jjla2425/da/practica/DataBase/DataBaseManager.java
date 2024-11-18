@@ -1,5 +1,10 @@
-package com.jjla2425.da.practica;
+package com.jjla2425.da.practica.DataBase;
 
+import com.jjla2425.da.practica.DataBaseEntities.CategoriesEntity;
+import com.jjla2425.da.practica.DataBaseEntities.ProductsEntity;
+import com.jjla2425.da.practica.DataBaseEntities.SellerProductsEntity;
+import com.jjla2425.da.practica.DataBaseEntities.SellersEntity;
+import com.jjla2425.da.practica.Utils;
 import jakarta.persistence.NoResultException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -47,7 +52,8 @@ public class DataBaseManager {
         myQuery.setParameter("cif", CIF);
         try {
             return myQuery.getSingleResult();
-        } catch (NoResultException e) {
+        } catch (NoResultException e)
+        {
             return null;
         }    }
     public ArrayList<CategoriesEntity> getCategories()
@@ -117,11 +123,21 @@ public class DataBaseManager {
         myQuery.setParameter("idSeller", seller.getSellerId());
         return (ArrayList<SellerProductsEntity>) myQuery.list();
     }
-    public ArrayList<ProductsEntity> getProductsRemainingSellerWithCategoryId(String CIF, int categoryId)
+//    public ArrayList<ProductsEntity> getProductsRemainingSellerWithCategoryId(String CIF, int categoryId)
+//    {
+//        ArrayList<ProductsEntity> result = getProductsByIdCategory(categoryId);
+//        result.removeAll( convertSellerProductsEntityToProductsEntity(getProductsSellerByCategory(CIF,categoryId)));
+//        return result;
+//    }
+    public ArrayList<ProductsEntity> getProductsRemainingSellerWithCategoryId(int idseller, int categoryId)
     {
-        ArrayList<ProductsEntity> result = getProductsByIdCategory(categoryId);
-        result.removeAll( convertSellerProductsEntityToProductsEntity(getProductsSellerByCategory(CIF,categoryId)));
-        return result;
+        Session session =  SessionMnager.getInstance().getSession();
+        String sql = "SELECT * FROM jjla_GetProductsSellerRemaining(:idSeller,:idCategory)";
+        Query<ProductsEntity> myQuery = session.createNativeQuery(sql, ProductsEntity.class);
+        myQuery.setParameter("idSeller", idseller);
+        myQuery.setParameter("idCategory", categoryId);
+        return (ArrayList<ProductsEntity>) myQuery.list();
+
     }
     public void addProductsSeller(SellerProductsEntity product)
     {

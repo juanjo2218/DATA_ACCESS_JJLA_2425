@@ -4,11 +4,11 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #fafafa; -fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.AddOfferController">
+<HBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #fafafa; -fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.Controllers.AddOfferController">
     <VBox alignment="CENTER" spacing="15" style="-fx-background-color: #e3d1b1; -fx-padding: 20; -fx-background-radius: 15; -fx-pref-width: 160; -fx-pref-height: 300;">
         <!-- Image sections, each occupying 25% of the sidebar height -->
         <VBox alignment="CENTER" spacing="10" style="-fx-pref-height: 25%;">
-            <ImageView fitHeight="50" fitWidth="50" onMouseClicked="#goToAddOfferMenu" style="-fx-opacity: 0.85;">
+            <ImageView fitHeight="50" fitWidth="50" onMouseClicked="#goToMenu" style="-fx-opacity: 0.85;">
                 <Image url="@img/menu.png" />
             </ImageView>
             <Label style="-fx-text-fill: #6b4e3d; -fx-font-size: 12px;" text="Menu" />
@@ -22,7 +22,7 @@
         </VBox>
 
         <VBox alignment="CENTER" spacing="10" style="-fx-pref-height: 25%;">
-            <ImageView fitHeight="50" fitWidth="50" onMouseClicked="#goToAddOfferMenu" style="-fx-opacity: 0.85;">
+            <ImageView fitHeight="50" fitWidth="50" style="-fx-opacity: 0.85;">
                 <Image url="@img/offer.png" />
             </ImageView>
             <Label style="-fx-text-fill: #6b4e3d; -fx-font-size: 12px;" text="Offer" />
@@ -39,7 +39,7 @@
 
         <Label style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #5c3e3a;" text="Add Offer" />
 
-        <GridPane hgap="15" vgap="15" style="-fx-padding: 10;">
+        <GridPane hgap="15" style="-fx-padding: 10;" vgap="15">
             <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #5c3e3a;" text="Product:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
             <ComboBox fx:id="productComboBox" promptText="Select Product" style="-fx-background-color: #f3e4d8; -fx-border-color: #d3b59c; -fx-border-radius: 8; -fx-padding: 8;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
@@ -64,6 +64,6 @@
                 <RowConstraints vgrow="ALWAYS" />
             </rowConstraints>
         </GridPane>
-        <Button onAction="#validateAndAddOffer" text="Add Offer" style="-fx-background-color: linear-gradient(to right, #f8b88b, #e97c6b); -fx-text-fill: white; -fx-background-radius: 10; -fx-font-size: 16px; -fx-padding: 10 20; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 4, 0, 0, 2);" />
+        <Button onAction="#validateAndAddOffer" style="-fx-background-color: linear-gradient(to right, #f8b88b, #e97c6b); -fx-text-fill: white; -fx-background-radius: 10; -fx-font-size: 16px; -fx-padding: 10 20; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 4, 0, 0, 2);" text="Add Offer" />
     </VBox>
 </HBox>

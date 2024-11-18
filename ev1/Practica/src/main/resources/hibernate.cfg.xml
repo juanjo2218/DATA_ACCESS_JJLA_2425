@@ -10,9 +10,9 @@
     <property name="connection.password">postgres</property>
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
-    <mapping class="com.jjla2425.da.practica.CategoriesEntity"/>
-    <mapping class="com.jjla2425.da.practica.ProductsEntity"/>
-    <mapping class="com.jjla2425.da.practica.SellerProductsEntity"/>
-    <mapping class="com.jjla2425.da.practica.SellersEntity"/>
+    <mapping class="com.jjla2425.da.practica.DataBaseEntities.CategoriesEntity"/>
+    <mapping class="com.jjla2425.da.practica.DataBaseEntities.ProductsEntity"/>
+    <mapping class="com.jjla2425.da.practica.DataBaseEntities.SellerProductsEntity"/>
+    <mapping class="com.jjla2425.da.practica.DataBaseEntities.SellersEntity"/>
   </session-factory>
 </hibernate-configuration>

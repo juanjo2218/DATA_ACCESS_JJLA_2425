@@ -1,5 +1,11 @@
-package com.jjla2425.da.practica;
+package com.jjla2425.da.practica.Controllers;
 
+import com.jjla2425.da.practica.*;
+import com.jjla2425.da.practica.DataBase.DataBaseManager;
+import com.jjla2425.da.practica.DataBaseEntities.CategoriesEntity;
+import com.jjla2425.da.practica.DataBaseEntities.ProductsEntity;
+import com.jjla2425.da.practica.DataBaseEntities.SellerProductsEntity;
+import com.jjla2425.da.practica.DataBaseEntities.SellersEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -60,7 +66,7 @@ public class AddProductController
     public void viewProductsRemaning()
     {
         ArrayList<ProductsEntity> productremaining =
-                DataBaseManager.getInstance().getProductsRemainingSellerWithCategoryId(sellerlogin.getCif(),categoryComboBox.getSelectionModel().getSelectedItem().getCategoryId());
+                DataBaseManager.getInstance().getProductsRemainingSellerWithCategoryId(sellerlogin.getSellerId(),categoryComboBox.getSelectionModel().getSelectedItem().getCategoryId());
         ObservableList<ProductsEntity> observableProducts = FXCollections.observableArrayList(productremaining);
         productComboBox.setItems(observableProducts);
         productComboBox.setCellFactory(lv -> new ListCell<ProductsEntity>() {
@@ -90,7 +96,14 @@ public class AddProductController
         }
 
         if (price == null)
-            Utils.showScreen("Error: Price not valid","Please enter a valid number.", Alert.AlertType.ERROR);
+        {
+            Utils.showScreen("Error: Price not valid","Please enter a number.", Alert.AlertType.ERROR);
+            return;
+        }
+        BigDecimal MAX_VALUE = new BigDecimal("99999999.99");
+        BigDecimal minValue = new BigDecimal("0");
+        if (price.compareTo(MAX_VALUE) > 0 || price.compareTo(minValue) < 0)
+            Utils.showScreen("Error: Price not valid","Please enter a higher than 0 and lower than 99999999.99.", Alert.AlertType.ERROR);
         else
         {
             DataBaseManager.getInstance().addProductsSeller(new SellerProductsEntity(sellerlogin.getSellerId(),productsEntity.getProductId()
