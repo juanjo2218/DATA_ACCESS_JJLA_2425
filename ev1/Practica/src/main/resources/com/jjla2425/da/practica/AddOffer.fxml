@@ -7,15 +7,15 @@
 <HBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #fafafa; -fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.Controllers.AddOfferController">
     <VBox alignment="CENTER" spacing="15" style="-fx-background-color: #e3d1b1; -fx-padding: 20; -fx-background-radius: 15; -fx-pref-width: 160; -fx-pref-height: 300;">
         <!-- Image sections, each occupying 25% of the sidebar height -->
-        <VBox alignment="CENTER" spacing="10" style="-fx-pref-height: 25%;">
-            <ImageView fitHeight="50" fitWidth="50" onMouseClicked="#goToMenu" style="-fx-opacity: 0.85;">
+        <VBox alignment="CENTER" onMouseClicked="#goToMenu" spacing="10" style="-fx-pref-height: 25%;">
+            <ImageView fitHeight="50" fitWidth="50" style="-fx-opacity: 0.85;">
                 <Image url="@img/menu.png" />
             </ImageView>
             <Label style="-fx-text-fill: #6b4e3d; -fx-font-size: 12px;" text="Menu" />
         </VBox>
 
-        <VBox alignment="CENTER" spacing="10" style="-fx-pref-height: 25%;">
-            <ImageView fitHeight="50" fitWidth="50" onMouseClicked="#goToAddProductMenu" style="-fx-opacity: 0.85;">
+        <VBox alignment="CENTER" onMouseClicked="#goToAddProductMenu" spacing="10" style="-fx-pref-height: 25%;">
+            <ImageView fitHeight="50" fitWidth="50" style="-fx-opacity: 0.85;">
                 <Image url="@img/addproduct.png" />
             </ImageView>
             <Label style="-fx-text-fill: #6b4e3d; -fx-font-size: 12px;" text="Add Product" />
@@ -28,8 +28,8 @@
             <Label style="-fx-text-fill: #6b4e3d; -fx-font-size: 12px;" text="Offer" />
         </VBox>
 
-        <VBox alignment="CENTER" spacing="10" style="-fx-pref-height: 25%;">
-            <ImageView fitHeight="50" fitWidth="50" onMouseClicked="#goToLogin" style="-fx-opacity: 0.85;">
+        <VBox alignment="CENTER" onMouseClicked="#goToLogin" spacing="10" style="-fx-pref-height: 25%;">
+            <ImageView fitHeight="50" fitWidth="50" style="-fx-opacity: 0.85;">
                 <Image url="@img/exit.png" />
             </ImageView>
             <Label style="-fx-text-fill: #6b4e3d; -fx-font-size: 12px;" text="Exit" />

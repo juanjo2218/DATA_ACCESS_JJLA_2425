@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" spacing="20.0" style="-fx-background-color: #f5ece3; -fx-padding: 30; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 12, 0, 2, 4);" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jjla2425.da.practica.Controllers.LogInController">
 
-    <Label text="Inicio de Sesión" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #6b4e3d; -fx-padding-bottom: 10px;" />
+    <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #6b4e3d; -fx-padding-bottom: 10px;" text="Inicio de Sesión" />
 
     <VBox alignment="CENTER" spacing="15.0">
-        <TextField fx:id="CIFField" promptText="Introduce tu CIF" style="-fx-background-color: #f0e9e3; -fx-border-color: #d1b7a5; -fx-border-radius: 8; -fx-padding: 10; -fx-font-size: 14px;" />
-        <PasswordField fx:id="passwordField" promptText="Contraseña" style="-fx-background-color: #f0e9e3; -fx-border-color: #d1b7a5; -fx-border-radius: 8; -fx-padding: 10; -fx-font-size: 14px;" />
+        <TextField fx:id="CIFField" promptText="Introduce tu CIF" style="-fx-background-color: #f0e9e3; -fx-border-color: #d1b7a5; -fx-border-radius: 8; -fx-padding: 10; -fx-font-size: 14px;" text="A12345678" />
+        <PasswordField fx:id="passwordField" promptText="Contraseña" style="-fx-background-color: #f0e9e3; -fx-border-color: #d1b7a5; -fx-border-radius: 8; -fx-padding: 10; -fx-font-size: 14px;" text="password1" />
     </VBox>
 
-    <Button onAction="#validatePassword" text="Login" style="-fx-background-color: linear-gradient(to right, #ff7e5f, #f25c5c); -fx-text-fill: white; -fx-background-radius: 12; -fx-padding: 10 20; -fx-font-size: 16px; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 4, 0, 0, 2);" />
+    <Button onAction="#validatePassword" style="-fx-background-color: linear-gradient(to right, #ff7e5f, #f25c5c); -fx-text-fill: white; -fx-background-radius: 12; -fx-padding: 10 20; -fx-font-size: 16px; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 4, 0, 0, 2);" text="Login" />
 
 </VBox>

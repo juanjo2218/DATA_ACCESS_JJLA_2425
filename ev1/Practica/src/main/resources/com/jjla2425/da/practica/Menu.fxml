@@ -14,22 +14,22 @@
          <Label style="-fx-text-fill: #6b4e3d; -fx-font-size: 12px;" text="Menu" />
       </VBox>
 
-      <VBox alignment="CENTER" spacing="10" style="-fx-pref-height: 25%;">
-         <ImageView fitHeight="50" fitWidth="50" onMouseClicked="#goToAddProductMenu" style="-fx-opacity: 0.85;">
+      <VBox alignment="CENTER" onMouseClicked="#goToAddProductMenu" spacing="10" style="-fx-pref-height: 25%;">
+         <ImageView fitHeight="50" fitWidth="50" style="-fx-opacity: 0.85;">
             <Image url="@img/addproduct.png" />
          </ImageView>
          <Label style="-fx-text-fill: #6b4e3d; -fx-font-size: 12px;" text="Add Product" />
       </VBox>
 
-      <VBox alignment="CENTER" spacing="10" style="-fx-pref-height: 25%;">
-         <ImageView fitHeight="50" fitWidth="50" onMouseClicked="#goToAddOfferMenu" style="-fx-opacity: 0.85;">
+      <VBox alignment="CENTER" onMouseClicked="#goToAddOfferMenu" spacing="10" style="-fx-pref-height: 25%;">
+         <ImageView fitHeight="50" fitWidth="50" style="-fx-opacity: 0.85;">
             <Image url="@img/offer.png" />
          </ImageView>
          <Label style="-fx-text-fill: #6b4e3d; -fx-font-size: 12px;" text="Offer" />
       </VBox>
 
       <VBox alignment="CENTER" onMouseClicked="#goToLogin" spacing="10" style="-fx-pref-height: 25%;">
-         <ImageView fitHeight="50" fitWidth="50" onMouseClicked="#goToLogin" style="-fx-opacity: 0.85;">
+         <ImageView fitHeight="50" fitWidth="50" style="-fx-opacity: 0.85;">
             <Image url="@img/exit.png" />
          </ImageView>
          <Label style="-fx-text-fill: #6b4e3d; -fx-font-size: 12px;" text="Exit" />

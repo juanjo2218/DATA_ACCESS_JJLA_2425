@@ -72,15 +72,15 @@ public class AddOfferController
             return;
         }
         BigDecimal discount = Utils.getPriceAsBigDecimal(discountField.getText());
-        if (discount == null ||discount.compareTo(new BigDecimal(0)) < 0) {
-            Utils.showScreen("Error", "Discount can only be a number and a postive number", Alert.AlertType.ERROR);
+        if (discount == null ||discount.compareTo(new BigDecimal(0)) <= 0) {
+            Utils.showScreen("Error", "Discount can only be a number and a postive number and higher than 0", Alert.AlertType.ERROR);
             return;
         }
         int maxOffer = Utils.getMaxDiscount(daysDiff);
         BigDecimal maxOfferAsBigDecimal = new BigDecimal(maxOffer);
         if (discount.compareTo(maxOfferAsBigDecimal) <= 0)
         {
-            if (!DataBaseManager.getInstance().getProductsSellerInThisDate(sellerlogin.getCif(), fromDate, toDate))
+            if (!DataBaseManager.getInstance().getProductsSellerInThisDate(sellerlogin.getCif(), fromDate, toDate,productSelected.getProductId()))
             {
                 SellerProductsEntity sellerProduct = DataBaseManager.getInstance().getProductSeller(sellerlogin.getCif(),productSelected.getProductId());
                 sellerProduct.setOfferStartDate(Date.valueOf(fromDate));
@@ -105,7 +105,7 @@ public class AddOfferController
     private void viewProductsSeller()
     {
         ArrayList<SellerProductsEntity> productsSeller =
-                DataBaseManager.getInstance().getProductsSellerNotOfferYet(sellerlogin.getCif());
+                DataBaseManager.getInstance().getProductsSeller(sellerlogin.getCif());
         ArrayList<ProductsEntity> productsSellername =
                 DataBaseManager.getInstance().convertSellerProductsEntityToProductsEntity(productsSeller);
         ObservableList<ProductsEntity> observableProducts =  FXCollections.observableArrayList(productsSellername);;

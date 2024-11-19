@@ -235,7 +235,7 @@ public class DataBaseManager {
         productsSeller.removeIf(sellerProductsEntity -> sellerProductsEntity.getOfferStartDate() != null || sellerProductsEntity.getOfferEndDate() != null);
         return  productsSeller;
     }
-    public boolean getProductsSellerInThisDate(String cif, LocalDate fromDate, LocalDate toDate) {
+    public boolean getProductsSellerInThisDate(String cif, LocalDate fromDate, LocalDate toDate, int productId) {
         ArrayList<SellerProductsEntity> productsSeller = DataBaseManager.getInstance().getProductsSeller(cif);
 
         // Convertimos las fechas de entrada a Date para compararlas con las fechas de las ofertas
@@ -243,6 +243,10 @@ public class DataBaseManager {
         Date toDateAsDate = Date.from(toDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
         for (SellerProductsEntity productEntity : productsSeller) {
+            // Si el producto actual es el que estamos modificando, no lo consideramos para la colisión
+            if (productEntity.getProductId() == productId) {
+                continue; // No verificamos conflictos para el mismo producto
+            }
             Date offerStartDate = productEntity.getOfferStartDate();
             Date offerEndDate = productEntity.getOfferEndDate();
 
