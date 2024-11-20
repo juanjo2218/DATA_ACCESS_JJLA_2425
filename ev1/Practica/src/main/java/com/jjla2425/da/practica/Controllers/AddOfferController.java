@@ -80,7 +80,7 @@ public class AddOfferController
         BigDecimal maxOfferAsBigDecimal = new BigDecimal(maxOffer);
         if (discount.compareTo(maxOfferAsBigDecimal) <= 0)
         {
-            if (!DataBaseManager.getInstance().getProductsSellerInThisDate(sellerlogin.getCif(), fromDate, toDate,productSelected.getProductId()))
+            if (!DataBaseManager.getInstance().getProductsSellerInThisDate(sellerlogin.getSellerId(), fromDate, toDate,productSelected.getProductId()))
             {
                 SellerProductsEntity sellerProduct = DataBaseManager.getInstance().getProductSeller(sellerlogin.getCif(),productSelected.getProductId());
                 sellerProduct.setOfferStartDate(Date.valueOf(fromDate));
@@ -92,7 +92,7 @@ public class AddOfferController
                 sellerProduct.setOfferPrice(offerPrice);
                 DataBaseManager.getInstance().addOfferProductsSeller(sellerProduct);
                 Utils.showScreen("AddOffer","Offer add correct.Price before:" + sellerProduct.getPrice() +
-                        "price after:" + sellerProduct.getOfferPrice(), Alert.AlertType.INFORMATION);
+                        " price after:" + sellerProduct.getOfferPrice(), Alert.AlertType.INFORMATION);
                 viewProductsSeller();
             }
             else
@@ -105,7 +105,7 @@ public class AddOfferController
     private void viewProductsSeller()
     {
         ArrayList<SellerProductsEntity> productsSeller =
-                DataBaseManager.getInstance().getProductsSeller(sellerlogin.getCif());
+                DataBaseManager.getInstance().getProductsSellerActive(sellerlogin.getSellerId());
         ArrayList<ProductsEntity> productsSellername =
                 DataBaseManager.getInstance().convertSellerProductsEntityToProductsEntity(productsSeller);
         ObservableList<ProductsEntity> observableProducts =  FXCollections.observableArrayList(productsSellername);;
@@ -131,12 +131,6 @@ public class AddOfferController
         AddProductController.setSellerActive(sellerlogin);
         Utils.changeView("AddProduct.fxml",discountField);
 
-    }
-    @FXML
-    protected void goToAddOfferMenu()
-    {
-        AddOfferController.setSellerActive(sellerlogin);
-        Utils.changeView("AddOffer.fxml",discountField);
     }
     @FXML
     protected void goToMenu()

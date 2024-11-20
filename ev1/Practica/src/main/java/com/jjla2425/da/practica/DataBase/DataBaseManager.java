@@ -115,12 +115,12 @@ public class DataBaseManager {
 
     }
 
-    public ArrayList<SellerProductsEntity> getProductsSeller(String CIF)
+    public ArrayList<SellerProductsEntity> getProductsSellerActive(int idseller)
     {
-        SellersEntity seller = getSellerByCIF(CIF);
         Session session =  SessionMnager.getInstance().getSession();
-        Query<SellerProductsEntity> myQuery = session.createQuery("from SellerProductsEntity where sellerId =:idSeller", SellerProductsEntity.class);
-        myQuery.setParameter("idSeller", seller.getSellerId());
+        String sql = "SELECT * FROM jjla_get_sellerproductsactive(:idSeller)";
+        Query<SellerProductsEntity> myQuery = session.createNativeQuery(sql, SellerProductsEntity.class);
+        myQuery.setParameter("idSeller", idseller);
         return (ArrayList<SellerProductsEntity>) myQuery.list();
     }
 //    public ArrayList<ProductsEntity> getProductsRemainingSellerWithCategoryId(String CIF, int categoryId)
@@ -137,7 +137,6 @@ public class DataBaseManager {
         myQuery.setParameter("idSeller", idseller);
         myQuery.setParameter("idCategory", categoryId);
         return (ArrayList<ProductsEntity>) myQuery.list();
-
     }
     public void addProductsSeller(SellerProductsEntity product)
     {
@@ -229,14 +228,8 @@ public class DataBaseManager {
         }
     }
 
-    public ArrayList<SellerProductsEntity> getProductsSellerNotOfferYet(String cif)
-    {
-        ArrayList<SellerProductsEntity> productsSeller = DataBaseManager.getInstance().getProductsSeller(cif);
-        productsSeller.removeIf(sellerProductsEntity -> sellerProductsEntity.getOfferStartDate() != null || sellerProductsEntity.getOfferEndDate() != null);
-        return  productsSeller;
-    }
-    public boolean getProductsSellerInThisDate(String cif, LocalDate fromDate, LocalDate toDate, int productId) {
-        ArrayList<SellerProductsEntity> productsSeller = DataBaseManager.getInstance().getProductsSeller(cif);
+    public boolean getProductsSellerInThisDate(int id, LocalDate fromDate, LocalDate toDate, int productId) {
+        ArrayList<SellerProductsEntity> productsSeller = DataBaseManager.getInstance().getProductsSellerActive(id);
 
         // Convertimos las fechas de entrada a Date para compararlas con las fechas de las ofertas
         Date fromDateAsDate = Date.from(fromDate.atStartOfDay(ZoneId.systemDefault()).toInstant());

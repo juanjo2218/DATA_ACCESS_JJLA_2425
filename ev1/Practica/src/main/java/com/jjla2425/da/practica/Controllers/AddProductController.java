@@ -36,16 +36,12 @@ public class AddProductController
         AddProductController.sellerlogin = sellerlogin;
     }
     public void viewCategories() {
-        // Obtener las categorías desde la base de datos
         ArrayList<CategoriesEntity> categoriesFromDb = DataBaseManager.getInstance().getCategories();
 
-        // Convertir la lista a un ObservableList para el ComboBox
         ObservableList<CategoriesEntity> observableCategories = FXCollections.observableArrayList(categoriesFromDb);
 
-        // Asignar la lista completa de categorías al ComboBox
         categoryComboBox.setItems(observableCategories);
 
-        // Configurar el cellFactory para mostrar solo el nombre de la categoría en la lista desplegable
         categoryComboBox.setCellFactory(lv -> new ListCell<CategoriesEntity>() {
             @Override
             protected void updateItem(CategoriesEntity item, boolean empty) {
@@ -54,7 +50,6 @@ public class AddProductController
             }
         });
 
-        // Configurar cómo se muestra el elemento seleccionado (solo el nombre)
         categoryComboBox.setButtonCell(new ListCell<CategoriesEntity>() {
             @Override
             protected void updateItem(CategoriesEntity item, boolean empty) {
