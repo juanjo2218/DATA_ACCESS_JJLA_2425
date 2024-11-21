@@ -228,8 +228,8 @@ public class DataBaseManager {
         }
     }
 
-    public boolean getProductsSellerInThisDate(int id, LocalDate fromDate, LocalDate toDate, int productId) {
-        ArrayList<SellerProductsEntity> productsSeller = DataBaseManager.getInstance().getProductsSellerActive(id);
+    public boolean getProductsSellerInThisDate(int sellerId, LocalDate fromDate, LocalDate toDate, int productId) {
+        ArrayList<SellerProductsEntity> productsSeller = DataBaseManager.getInstance().getProductsSellerActive(sellerId);
 
         // Convertimos las fechas de entrada a Date para compararlas con las fechas de las ofertas
         Date fromDateAsDate = Date.from(fromDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
