@@ -1,7 +1,7 @@
-2024-11-25 02:30:03 [JavaFX Application Thread] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
-2024-11-25 02:30:03 [JavaFX Application Thread] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-11-25 02:30:03 [JavaFX Application Thread] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2024-11-25 02:30:04 [JavaFX Application Thread] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2024-11-25 03:21:28 [JavaFX Application Thread] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2024-11-25 03:21:28 [JavaFX Application Thread] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-25 03:21:28 [JavaFX Application Thread] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-11-25 03:21:29 [JavaFX Application Thread] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://localhost:5432/OnlineMarket]
 	Database driver: org.postgresql.Driver
 	Database version: 17.0
@@ -9,12 +9,12 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: 1
 	Maximum pool size: 20
-2024-11-25 02:30:05 [JavaFX Application Thread] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-11-25 02:30:05 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Creating a new instance of SessionMnager.
-2024-11-25 02:30:05 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Initializing SessionManager...
-2024-11-25 02:30:05 [JavaFX Application Thread] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-11-25 02:30:05 [JavaFX Application Thread] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2024-11-25 02:30:05 [JavaFX Application Thread] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2024-11-25 03:21:29 [JavaFX Application Thread] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-25 03:21:29 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Creating a new instance of SessionMnager.
+2024-11-25 03:21:29 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Initializing SessionManager...
+2024-11-25 03:21:29 [JavaFX Application Thread] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-25 03:21:29 [JavaFX Application Thread] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-11-25 03:21:29 [JavaFX Application Thread] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://localhost:5432/OnlineMarket]
 	Database driver: org.postgresql.Driver
 	Database version: 17.0
@@ -22,12 +22,12 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: 1
 	Maximum pool size: 20
-2024-11-25 02:30:05 [JavaFX Application Thread] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-11-25 02:30:05 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Successfully connected to the database.
-2024-11-25 03:05:50 [JavaFX Application Thread] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
-2024-11-25 03:05:50 [JavaFX Application Thread] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-11-25 03:05:50 [JavaFX Application Thread] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2024-11-25 03:05:50 [JavaFX Application Thread] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2024-11-25 03:21:29 [JavaFX Application Thread] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-25 03:21:29 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Successfully connected to the database.
+2024-11-25 03:30:09 [JavaFX Application Thread] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2024-11-25 03:30:09 [JavaFX Application Thread] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-25 03:30:09 [JavaFX Application Thread] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-11-25 03:30:10 [JavaFX Application Thread] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://localhost:5432/OnlineMarket]
 	Database driver: org.postgresql.Driver
 	Database version: 17.0
@@ -35,12 +35,12 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: 1
 	Maximum pool size: 20
-2024-11-25 03:05:51 [JavaFX Application Thread] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-11-25 03:05:51 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Creating a new instance of SessionMnager.
-2024-11-25 03:05:51 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Initializing SessionManager...
-2024-11-25 03:05:51 [JavaFX Application Thread] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2024-11-25 03:05:51 [JavaFX Application Thread] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2024-11-25 03:05:51 [JavaFX Application Thread] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2024-11-25 03:30:10 [JavaFX Application Thread] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-25 03:30:10 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Creating a new instance of SessionMnager.
+2024-11-25 03:30:10 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Initializing SessionManager...
+2024-11-25 03:30:10 [JavaFX Application Thread] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-25 03:30:10 [JavaFX Application Thread] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-11-25 03:30:10 [JavaFX Application Thread] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://localhost:5432/OnlineMarket]
 	Database driver: org.postgresql.Driver
 	Database version: 17.0
@@ -48,5 +48,96 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: 1
 	Maximum pool size: 20
-2024-11-25 03:05:51 [JavaFX Application Thread] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-11-25 03:05:51 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Successfully connected to the database.
+2024-11-25 03:30:10 [JavaFX Application Thread] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-25 03:30:10 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Successfully connected to the database.
+2024-11-25 03:33:53 [JavaFX Application Thread] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2024-11-25 03:33:53 [JavaFX Application Thread] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-25 03:33:53 [JavaFX Application Thread] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-11-25 03:33:53 [JavaFX Application Thread] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/OnlineMarket]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2024-11-25 03:33:54 [JavaFX Application Thread] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-25 03:33:54 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Creating a new instance of SessionMnager.
+2024-11-25 03:33:54 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Initializing SessionManager...
+2024-11-25 03:33:54 [JavaFX Application Thread] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-25 03:33:54 [JavaFX Application Thread] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-11-25 03:33:54 [JavaFX Application Thread] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/OnlineMarket]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2024-11-25 03:33:54 [JavaFX Application Thread] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-25 03:33:54 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Successfully connected to the database.
+2024-11-25 03:33:54 [JavaFX Application Thread] INFO  org.hibernate.engine.internal.StatisticalLoggingSessionEventListener - Session Metrics {
+    25600 nanoseconds spent acquiring 1 JDBC connections;
+    15500 nanoseconds spent releasing 1 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 pre-partial-flushes;
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+2024-11-25 03:34:08 [JavaFX Application Thread] INFO  org.hibernate.engine.internal.StatisticalLoggingSessionEventListener - Session Metrics {
+    20200 nanoseconds spent acquiring 1 JDBC connections;
+    14800 nanoseconds spent releasing 1 JDBC connections;
+    148200 nanoseconds spent preparing 2 JDBC statements;
+    867700 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    9371300 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    0 nanoseconds spent executing 0 pre-partial-flushes;
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+2024-11-25 03:34:16 [JavaFX Application Thread] INFO  org.hibernate.engine.internal.StatisticalLoggingSessionEventListener - Session Metrics {
+    20400 nanoseconds spent acquiring 1 JDBC connections;
+    13900 nanoseconds spent releasing 1 JDBC connections;
+    102200 nanoseconds spent preparing 1 JDBC statements;
+    1235000 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    232500 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    0 nanoseconds spent executing 0 pre-partial-flushes;
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+2024-11-25 03:40:24 [JavaFX Application Thread] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version [WORKING]
+2024-11-25 03:40:24 [JavaFX Application Thread] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-25 03:40:24 [JavaFX Application Thread] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-11-25 03:40:25 [JavaFX Application Thread] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/OnlineMarket]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2024-11-25 03:40:25 [JavaFX Application Thread] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-25 03:40:25 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Creating a new instance of SessionMnager.
+2024-11-25 03:40:25 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Initializing SessionManager...
+2024-11-25 03:40:25 [JavaFX Application Thread] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-25 03:40:25 [JavaFX Application Thread] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2024-11-25 03:40:25 [JavaFX Application Thread] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/OnlineMarket]
+	Database driver: org.postgresql.Driver
+	Database version: 17.0
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2024-11-25 03:40:25 [JavaFX Application Thread] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-25 03:40:25 [JavaFX Application Thread] INFO  com.jjla2425.da.practica.DataBase.SessionMnager - Successfully connected to the database.

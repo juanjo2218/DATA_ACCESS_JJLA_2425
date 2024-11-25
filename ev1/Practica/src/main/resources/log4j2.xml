@@ -1,22 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN">
-    <Appenders>
-        <!-- Console Appender -->
-        <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n" />
-        </Console>
+<configuration>
 
-        <!-- File Appender -->
-        <File name="FileLogger" fileName="logs/app.log" append="true">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n" />
-        </File>
-    </Appenders>
+    <!-- Definir un appender para Hibernate, con nivel de log INFO o superior -->
+    <appender name="HIBERNATE" class="ch.qos.logback.core.FileAppender">
+        <file>hibernate.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
 
-    <Loggers>
-        <!-- Root logger -->
-        <Root level="info">
-            <AppenderRef ref="Console" />
-            <AppenderRef ref="FileLogger" />
-        </Root>
-    </Loggers>
-</Configuration>
+    <!-- Appender para los logs generales de la aplicación -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger para que registre todos los logs, con excepción de los de Hibernate -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <!-- Logger específico para Hibernate -->
+    <logger name="org.hibernate" level="INFO">
+        <appender-ref ref="HIBERNATE"/>
+    </logger>
+
+</configuration>

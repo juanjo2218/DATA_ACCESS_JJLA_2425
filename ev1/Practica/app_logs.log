@@ -1,0 +1,84 @@
+nov 25, 2024 3:40:24 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+nov 25, 2024 3:40:25 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+nov 25, 2024 3:40:25 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: A12345678
+nov 25, 2024 3:40:30 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: A12345678
+nov 25, 2024 3:40:32 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager updateSeller
+INFORMACIÓN: Updating seller information...
+nov 25, 2024 3:40:33 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager updateSeller
+INFORMACIÓN: Seller information updated successfully.
+nov 25, 2024 3:40:37 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager updateSeller
+INFORMACIÓN: Updating seller information...
+nov 25, 2024 3:40:37 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager updateSeller
+INFORMACIÓN: Seller information updated successfully.
+nov 25, 2024 3:40:39 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager updateSeller
+INFORMACIÓN: Updating seller information...
+nov 25, 2024 3:40:39 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager updateSeller
+INFORMACIÓN: Seller information updated successfully.
+nov 25, 2024 3:40:42 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getCategories
+INFORMACIÓN: Getting all categories...
+nov 25, 2024 3:40:42 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+nov 25, 2024 3:40:42 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+nov 25, 2024 3:40:43 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getCategories
+INFORMACIÓN: Getting all categories...
+nov 25, 2024 3:40:44 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 2
+nov 25, 2024 3:40:48 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 4
+nov 25, 2024 3:40:50 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 8
+nov 25, 2024 3:40:53 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 6
+nov 25, 2024 3:40:54 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 1
+nov 25, 2024 3:40:56 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 3
+nov 25, 2024 3:40:57 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 2
+nov 25, 2024 3:40:59 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 5
+nov 25, 2024 3:41:01 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 6
+nov 25, 2024 3:41:03 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 7
+nov 25, 2024 3:41:05 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager addProductsSeller
+INFORMACIÓN: Adding new product to the seller...
+nov 25, 2024 3:41:05 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager addProductsSeller
+INFORMACIÓN: Product added successfully.
+nov 25, 2024 3:41:05 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 7
+nov 25, 2024 3:43:31 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+nov 25, 2024 3:43:32 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+nov 25, 2024 3:43:32 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: A12345678
+nov 25, 2024 3:43:36 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: A12345678
+nov 25, 2024 3:43:40 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: A12345678
+nov 25, 2024 3:43:41 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getCategories
+INFORMACIÓN: Getting all categories...
+nov 25, 2024 3:43:41 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+nov 25, 2024 3:43:41 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+nov 25, 2024 3:48:14 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+nov 25, 2024 3:48:15 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+nov 25, 2024 3:48:15 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: A12345678
+nov 25, 2024 3:48:20 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: A12345678
+nov 25, 2024 3:48:21 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getCategories
+INFORMACIÓN: Getting all categories...
+nov 25, 2024 3:48:24 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager updateSeller
+INFORMACIÓN: Updating seller information...
+nov 25, 2024 3:48:24 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager updateSeller
+INFORMACIÓN: Seller information updated successfully.

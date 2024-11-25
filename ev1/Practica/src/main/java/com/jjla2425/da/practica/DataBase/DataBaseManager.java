@@ -16,8 +16,7 @@ import java.time.ZoneId;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 public class DataBaseManager {
 
@@ -29,6 +28,12 @@ public class DataBaseManager {
     // Private constructor to prevent instantiation from outside the class
     private DataBaseManager() {
         try {
+            // Configure the logger to write to a file
+            FileHandler fileHandler = new FileHandler("app_logs.log", true); // true to append logs to file
+            fileHandler.setFormatter(new SimpleFormatter());
+            LOGGER.addHandler(fileHandler);
+            LOGGER.setLevel(Level.INFO); // Set the log level
+
             LOGGER.info("Initializing SessionFactory for Hibernate...");
             sessionFactory = new Configuration()
                     .configure("hibernate.cfg.xml")
