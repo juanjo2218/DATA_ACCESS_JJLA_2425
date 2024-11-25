@@ -4,6 +4,7 @@ module com.jjla2425.da.practica {
     requires jakarta.persistence;
     requires org.hibernate.orm.core;
     requires java.naming;
+    requires org.apache.logging.log4j;
 
 
     opens com.jjla2425.da.practica to javafx.fxml, org.hibernate.orm.core;
