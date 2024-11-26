@@ -32,6 +32,29 @@ public class SellersEntity {
     @Basic
     @Column(name = "password")
     private String password;
+    @Basic
+    @Column(name = "url")
+    private String url;
+    @Basic
+    @Column(name = "pro")
+    private boolean pro;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public boolean isPro() {
+        return pro;
+    }
+
+    public void setPro(boolean pro) {
+        this.pro = pro;
+    }
+
 
     public int getSellerId() {
         return sellerId;

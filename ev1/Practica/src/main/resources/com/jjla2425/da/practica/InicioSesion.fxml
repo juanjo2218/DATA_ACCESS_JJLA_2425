@@ -10,6 +10,7 @@
     <VBox alignment="CENTER" spacing="15.0">
         <TextField fx:id="CIFField" promptText="Introduce tu CIF" style="-fx-background-color: #f0e9e3; -fx-border-color: #d1b7a5; -fx-border-radius: 8; -fx-padding: 10; -fx-font-size: 14px;" text="A12345678" />
         <PasswordField fx:id="passwordField" promptText="Contraseña" style="-fx-background-color: #f0e9e3; -fx-border-color: #d1b7a5; -fx-border-radius: 8; -fx-padding: 10; -fx-font-size: 14px;" text="password1" />
+      <CheckBox fx:id="rememberCheck" mnemonicParsing="false" text="Remember me" />
     </VBox>
 
     <Button onAction="#validatePassword" style="-fx-background-color: linear-gradient(to right, #ff7e5f, #f25c5c); -fx-text-fill: white; -fx-background-radius: 12; -fx-padding: 10 20; -fx-font-size: 16px; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 4, 0, 0, 2);" text="Login" />

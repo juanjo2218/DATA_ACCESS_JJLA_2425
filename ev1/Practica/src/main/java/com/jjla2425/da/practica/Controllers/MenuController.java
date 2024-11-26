@@ -37,6 +37,8 @@ public class MenuController
 
     @FXML
     private TextField nameField;
+    @FXML
+    private TextField URLField;
 
     public static void setSellerActive(SellersEntity sellerlogin)
     {
@@ -53,6 +55,7 @@ public class MenuController
         businessNameField.setText(sellerlogin.getBusinessName());
         phoneField.setText(sellerlogin.getPhone());
         emailField.setText(sellerlogin.getEmail());
+        URLField.setText(sellerlogin.getUrl());
     }
     @FXML
     public void updateDatabase() {
@@ -62,6 +65,7 @@ public class MenuController
         String phone = phoneField.getText();
         String email = emailField.getText();
         String password = passwordFieldMenu.getText();
+        String URL = URLField.getText();
         if (name.isEmpty())
         {
             Utils.showScreen("Error update", "The name is mandatory.", Alert.AlertType.ERROR);
@@ -78,6 +82,11 @@ public class MenuController
             Utils.showScreen("Error email", "Email is not formatted correctly", Alert.AlertType.ERROR);
             return;
         }
+        if(!Utils.isURLValid(URL))
+        {
+            Utils.showScreen("Error URL", "URL is not formatted correctly", Alert.AlertType.ERROR);
+            return;
+        }
 
         if (!password.isEmpty() && !sellerlogin.getPassword().equals(passwordHash.toUpperCase())) {
             ChangePasswordController.setSellerActive(sellerlogin);
@@ -92,6 +101,7 @@ public class MenuController
         sellerlogin.setName(name);
         sellerlogin.setEmail(email);
         sellerlogin.setPhone(phone);
+        sellerlogin.setUrl(URL);
         DataBaseManager.getInstance().updateSeller(sellerlogin);
         Utils.showScreen("Update", "Update done correctly", Alert.AlertType.INFORMATION);
         setSellerDates();

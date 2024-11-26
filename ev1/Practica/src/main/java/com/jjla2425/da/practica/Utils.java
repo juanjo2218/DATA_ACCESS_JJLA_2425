@@ -9,7 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
 import java.math.BigDecimal;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -76,6 +76,14 @@ public class Utils {
             return 30;
         return 50;
     }
+    public static int getMaxDiscountPro(int daysDiff)
+    {
+        if (daysDiff >= 30)
+            return 20;
+        else if (daysDiff >= 3)
+            return 30;
+        return 50;
+    }
     public static void showScreen(String title, String message, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
@@ -111,6 +119,9 @@ public class Utils {
     public static boolean isEmailValid(String email) {
         return email != null && email.matches("^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$");
     }
+    public static boolean isURLValid(String url) {
+        return url != null && url.matches("^https?:\\/\\/(www\\.)?[\\w-]+(\\.[\\w-]+)+(\\.[a-z]{2,6})(\\/[\\w-]*)*\\/?$");
+    }
     public static boolean  isNumeric(String str) {
         if (str == null || str.isEmpty()) {
             return false; // Si es null o está vacía, no es un número
@@ -122,5 +133,33 @@ public class Utils {
         } catch (NumberFormatException e) {
             return false; // Si lanza NumberFormatException, no es un número
         }
+    }
+
+    public static void saveCIF(String cif)
+    {
+        PrintWriter printWriter = null;
+        try
+        {
+            printWriter = new PrintWriter(new BufferedWriter(
+                    new FileWriter( "lastCIF.txt", false)));
+                printWriter.println(cif);
+        }
+        catch ( IOException e )
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            if ( printWriter != null )
+            {
+                printWriter.close();
+            }
+        }
+    }
+
+    public static String getSaveCIF() throws IOException {
+        BufferedReader file1 = new BufferedReader(new FileReader("lastCIF.txt"));
+        return  file1.readLine();
+
     }
 }

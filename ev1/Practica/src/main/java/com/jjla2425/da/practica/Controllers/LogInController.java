@@ -6,13 +6,23 @@ import com.jjla2425.da.practica.Utils;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.io.IOException;
+
 public class LogInController {
+    @FXML
+    private CheckBox rememberCheck;
     @FXML
     private TextField CIFField;
     @FXML
     private PasswordField passwordField;
 
-
+    @FXML
+    public void initialize() throws IOException {
+        remeberCIF();
+    }
+    public void remeberCIF() throws IOException {
+        CIFField.setText(Utils.getSaveCIF());
+    }
     @FXML
     protected void validatePassword()
     {
@@ -28,6 +38,8 @@ public class LogInController {
         {
             if (sellerdb.getPassword().equals(Utils.getHash(passwordFieldText).toUpperCase()))
             {
+                if (rememberCheck.selectedProperty().get())
+                     Utils.saveCIF(sellerdb.getCif());
                 MenuController.setSellerActive(sellerdb);
                 Utils.changeView("Menu.fxml",CIFField);
             }

@@ -77,6 +77,8 @@ public class AddOfferController
             return;
         }
         int maxOffer = Utils.getMaxDiscount(daysDiff);
+        if (sellerlogin.isPro())
+            maxOffer = Utils.getMaxDiscountPro(daysDiff);
         BigDecimal maxOfferAsBigDecimal = new BigDecimal(maxOffer);
         if (discount.compareTo(maxOfferAsBigDecimal) <= 0)
         {
