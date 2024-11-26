@@ -231,8 +231,10 @@ public class DataBaseManager {
         }
     }
 
-    public boolean getProductsSellerInThisDate(int sellerId, LocalDate fromDate, LocalDate toDate, int productId) {
+    public boolean getProductsSellerInThisDate(int sellerId, LocalDate fromDate, LocalDate toDate, int productId,boolean isPro) {
         LOGGER.info("Checking date overlaps for seller's products...");
+        int offerproductsmax = isPro ? 3 : 1;
+        int offerproductsquantity = 0;
         ArrayList<SellerProductsEntity> productsSeller = DataBaseManager.getInstance().getProductsSellerActive(sellerId);
         Date fromDateAsDate = Date.from(fromDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
         Date toDateAsDate = Date.from(toDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -247,26 +249,30 @@ public class DataBaseManager {
             if (offerStartDate == null && offerEndDate == null) {
                 continue;
             }
-            if (offerStartDate != null && offerEndDate == null) {
-                if (!toDateAsDate.before(offerStartDate)) {
-                    return true;
+            if (offerStartDate != null && offerEndDate == null)
+            {
+                if (!toDateAsDate.before(offerStartDate))
+                {
+                    offerproductsquantity++;
+
                 }
             }
             if (offerStartDate == null && offerEndDate != null) {
                 if (!fromDateAsDate.after(offerEndDate)) {
-                    return true;
+                    offerproductsquantity++;
                 }
             }
             if (offerStartDate != null && offerEndDate != null) {
                 boolean startOverlap = !toDateAsDate.before(offerStartDate);
                 boolean endOverlap = !fromDateAsDate.after(offerEndDate);
 
-                if (startOverlap && endOverlap) {
-                    return true;
+                if (startOverlap && endOverlap)
+                {
+                    offerproductsquantity++;
                 }
             }
         }
         LOGGER.info("No date overlaps found for the seller's products.");
-        return false;
+        return offerproductsquantity >= offerproductsmax;
     }
 }

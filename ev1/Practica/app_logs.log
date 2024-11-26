@@ -302,3 +302,103 @@ nov 26, 2024 6:58:41 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <i
 INFORMACIÓN: SessionFactory initialized successfully.
 nov 26, 2024 6:58:41 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
 INFORMACIÓN: Getting seller by CIF: B23456789
+nov 26, 2024 7:13:33 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+nov 26, 2024 7:13:35 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+nov 26, 2024 7:13:35 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: B23456789
+nov 26, 2024 7:13:37 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 2
+nov 26, 2024 7:13:37 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+nov 26, 2024 7:14:09 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+nov 26, 2024 7:14:09 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 2
+nov 26, 2024 7:14:09 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+nov 26, 2024 7:14:09 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+nov 26, 2024 7:14:09 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: B23456789
+nov 26, 2024 7:14:09 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Adding offer to the seller's product...
+nov 26, 2024 7:14:10 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Offer added successfully.
+nov 26, 2024 7:14:11 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 2
+nov 26, 2024 7:14:11 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+nov 26, 2024 7:14:23 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+nov 26, 2024 7:14:23 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 2
+nov 26, 2024 7:14:23 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+nov 26, 2024 7:16:13 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+nov 26, 2024 7:16:15 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+nov 26, 2024 7:16:15 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: B23456789
+nov 26, 2024 7:16:17 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 2
+nov 26, 2024 7:16:17 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+nov 26, 2024 7:17:28 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+nov 26, 2024 7:17:28 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 2
+nov 26, 2024 7:17:28 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+nov 26, 2024 7:17:28 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+nov 26, 2024 7:17:28 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: B23456789
+nov 26, 2024 7:17:28 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Adding offer to the seller's product...
+nov 26, 2024 7:17:28 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Offer added successfully.
+nov 26, 2024 7:17:30 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 2
+nov 26, 2024 7:17:30 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+nov 26, 2024 7:17:41 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+nov 26, 2024 7:17:41 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 2
+nov 26, 2024 7:17:41 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+nov 26, 2024 7:17:41 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+nov 26, 2024 7:17:41 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: B23456789
+nov 26, 2024 7:17:41 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Adding offer to the seller's product...
+nov 26, 2024 7:17:41 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Offer added successfully.
+nov 26, 2024 7:17:42 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 2
+nov 26, 2024 7:17:42 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+nov 26, 2024 7:17:49 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getCategories
+INFORMACIÓN: Getting all categories...
+nov 26, 2024 7:17:50 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 3
+nov 26, 2024 7:17:56 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager addProductsSeller
+INFORMACIÓN: Adding new product to the seller...
+nov 26, 2024 7:17:56 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager addProductsSeller
+INFORMACIÓN: Product added successfully.
+nov 26, 2024 7:17:56 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 3
+nov 26, 2024 7:17:58 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 2
+nov 26, 2024 7:17:58 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+nov 26, 2024 7:18:17 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+nov 26, 2024 7:18:17 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 2
+nov 26, 2024 7:18:17 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.

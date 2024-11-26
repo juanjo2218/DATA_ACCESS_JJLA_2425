@@ -82,7 +82,7 @@ public class AddOfferController
         BigDecimal maxOfferAsBigDecimal = new BigDecimal(maxOffer);
         if (discount.compareTo(maxOfferAsBigDecimal) <= 0)
         {
-            if (!DataBaseManager.getInstance().getProductsSellerInThisDate(sellerlogin.getSellerId(), fromDate, toDate,productSelected.getProductId()))
+            if (!DataBaseManager.getInstance().getProductsSellerInThisDate(sellerlogin.getSellerId(), fromDate, toDate,productSelected.getProductId(),sellerlogin.isPro()))
             {
                 SellerProductsEntity sellerProduct = DataBaseManager.getInstance().getProductSeller(sellerlogin.getCif(),productSelected.getProductId());
                 sellerProduct.setOfferStartDate(Date.valueOf(fromDate));
