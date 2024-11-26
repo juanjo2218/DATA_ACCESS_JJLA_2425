@@ -82,3 +82,25 @@ nov 25, 2024 3:48:24 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager up
 INFORMACIÓN: Updating seller information...
 nov 25, 2024 3:48:24 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager updateSeller
 INFORMACIÓN: Seller information updated successfully.
+nov 25, 2024 7:21:13 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+nov 25, 2024 7:21:15 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+nov 25, 2024 7:21:15 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: A12345678
+nov 25, 2024 7:21:19 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+nov 25, 2024 7:21:19 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+nov 25, 2024 7:55:33 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+nov 25, 2024 7:55:34 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+nov 25, 2024 7:55:35 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: A12345678
+nov 25, 2024 7:55:35 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getCategories
+INFORMACIÓN: Getting all categories...
+nov 25, 2024 7:55:36 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+nov 25, 2024 7:55:36 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
