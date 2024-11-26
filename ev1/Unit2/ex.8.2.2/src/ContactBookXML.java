@@ -1,8 +1,7 @@
 //
 // ContactBookXML.java
 // Ex-822
-// Created by Fernando Pastor on 8/10/2024
-//
+
 
 import org.xml.sax.SAXException;
 

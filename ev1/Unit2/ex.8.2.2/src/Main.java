@@ -1,8 +1,6 @@
 //
 // Main.java
 // Ex-822
-// Created by Fernando Pastor on 7/10/2024
-//
 
 public class Main {
 
