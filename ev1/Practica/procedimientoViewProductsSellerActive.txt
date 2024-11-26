@@ -1,0 +1,32 @@
+-- FUNCTION: public.jjla_get_sellerproductsactive(integer)
+
+-- DROP FUNCTION IF EXISTS public.jjla_get_sellerproductsactive(integer);
+
+CREATE OR REPLACE FUNCTION public.jjla_get_sellerproductsactive(
+	p_sellerid integer)
+    RETURNS SETOF seller_products 
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE PARALLEL UNSAFE
+    ROWS 1000
+
+AS $BODY$
+DECLARE
+	p_sproducts seller_products;
+BEGIN
+	FOR p_sproducts IN
+		SELECT sp.*
+		FROM seller_products sp,
+			 products pp
+		WHERE sp.product_id = pp.product_id
+		AND   sp.seller_id = p_sellerid
+		AND pp.active = true
+	LOOP
+		RETURN NEXT p_sproducts;
+	END LOOP;
+	RETURN;
+END;
+$BODY$;
+
+ALTER FUNCTION public.jjla_get_sellerproductsactive(integer)
+    OWNER TO postgres;
