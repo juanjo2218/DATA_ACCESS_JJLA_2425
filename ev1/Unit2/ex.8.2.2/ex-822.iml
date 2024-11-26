@@ -7,15 +7,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../ex.7.1.1" />
+          <root url="jar://$MODULE_DIR$/../ex-711/out/artifacts/ex711/ex711.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../ex.7.1.1/src" />
-        </SOURCES>
+        <SOURCES />
       </library>
     </orderEntry>
   </component>

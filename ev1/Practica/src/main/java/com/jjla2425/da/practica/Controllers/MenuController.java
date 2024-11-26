@@ -79,7 +79,7 @@ public class MenuController
             return;
         }
 
-        if (!sellerlogin.getPassword().equals(passwordHash.toUpperCase())) {
+        if (!password.isEmpty() && !sellerlogin.getPassword().equals(passwordHash.toUpperCase())) {
             ChangePasswordController.setSellerActive(sellerlogin);
             ChangePasswordController passwordChangeController = showPasswordChangeDialog();
             assert passwordChangeController != null;
