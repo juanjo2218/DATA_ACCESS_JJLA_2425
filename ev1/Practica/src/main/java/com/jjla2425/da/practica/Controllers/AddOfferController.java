@@ -76,9 +76,7 @@ public class AddOfferController
             Utils.showScreen("Error", "Discount can only be a number and a postive number and higher than 0", Alert.AlertType.ERROR);
             return;
         }
-        int maxOffer = Utils.getMaxDiscount(daysDiff);
-        if (sellerlogin.isPro())
-            maxOffer = Utils.getMaxDiscountPro(daysDiff);
+        int maxOffer = Utils.getMaxDiscount(daysDiff,sellerlogin.isPro());
         BigDecimal maxOfferAsBigDecimal = new BigDecimal(maxOffer);
         if (discount.compareTo(maxOfferAsBigDecimal) <= 0)
         {

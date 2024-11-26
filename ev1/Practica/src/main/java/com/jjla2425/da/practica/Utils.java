@@ -64,11 +64,11 @@ public class Utils {
         return ids;
     }
 
-    public static int getMaxDiscount(int daysDiff)
+    public static int getMaxDiscount(int daysDiff,boolean isPro)
     {
-        if (daysDiff >= 30)
+        if (daysDiff >= 30 && !isPro)
           return 10;
-        else if (daysDiff >= 15)
+        else if (daysDiff >= 15 && !isPro)
             return 15;
         else if (daysDiff >= 7)
             return 20;
@@ -78,7 +78,7 @@ public class Utils {
     }
     public static int getMaxDiscountPro(int daysDiff)
     {
-        if (daysDiff >= 30)
+        if (daysDiff >= 7)
             return 20;
         else if (daysDiff >= 3)
             return 30;
@@ -117,10 +117,10 @@ public class Utils {
         return phone != null && phone.matches("^\\+?[0-9]{1,3}?[\\s-]?[(]?[0-9]{1,4}[)]?[\\s-]?[0-9]{1,4}[\\s-]?[0-9]{1,4}$");
     }
     public static boolean isEmailValid(String email) {
-        return email != null && email.matches("^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$");
+        return email.isEmpty() || email.matches("^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$");
     }
     public static boolean isURLValid(String url) {
-        return url != null && url.matches("^https?:\\/\\/(www\\.)?[\\w-]+(\\.[\\w-]+)+(\\.[a-z]{2,6})(\\/[\\w-]*)*\\/?$");
+        return url.isEmpty() || url.matches("^https?:\\/\\/(www\\.)?[\\w-]+(\\.[\\w-]+)+(\\.[a-z]{2,6})(\\/[\\w-]*)*\\/?$");
     }
     public static boolean  isNumeric(String str) {
         if (str == null || str.isEmpty()) {

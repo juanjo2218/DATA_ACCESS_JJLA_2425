@@ -59,7 +59,6 @@ public class MenuController
     }
     @FXML
     public void updateDatabase() {
-        String cif = cifField.getText();
         String name = nameField.getText();
         String businessName = businessNameField.getText();
         String phone = phoneField.getText();
@@ -77,17 +76,20 @@ public class MenuController
             Utils.showScreen("Error phone", "Phone does not support letters ", Alert.AlertType.ERROR);
             return;
         }
-        if(!Utils.isEmailValid(email))
+        if(email != null && !Utils.isEmailValid(email))
         {
             Utils.showScreen("Error email", "Email is not formatted correctly", Alert.AlertType.ERROR);
             return;
         }
-        if(!Utils.isURLValid(URL))
+        if(URL != null && !Utils.isURLValid(URL))
         {
             Utils.showScreen("Error URL", "URL is not formatted correctly", Alert.AlertType.ERROR);
             return;
         }
-
+        if (URL != null && URL.isEmpty())
+            URL = null;
+        if (email != null && email.isEmpty())
+            email = null;
         if (!password.isEmpty() && !sellerlogin.getPassword().equals(passwordHash.toUpperCase())) {
             ChangePasswordController.setSellerActive(sellerlogin);
             ChangePasswordController passwordChangeController = showPasswordChangeDialog();
