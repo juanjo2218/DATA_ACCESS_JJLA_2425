@@ -1046,3 +1046,29 @@ nov 26, 2024 8:15:38 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager ge
 INFORMACIÓN: Getting active products for seller with ID: 1
 nov 26, 2024 8:15:38 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
 INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+nov 26, 2024 8:18:51 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+nov 26, 2024 8:18:53 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+nov 26, 2024 8:18:53 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: B23456789
+nov 26, 2024 8:18:57 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: B23456789
+nov 26, 2024 8:19:00 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 2
+nov 26, 2024 8:19:00 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+nov 27, 2024 6:42:47 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+nov 27, 2024 6:42:49 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+nov 27, 2024 6:42:49 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: fdsfds
+nov 27, 2024 6:42:50 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+ADVERTENCIA: No seller found with CIF: fdsfds
+nov 27, 2024 6:42:56 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: A12346578
+nov 27, 2024 6:42:56 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+ADVERTENCIA: No seller found with CIF: A12346578
+nov 27, 2024 6:43:04 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: A12345678
