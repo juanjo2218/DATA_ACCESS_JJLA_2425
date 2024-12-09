@@ -1,6 +1,9 @@
 package com.jjla2425.da.unit5.springemplyeeentity.controllers;
 
+import com.jjla2425.da.unit5.springemplyeeentity.model.DTOS.EmployeeDTO;
+import com.jjla2425.da.unit5.springemplyeeentity.model.daos.IDeptEntityDAO;
 import com.jjla2425.da.unit5.springemplyeeentity.model.daos.IEmployeeEntityDAO;
+import com.jjla2425.da.unit5.springemplyeeentity.model.entities.DeptEntity;
 import com.jjla2425.da.unit5.springemplyeeentity.model.entities.EmployeeEntity;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,7 @@ public class EmployeeController
 {
     @Autowired
     private IEmployeeEntityDAO employeeEntityDAO;
+    private IDeptEntityDAO deptEntityDAO;
 
     @GetMapping
     public List<EmployeeEntity> findAllUsers()
@@ -51,6 +55,25 @@ public class EmployeeController
         else
             return  ResponseEntity.notFound().build();
     }
+    @GetMapping("/dto/{id}")
+    public ResponseEntity<EmployeeDTO> searchEmployeeDTOById(@PathVariable(value = "id")int id)
+    {
+        Optional<EmployeeEntity> employee = employeeEntityDAO.findById(id);
+        if (employee.isPresent())
+        {
+            Optional<DeptEntity> departament = deptEntityDAO.findById(employee.get().getDeptno());
+            EmployeeDTO empleadosDTO = new EmployeeDTO();
+            empleadosDTO.setEmpno(employee.get().getEmpno());
+            empleadosDTO.setEname(employee.get().getEname());
+            empleadosDTO.setJob(employee.get().getJob());
+            empleadosDTO.setDeptno(employee.get().getDeptno());
+            empleadosDTO.setNamedept(departament.get().getDname());
+            empleadosDTO.setUbidept(departament.get().getLoc());
+            return ResponseEntity.ok().body(empleadosDTO);
+        }
+        else
+            return  ResponseEntity.notFound().build();
+    }
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteEmployee(@PathVariable(value = "id")int id)
     {
@@ -59,7 +82,6 @@ public class EmployeeController
         {
             employeeEntityDAO.deleteById(id);
             return ResponseEntity.ok().body("Deleted");
-
         }
         else
             return  ResponseEntity.notFound().build();
