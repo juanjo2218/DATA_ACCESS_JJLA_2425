@@ -1,6 +1,8 @@
 package com.jjla2425.da.unit5.springemplyeeentity.model.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
 
@@ -12,9 +14,11 @@ public class DeptEntity {
     @Column(name = "deptno")
     private int deptno;
     @Basic
+    @Size(min = 1,max = 14,message = "Name size must be between 1 and 14")
     @Column(name = "dname")
     private String dname;
     @Basic
+    @Size(min = 1,max = 13,message = "Name size must be between 1 and 13")
     @Column(name = "loc")
     private String loc;
 

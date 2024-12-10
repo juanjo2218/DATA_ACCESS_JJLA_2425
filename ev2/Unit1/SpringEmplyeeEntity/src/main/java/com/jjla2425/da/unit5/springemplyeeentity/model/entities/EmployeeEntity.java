@@ -1,6 +1,8 @@
 package com.jjla2425.da.unit5.springemplyeeentity.model.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
 
@@ -12,9 +14,12 @@ public class EmployeeEntity {
     @Column(name = "empno")
     private int empno;
     @Basic
+    @NotNull(message = "The name cannot be blank")
+    @Size(min = 1,max = 10,message = "Name size must be between 1 and 10")
     @Column(name = "ename")
     private String ename;
     @Basic
+    @Size(min = 1,max = 9,message = "Name size must be between 1 and 9")
     @Column(name = "job")
     private String job;
     @Basic
