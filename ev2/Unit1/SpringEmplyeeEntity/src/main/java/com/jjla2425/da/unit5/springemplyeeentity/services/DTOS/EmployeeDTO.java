@@ -1,4 +1,4 @@
-package com.jjla2425.da.unit5.springemplyeeentity.model.DTOS;
+package com.jjla2425.da.unit5.springemplyeeentity.services.DTOS;
 
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
