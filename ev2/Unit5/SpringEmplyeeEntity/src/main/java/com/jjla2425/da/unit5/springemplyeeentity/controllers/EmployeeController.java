@@ -6,6 +6,7 @@ import com.jjla2425.da.unit5.springemplyeeentity.model.daos.IEmployeeEntityDAO;
 import com.jjla2425.da.unit5.springemplyeeentity.model.entities.DeptEntity;
 import com.jjla2425.da.unit5.springemplyeeentity.model.entities.EmployeeEntity;
 import com.jjla2425.da.unit5.springemplyeeentity.services.EmployeeService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -31,12 +32,12 @@ public class EmployeeController
         return employeeService.findEmployeeById(id);
     }
     @PostMapping
-    public EmployeeEntity saveEmployee(@Validated @RequestBody EmployeeEntity employee)
+    public EmployeeEntity saveEmployee(@Valid @RequestBody EmployeeEntity employee)
     {
         return employeeService.saveEmployee(employee);
     }
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateEmployee(@RequestBody EmployeeEntity newEmployee,
+    public ResponseEntity<?> updateEmployee(@RequestBody @Valid EmployeeEntity newEmployee,
                                             @PathVariable(value = "id")int id)
     {
         return employeeService.updateEmployee(newEmployee,id);

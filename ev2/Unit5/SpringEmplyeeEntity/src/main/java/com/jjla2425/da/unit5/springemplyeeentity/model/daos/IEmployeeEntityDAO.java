@@ -6,9 +6,12 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public interface IEmployeeEntityDAO extends CrudRepository<EmployeeEntity, Integer> {
     ArrayList<EmployeeEntity> findAllByDeptno(int deptno);
 
-    EmployeeEntity findByDeptnoAndJob(int deptno, String job);
+    Optional<EmployeeEntity> findByDeptnoAndJob(int deptno, String job);
+
+    EmployeeEntity findByJob(String job);
 }

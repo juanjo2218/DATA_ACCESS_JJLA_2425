@@ -37,7 +37,7 @@ public class EmployeeService
     {
         return employeeEntityDAO.save(employee);
     }
-    public ResponseEntity<?> updateEmployee(@Valid EmployeeEntity newEmployee, int id)
+    public ResponseEntity<?> updateEmployee(EmployeeEntity newEmployee, int id)
     {
         Optional<EmployeeEntity> employee = employeeEntityDAO.findById(id);
         if (employee.isPresent())
