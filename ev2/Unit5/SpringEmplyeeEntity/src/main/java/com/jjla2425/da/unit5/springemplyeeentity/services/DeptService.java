@@ -35,8 +35,6 @@ public class DeptService
         Optional<DeptEntity> dept = deptEntityDAO.findById(id);
         if (dept.isPresent())
         {
-
-
             DeptDTO deptDTO = new DeptDTO();
             deptDTO.setDeptno(dept.get().getDeptno());
             deptDTO.setLoc(dept.get().getLoc());
