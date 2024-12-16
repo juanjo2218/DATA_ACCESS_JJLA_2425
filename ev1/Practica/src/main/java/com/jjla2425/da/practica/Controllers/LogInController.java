@@ -1,7 +1,7 @@
 package com.jjla2425.da.practica.Controllers;
 
 import com.jjla2425.da.practica.DataBase.DataBaseManager;
-import com.jjla2425.da.practica.DataBaseEntities.SellersEntity;
+import com.jjla2425.da.practica.model.DataBaseEntities.SellersEntity;
 import com.jjla2425.da.practica.Utils;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

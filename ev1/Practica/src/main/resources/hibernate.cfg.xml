@@ -11,9 +11,9 @@
 
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
-    <mapping class="com.jjla2425.da.practica.DataBaseEntities.CategoriesEntity"/>
-    <mapping class="com.jjla2425.da.practica.DataBaseEntities.ProductsEntity"/>
-    <mapping class="com.jjla2425.da.practica.DataBaseEntities.SellerProductsEntity"/>
-    <mapping class="com.jjla2425.da.practica.DataBaseEntities.SellersEntity"/>
+    <mapping class="com.jjla2425.da.practica.model.DataBaseEntities.CategoriesEntity"/>
+    <mapping class="com.jjla2425.da.practica.model.DataBaseEntities.ProductsEntity"/>
+    <mapping class="com.jjla2425.da.practica.model.DataBaseEntities.SellerProductsEntity"/>
+    <mapping class="com.jjla2425.da.practica.model.DataBaseEntities.SellersEntity"/>
   </session-factory>
 </hibernate-configuration>

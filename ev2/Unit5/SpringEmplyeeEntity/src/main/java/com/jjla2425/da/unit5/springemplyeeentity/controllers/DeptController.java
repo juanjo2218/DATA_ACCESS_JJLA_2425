@@ -1,12 +1,11 @@
 package com.jjla2425.da.unit5.springemplyeeentity.controllers;
 
 import com.jjla2425.da.unit5.springemplyeeentity.model.entities.DeptEntity;
-import com.jjla2425.da.unit5.springemplyeeentity.services.DTOS.DeptDTO;
+import com.jjla2425.da.unit5.springemplyeeentity.model.DTOS.DeptDTO;
 import com.jjla2425.da.unit5.springemplyeeentity.services.DeptService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

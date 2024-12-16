@@ -1,4 +1,4 @@
-package com.jjla2425.da.practica.DataBaseEntities;
+package com.jjla2425.da.practica.model.DataBaseEntities;
 
 import jakarta.persistence.*;
 

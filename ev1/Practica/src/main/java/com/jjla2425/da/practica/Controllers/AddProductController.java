@@ -2,10 +2,10 @@ package com.jjla2425.da.practica.Controllers;
 
 import com.jjla2425.da.practica.*;
 import com.jjla2425.da.practica.DataBase.DataBaseManager;
-import com.jjla2425.da.practica.DataBaseEntities.CategoriesEntity;
-import com.jjla2425.da.practica.DataBaseEntities.ProductsEntity;
-import com.jjla2425.da.practica.DataBaseEntities.SellerProductsEntity;
-import com.jjla2425.da.practica.DataBaseEntities.SellersEntity;
+import com.jjla2425.da.practica.model.DataBaseEntities.CategoriesEntity;
+import com.jjla2425.da.practica.model.DataBaseEntities.ProductsEntity;
+import com.jjla2425.da.practica.model.DataBaseEntities.SellerProductsEntity;
+import com.jjla2425.da.practica.model.DataBaseEntities.SellersEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

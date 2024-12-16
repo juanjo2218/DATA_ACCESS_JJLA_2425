@@ -1,19 +1,14 @@
 package com.jjla2425.da.unit5.springemplyeeentity.controllers;
 
-import com.jjla2425.da.unit5.springemplyeeentity.services.DTOS.EmployeeDTO;
-import com.jjla2425.da.unit5.springemplyeeentity.model.daos.IDeptEntityDAO;
-import com.jjla2425.da.unit5.springemplyeeentity.model.daos.IEmployeeEntityDAO;
-import com.jjla2425.da.unit5.springemplyeeentity.model.entities.DeptEntity;
+import com.jjla2425.da.unit5.springemplyeeentity.model.DTOS.EmployeeDTO;
 import com.jjla2425.da.unit5.springemplyeeentity.model.entities.EmployeeEntity;
 import com.jjla2425.da.unit5.springemplyeeentity.services.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api-rest/Employees")

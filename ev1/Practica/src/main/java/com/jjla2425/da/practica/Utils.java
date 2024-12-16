@@ -1,7 +1,7 @@
 package com.jjla2425.da.practica;
 
-import com.jjla2425.da.practica.DataBaseEntities.ProductsEntity;
-import com.jjla2425.da.practica.DataBaseEntities.SellerProductsEntity;
+import com.jjla2425.da.practica.model.DataBaseEntities.ProductsEntity;
+import com.jjla2425.da.practica.model.DataBaseEntities.SellerProductsEntity;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

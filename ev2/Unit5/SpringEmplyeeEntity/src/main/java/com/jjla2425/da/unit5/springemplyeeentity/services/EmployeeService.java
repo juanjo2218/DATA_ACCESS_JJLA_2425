@@ -4,16 +4,10 @@ import com.jjla2425.da.unit5.springemplyeeentity.model.daos.IDeptEntityDAO;
 import com.jjla2425.da.unit5.springemplyeeentity.model.daos.IEmployeeEntityDAO;
 import com.jjla2425.da.unit5.springemplyeeentity.model.entities.DeptEntity;
 import com.jjla2425.da.unit5.springemplyeeentity.model.entities.EmployeeEntity;
-import com.jjla2425.da.unit5.springemplyeeentity.services.DTOS.EmployeeDTO;
-import jakarta.validation.Valid;
+import com.jjla2425.da.unit5.springemplyeeentity.model.DTOS.EmployeeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -33,7 +27,7 @@ public class EmployeeService
     {
         return (List<EmployeeEntity>) employeeEntityDAO.findAll();
     }
-    public EmployeeEntity saveEmployee(@Valid EmployeeEntity employee)
+    public EmployeeEntity saveEmployee(EmployeeEntity employee)
     {
         return employeeEntityDAO.save(employee);
     }

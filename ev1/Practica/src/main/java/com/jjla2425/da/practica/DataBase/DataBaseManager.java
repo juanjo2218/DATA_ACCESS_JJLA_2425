@@ -1,9 +1,9 @@
 package com.jjla2425.da.practica.DataBase;
 
-import com.jjla2425.da.practica.DataBaseEntities.CategoriesEntity;
-import com.jjla2425.da.practica.DataBaseEntities.ProductsEntity;
-import com.jjla2425.da.practica.DataBaseEntities.SellerProductsEntity;
-import com.jjla2425.da.practica.DataBaseEntities.SellersEntity;
+import com.jjla2425.da.practica.model.DataBaseEntities.CategoriesEntity;
+import com.jjla2425.da.practica.model.DataBaseEntities.ProductsEntity;
+import com.jjla2425.da.practica.model.DataBaseEntities.SellerProductsEntity;
+import com.jjla2425.da.practica.model.DataBaseEntities.SellersEntity;
 import com.jjla2425.da.practica.Utils;
 import jakarta.persistence.NoResultException;
 import org.hibernate.Session;
