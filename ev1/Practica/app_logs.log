@@ -1072,3 +1072,17 @@ nov 27, 2024 6:42:56 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager ge
 ADVERTENCIA: No seller found with CIF: A12346578
 nov 27, 2024 6:43:04 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
 INFORMACIÓN: Getting seller by CIF: A12345678
+dic 17, 2024 7:57:46 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+dic 17, 2024 7:57:48 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+dic 17, 2024 7:57:49 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+INFORMACIÓN: Getting seller by CIF: A12345678
+dic 17, 2024 7:57:56 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getCategories
+INFORMACIÓN: Getting all categories...
+dic 17, 2024 7:57:56 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+dic 17, 2024 7:57:56 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+dic 17, 2024 7:57:57 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getCategories
+INFORMACIÓN: Getting all categories...

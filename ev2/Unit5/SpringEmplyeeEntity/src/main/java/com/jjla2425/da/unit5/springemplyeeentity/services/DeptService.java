@@ -39,7 +39,7 @@ public class DeptService
             deptDTO.setLoc(dept.get().getLoc());
             deptDTO.setDname(dept.get().getDname());
             deptDTO.setEmployeesCount(employeeEntityDAO.findAllByDeptno(id).size());
-            Optional<EmployeeEntity> manager = employeeEntityDAO.findByDeptnoAndJob(id, "MANAGER");
+                Optional<EmployeeEntity> manager = employeeEntityDAO.findByDeptnoAndJob(id, "MANAGER");
             if (manager.isPresent())
                 deptDTO.setCodeManager(manager.get().getEmpno());
             else

@@ -1,4 +1,9 @@
 package com.jjla2425.da.unit5.sellerappspring.model.daos;
 
-public interface ISellerProductsDAO {
+import com.jjla2425.da.unit5.sellerappspring.model.entities.SellerProductsEntity;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ISellerProductsDAO extends CrudRepository<SellerProductsEntity,Integer> {
 }
