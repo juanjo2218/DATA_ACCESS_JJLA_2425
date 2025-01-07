@@ -90,8 +90,9 @@ public class AddOfferController
                         .subtract(sellerProduct.getPrice().multiply(discountFraction))
                         .setScale(2, RoundingMode.HALF_UP);
                 sellerProduct.setOfferPrice(offerPrice);
-                DataBaseManager.getInstance().addOfferProductsSeller(sellerProduct);
-                Utils.showScreen("AddOffer","Offer add correct.Price before:" + sellerProduct.getPrice() +
+                boolean updated = DataBaseManager.getInstance().addOfferProductsSeller(sellerProduct);
+                if (updated)
+                    Utils.showScreen("AddOffer","Offer add correct.Price before:" + sellerProduct.getPrice() +
                         " price after:" + sellerProduct.getOfferPrice(), Alert.AlertType.INFORMATION);
                 viewProductsSeller();
             }

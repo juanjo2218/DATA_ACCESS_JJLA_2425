@@ -1,6 +1,7 @@
 package com.jjla2425.da.practica.model.DataBaseEntities;
 
 import jakarta.persistence.*;
+import org.json.JSONObject;
 
 import java.util.Objects;
 
@@ -14,6 +15,14 @@ public class CategoriesEntity {
     @Basic
     @Column(name = "category_name")
     private String categoryName;
+
+    public static CategoriesEntity JSONToCategory(JSONObject jsonObject )
+    {
+        CategoriesEntity category = new CategoriesEntity();
+        category.setCategoryId(Integer.parseInt(jsonObject.optString("categoryId", "")));
+        category.setCategoryName(jsonObject.optString("categoryName", ""));
+        return category;
+    }
 
     public int getCategoryId() {
         return categoryId;

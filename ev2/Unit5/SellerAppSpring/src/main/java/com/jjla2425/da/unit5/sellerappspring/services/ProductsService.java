@@ -26,6 +26,11 @@ public class ProductsService {
     }
     public List<ProductsEntity> findAllProductsByCategoryAndActive(int idCategory)
     {
-        return (List<ProductsEntity>) productsDAO.findAllByCategoryIdAndActive(idCategory,true);
+        return productsDAO.findAllByCategoryIdAndActive(idCategory,true);
     }
+    public ProductsEntity saveProduct(ProductsEntity productsEntity)
+    {
+        return productsDAO.save(productsEntity);
+    }
+
 }

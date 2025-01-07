@@ -5,6 +5,7 @@ module com.jjla2425.da.practica {
     requires org.hibernate.orm.core;
     requires java.naming;
     requires org.apache.logging.log4j;
+    requires android.json;
 
 
     opens com.jjla2425.da.practica to javafx.fxml, org.hibernate.orm.core;

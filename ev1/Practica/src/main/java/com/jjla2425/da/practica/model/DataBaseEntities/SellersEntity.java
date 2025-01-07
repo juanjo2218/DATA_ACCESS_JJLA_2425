@@ -1,6 +1,8 @@
 package com.jjla2425.da.practica.model.DataBaseEntities;
 
 import jakarta.persistence.*;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Objects;
 
@@ -131,5 +133,38 @@ public class SellersEntity {
     @Override
     public int hashCode() {
         return Objects.hash(sellerId, cif, name, businessName, phone, email, plainPassword, password);
+    }
+
+    public void ToSellerEntity(JSONObject jsonObject)
+    {
+        setCif(jsonObject.optString("cif", ""));
+        setName(jsonObject.optString("name", ""));
+        setBusinessName(jsonObject.optString("businessName", ""));
+        setEmail(jsonObject.optString("email", ""));
+        setSellerId(Integer.parseInt(jsonObject.optString("sellerId", "")));
+        setPhone(jsonObject.optString("phone", ""));
+        setUrl(jsonObject.optString("url", ""));
+        setPassword(jsonObject.optString("password", ""));
+        setPlainPassword(jsonObject.optString("plainPassword", ""));
+        setPro(Boolean.parseBoolean(jsonObject.optString("pro", "")));
+    }
+
+    public String toJSON() {
+        try {
+            return new JSONObject()
+                    .put("name", name)
+                    .put("businessName", businessName)
+                    .put("email",email)
+                    .put("phone",phone)
+                    .put("url",url)
+                    .put("password",password)
+                    .put("plainPassword",plainPassword)
+                    .put("pro",pro)
+                    .put("cif",cif)
+                    .put("sellerId",sellerId)
+                    .toString();
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

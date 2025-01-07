@@ -1,6 +1,7 @@
 package com.jjla2425.da.unit5.sellerappspring.services;
 
 import com.jjla2425.da.unit5.sellerappspring.model.daos.ISellerProductsDAO;
+import com.jjla2425.da.unit5.sellerappspring.model.entities.ProductsEntity;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.SellerProductsEntity;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.SellersEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,10 @@ public class SellerProductService {
         Optional<SellerProductsEntity> sellerProduct = sellerProductsDAO.findById(id);
         return sellerProduct.isPresent() ? ResponseEntity.ok().body(sellerProduct.get()) : ResponseEntity.notFound().build();
     }
+//    public List<SellerProductsEntity> findAllProductsByCategoryAndActive(int idSellerProduct)
+//    {
+//        return (List<SellerProductsEntity>) sellerProductsDAO.findAllBySellerProductIdAndActive(idSellerProduct,true);
+//    }
     public ResponseEntity<?> updateSellerProduct(SellerProductsEntity sellerProductsEntity, int id)
     {
         Optional<SellerProductsEntity> sellerProduct = sellerProductsDAO.findById(id);
@@ -37,7 +42,7 @@ public class SellerProductService {
         else
             return  ResponseEntity.notFound().build();
     }
-    public SellerProductsEntity saveSellerProduct(SellerProductsEntity sellerProductsEntity)
+    public SellerProductsEntity  saveSellerProduct(SellerProductsEntity sellerProductsEntity)
     {
         return sellerProductsDAO.save(sellerProductsEntity);
     }

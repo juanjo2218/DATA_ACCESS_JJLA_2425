@@ -1,6 +1,8 @@
 package com.jjla2425.da.practica.model.DataBaseEntities;
 
 import jakarta.persistence.*;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -44,6 +46,24 @@ public class SellerProductsEntity {
     }
     public SellerProductsEntity()
     {}
+
+    public  String toJSON()
+    {
+        try {
+            return new JSONObject()
+                    .put("sellerId",sellerId)
+                    .put("sellerProductId",sellerProductId)
+                    .put("productId",productId)
+                    .put("price",price)
+                    .put("stock",stock)
+                    .put("offerEndDate",offerEndDate)
+                    .put("offerPrice",offerPrice)
+                    .put("offerStartDate",offerStartDate)
+                    .toString();
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public int getSellerProductId() {
         return sellerProductId;

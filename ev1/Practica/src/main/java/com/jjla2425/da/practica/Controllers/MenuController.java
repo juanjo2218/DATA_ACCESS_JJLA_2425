@@ -104,8 +104,9 @@ public class MenuController
         sellerlogin.setEmail(email);
         sellerlogin.setPhone(phone);
         sellerlogin.setUrl(URL);
-        DataBaseManager.getInstance().updateSeller(sellerlogin);
-        Utils.showScreen("Update", "Update done correctly", Alert.AlertType.INFORMATION);
+        boolean inserted =  DataBaseManager.getInstance().updateSeller(sellerlogin);
+        if (inserted)
+            Utils.showScreen("Update", "Update done correctly", Alert.AlertType.INFORMATION);
         setSellerDates();
     }
 

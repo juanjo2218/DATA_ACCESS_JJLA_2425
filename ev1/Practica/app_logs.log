@@ -1086,3 +1086,697 @@ dic 17, 2024 7:57:56 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager co
 INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
 dic 17, 2024 7:57:57 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getCategories
 INFORMACIÓN: Getting all categories...
+ene 05, 2025 3:11:00 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 3:11:02 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 3:11:38 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 3:11:39 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 3:11:51 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 3:11:56 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 1:05:21 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 1:05:22 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 1:06:06 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 1:06:07 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 1:13:15 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 1:13:17 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 1:16:21 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 1:16:26 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 1:24:58 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 1:24:59 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 1:25:17 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager updateSeller
+INFORMACIÓN: Updating seller information...
+ene 05, 2025 1:25:17 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager updateSeller
+INFORMACIÓN: Seller information updated successfully.
+ene 05, 2025 1:25:20 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager updateSeller
+INFORMACIÓN: Updating seller information...
+ene 05, 2025 1:25:20 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager updateSeller
+INFORMACIÓN: Seller information updated successfully.
+ene 05, 2025 7:11:42 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 7:11:44 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 7:12:51 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 7:12:56 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 7:13:39 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 7:13:40 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 7:14:32 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 7:14:37 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 7:18:30 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 7:18:31 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 7:18:31 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+GRAVE: Error al obtener el vendedor con CIF: A12345678
+java.net.ConnectException: Connection refused: connect
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:579)
+	at java.base/sun.nio.ch.Net.connect(Net.java:568)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:593)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/java.net.Socket.connect(Socket.java:583)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:183)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:533)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:638)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:281)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:386)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:408)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1324)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1257)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1143)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1072)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1702)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1626)
+	at java.base/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:529)
+	at com.jjla2425.da.practica/com.jjla2425.da.practica.DataBase.DataBaseManager.getSellerByCIF(DataBaseManager.java:72)
+	at com.jjla2425.da.practica/com.jjla2425.da.practica.Controllers.LogInController.validatePassword(LogInController.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:77)
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at javafx.base/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:275)
+	at javafx.fxml/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1854)
+	at javafx.fxml/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1724)
+	at javafx.base/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234)
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at javafx.base/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics/javafx.scene.Node.fireEvent(Node.java:8792)
+	at javafx.controls/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208)
+	at javafx.controls/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234)
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at javafx.base/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics/javafx.scene.Scene$MouseHandler.process(Scene.java:3897)
+	at javafx.graphics/javafx.scene.Scene.processMouseEvent(Scene.java:1878)
+	at javafx.graphics/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2623)
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics/com.sun.glass.ui.View.handleMouseEvent(View.java:557)
+	at javafx.graphics/com.sun.glass.ui.View.notifyMouse(View.java:943)
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+ene 05, 2025 7:18:37 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+GRAVE: Error al obtener el vendedor con CIF: A12345678
+java.net.ConnectException: Connection refused: connect
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:579)
+	at java.base/sun.nio.ch.Net.connect(Net.java:568)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:593)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/java.net.Socket.connect(Socket.java:583)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:183)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:533)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:638)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:281)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:386)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:408)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1324)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1257)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1143)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1072)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1702)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1626)
+	at java.base/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:529)
+	at com.jjla2425.da.practica/com.jjla2425.da.practica.DataBase.DataBaseManager.getSellerByCIF(DataBaseManager.java:72)
+	at com.jjla2425.da.practica/com.jjla2425.da.practica.Controllers.LogInController.validatePassword(LogInController.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:77)
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at javafx.base/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:275)
+	at javafx.fxml/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1854)
+	at javafx.fxml/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1724)
+	at javafx.base/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234)
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at javafx.base/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics/javafx.scene.Node.fireEvent(Node.java:8792)
+	at javafx.controls/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208)
+	at javafx.controls/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234)
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at javafx.base/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics/javafx.scene.Scene$MouseHandler.process(Scene.java:3897)
+	at javafx.graphics/javafx.scene.Scene.processMouseEvent(Scene.java:1878)
+	at javafx.graphics/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2623)
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics/com.sun.glass.ui.View.handleMouseEvent(View.java:557)
+	at javafx.graphics/com.sun.glass.ui.View.notifyMouse(View.java:943)
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+ene 05, 2025 7:18:50 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+GRAVE: Error al obtener el vendedor con CIF: A12345678
+java.net.ConnectException: Connection refused: connect
+	at java.base/sun.nio.ch.Net.connect0(Native Method)
+	at java.base/sun.nio.ch.Net.connect(Net.java:579)
+	at java.base/sun.nio.ch.Net.connect(Net.java:568)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:593)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/java.net.Socket.connect(Socket.java:583)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:183)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:533)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:638)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:281)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:386)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:408)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1324)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1257)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1143)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1072)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1702)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1626)
+	at java.base/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:529)
+	at com.jjla2425.da.practica/com.jjla2425.da.practica.DataBase.DataBaseManager.getSellerByCIF(DataBaseManager.java:72)
+	at com.jjla2425.da.practica/com.jjla2425.da.practica.Controllers.LogInController.validatePassword(LogInController.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:77)
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at javafx.base/com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:275)
+	at javafx.fxml/com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84)
+	at javafx.fxml/javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1854)
+	at javafx.fxml/javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1724)
+	at javafx.base/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234)
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at javafx.base/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.base/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics/javafx.scene.Node.fireEvent(Node.java:8792)
+	at javafx.controls/javafx.scene.control.Button.fire(Button.java:203)
+	at javafx.controls/com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208)
+	at javafx.controls/com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at javafx.base/com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at javafx.base/com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234)
+	at javafx.base/com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at javafx.base/com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at javafx.base/com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at javafx.base/com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.base/javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.graphics/javafx.scene.Scene$MouseHandler.process(Scene.java:3897)
+	at javafx.graphics/javafx.scene.Scene.processMouseEvent(Scene.java:1878)
+	at javafx.graphics/javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2623)
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411)
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450)
+	at javafx.graphics/com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424)
+	at javafx.graphics/com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449)
+	at javafx.graphics/com.sun.glass.ui.View.handleMouseEvent(View.java:557)
+	at javafx.graphics/com.sun.glass.ui.View.notifyMouse(View.java:943)
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+ene 05, 2025 7:19:53 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 7:19:54 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 7:25:09 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 7:25:11 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 7:34:50 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 7:34:52 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 7:40:41 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 7:40:42 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 7:50:54 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getCategories
+INFORMACIÓN: Getting all categories...
+ene 05, 2025 8:05:47 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 8:05:48 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 8:06:16 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 8:06:17 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 8:06:53 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 8:06:54 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 8:18:17 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 8:18:18 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 8:18:23 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 7
+ene 05, 2025 10:23:57 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 10:23:58 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 10:24:08 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 3
+ene 05, 2025 10:24:11 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 6
+ene 05, 2025 10:24:14 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 8
+ene 05, 2025 10:24:16 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 3
+ene 05, 2025 10:24:17 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 5
+ene 05, 2025 10:24:19 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 7
+ene 05, 2025 10:24:22 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 5
+ene 05, 2025 10:24:23 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 4
+ene 05, 2025 10:25:54 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 05, 2025 10:25:55 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 05, 2025 10:25:58 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 4
+ene 05, 2025 10:26:00 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 7
+ene 06, 2025 12:51:22 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 06, 2025 12:51:23 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 06, 2025 1:03:31 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 06, 2025 1:03:32 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 06, 2025 1:03:45 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 4
+ene 06, 2025 1:03:52 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 4
+ene 06, 2025 1:04:25 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 4
+ene 06, 2025 1:04:26 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 4
+ene 06, 2025 1:04:28 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 4
+ene 06, 2025 1:04:30 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 4
+ene 06, 2025 1:04:30 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 4
+ene 06, 2025 1:04:30 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 4
+ene 06, 2025 1:04:30 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 4
+ene 06, 2025 1:04:30 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 4
+ene 06, 2025 1:04:30 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 4
+ene 06, 2025 1:04:50 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 06, 2025 1:04:51 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 06, 2025 1:04:54 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 5
+ene 06, 2025 1:04:57 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 5
+ene 06, 2025 1:05:04 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 5
+ene 06, 2025 1:06:35 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 06, 2025 1:06:36 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 06, 2025 1:06:38 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 5
+ene 06, 2025 1:06:42 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 5
+ene 06, 2025 1:22:24 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 5
+ene 06, 2025 1:22:25 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 5
+ene 06, 2025 1:22:55 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 06, 2025 1:22:56 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 06, 2025 1:22:59 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 4
+ene 06, 2025 1:23:04 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 2 and category ID: 4
+ene 06, 2025 2:32:06 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 06, 2025 2:32:08 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 06, 2025 2:32:14 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:32:14 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:40:23 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 06, 2025 2:40:24 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 06, 2025 2:40:27 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:40:28 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:40:55 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+ene 06, 2025 2:40:55 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:40:55 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+ene 06, 2025 2:40:55 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+ene 06, 2025 2:40:55 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Adding offer to the seller's product...
+ene 06, 2025 2:40:55 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Offer added successfully.
+ene 06, 2025 2:40:57 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:40:57 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:41:01 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+ene 06, 2025 2:41:01 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:41:01 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+ene 06, 2025 2:41:01 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+ene 06, 2025 2:41:01 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Adding offer to the seller's product...
+ene 06, 2025 2:41:01 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Offer added successfully.
+ene 06, 2025 2:41:02 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:41:02 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:41:03 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+ene 06, 2025 2:41:03 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:41:03 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+ene 06, 2025 2:41:03 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+ene 06, 2025 2:41:03 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Adding offer to the seller's product...
+ene 06, 2025 2:41:03 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Offer added successfully.
+ene 06, 2025 2:41:04 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:41:04 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:41:04 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+ene 06, 2025 2:41:04 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:41:04 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+ene 06, 2025 2:41:04 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+ene 06, 2025 2:41:04 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Adding offer to the seller's product...
+ene 06, 2025 2:41:04 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Offer added successfully.
+ene 06, 2025 2:41:05 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:41:05 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:41:05 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+ene 06, 2025 2:41:05 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:41:05 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+ene 06, 2025 2:41:05 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+ene 06, 2025 2:41:05 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Adding offer to the seller's product...
+ene 06, 2025 2:41:05 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Offer added successfully.
+ene 06, 2025 2:41:06 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:41:06 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:41:06 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+ene 06, 2025 2:41:06 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:41:06 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+ene 06, 2025 2:41:06 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+ene 06, 2025 2:41:06 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Adding offer to the seller's product...
+ene 06, 2025 2:41:06 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Offer added successfully.
+ene 06, 2025 2:41:07 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:41:07 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:41:15 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+ene 06, 2025 2:41:15 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:41:15 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+ene 06, 2025 2:41:15 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+ene 06, 2025 2:41:15 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Adding offer to the seller's product...
+ene 06, 2025 2:41:15 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager addOfferProductsSeller
+INFORMACIÓN: Offer added successfully.
+ene 06, 2025 2:41:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:41:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:51:52 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 06, 2025 2:51:53 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 06, 2025 2:51:54 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:51:54 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:52:08 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+ene 06, 2025 2:52:08 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:52:08 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+ene 06, 2025 2:52:08 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+ene 06, 2025 2:52:09 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:52:09 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:52:15 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+ene 06, 2025 2:52:15 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:52:15 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+ene 06, 2025 2:52:15 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+ene 06, 2025 2:52:15 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:52:15 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:52:16 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+ene 06, 2025 2:52:16 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:52:16 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+ene 06, 2025 2:52:16 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+ene 06, 2025 2:52:16 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:52:16 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:52:17 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+ene 06, 2025 2:52:17 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:52:17 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+ene 06, 2025 2:52:17 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+ene 06, 2025 2:52:17 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:52:17 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:52:17 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+ene 06, 2025 2:52:17 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:52:17 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+ene 06, 2025 2:52:17 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+ene 06, 2025 2:52:17 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:52:17 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:52:18 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:52:48 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 06, 2025 2:52:49 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 06, 2025 2:52:50 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:52:50 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:53:04 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+ene 06, 2025 2:53:04 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:53:04 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+ene 06, 2025 2:53:04 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+ene 06, 2025 2:53:04 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:53:04 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 06, 2025 2:53:08 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: Checking date overlaps for seller's products...
+ene 06, 2025 2:53:08 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:53:08 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerInThisDate
+INFORMACIÓN: No date overlaps found for the seller's products.
+ene 06, 2025 2:53:08 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductSeller
+INFORMACIÓN: Getting seller's product...
+ene 06, 2025 2:53:09 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 06, 2025 2:53:09 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...

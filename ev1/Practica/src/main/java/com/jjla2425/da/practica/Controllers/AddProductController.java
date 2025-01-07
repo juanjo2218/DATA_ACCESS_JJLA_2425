@@ -101,10 +101,11 @@ public class AddProductController
             Utils.showScreen("Error: Price not valid","Please enter a higher than 0 and lower than 99999999.99.", Alert.AlertType.ERROR);
         else
         {
-            DataBaseManager.getInstance().addProductsSeller(new SellerProductsEntity(sellerlogin.getSellerId(),productsEntity.getProductId()
+            boolean inserted =DataBaseManager.getInstance().addProductsSeller(new SellerProductsEntity(sellerlogin.getSellerId(),productsEntity.getProductId()
                     ,price,(int)stockSlider.getValue()));
             viewProductsRemaning();
-            Utils.showScreen("Add product","Product added successfully.", Alert.AlertType.INFORMATION);
+            if (inserted)
+                Utils.showScreen("Add product","Product added successfully.", Alert.AlertType.INFORMATION);
         }
     }
     @FXML

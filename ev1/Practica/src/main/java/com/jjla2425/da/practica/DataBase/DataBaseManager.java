@@ -11,11 +11,17 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.time.ZoneId;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 import java.util.logging.*;
 
 public class DataBaseManager {
@@ -54,23 +60,95 @@ public class DataBaseManager {
     }
 
     public SellersEntity getSellerByCIF(String CIF) {
-        Session session = SessionMnager.getInstance().getSession();
-        LOGGER.info("Getting seller by CIF: " + CIF);
-        Query<SellersEntity> myQuery = session.createQuery("from SellersEntity where cif = :cif", SellersEntity.class);
-        myQuery.setParameter("cif", CIF);
+        HttpURLConnection conn = null;
+        Scanner scanner = null;
+
         try {
-            return myQuery.getSingleResult();
-        } catch (NoResultException e) {
-            LOGGER.warning("No seller found with CIF: " + CIF);
-            return null;
+            URL url = new URL("http://localhost:8080/api-rest/Sellers/" + CIF);
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/json");
+
+            int responseCode = conn.getResponseCode();
+
+            if (responseCode == 200) {
+                scanner = new Scanner(conn.getInputStream());
+                String response = scanner.useDelimiter("\\Z").next();
+                scanner.close();
+                JSONObject jsonObject = new JSONObject(response);
+
+                SellersEntity seller = new SellersEntity();
+                seller.ToSellerEntity(jsonObject);
+                return seller;
+            } else {
+                LOGGER.warning("La conexión falló. Código de respuesta: " + responseCode);
+            }
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Error al obtener el vendedor con CIF: " + CIF, e);
+        } finally {
+            if (scanner != null) {
+                scanner.close();
+            }
+            if (conn != null) {
+                conn.disconnect();
+            }
         }
+        return null;
+    }
+
+    public boolean updateSeller(SellersEntity sellersEntity) {
+        HttpURLConnection conn = null;
+        String jsonInputString = null;
+        jsonInputString = sellersEntity.toJSON();
+        try {
+            URL url = new URL("http://localhost:8080/api-rest/Sellers/" + sellersEntity.getCif());
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("PUT");
+            conn.setRequestProperty("Content-Type", "application/json; utf-8");
+            conn.setRequestProperty("Accept", "application/json");
+            conn.setDoOutput(true);
+
+            try (OutputStream os = conn.getOutputStream()) {
+                byte[] input = jsonInputString.getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
+            return conn.getResponseCode() == 200;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (conn != null)
+                conn.disconnect();
+        }
+        return false;
     }
 
     public ArrayList<CategoriesEntity> getCategories() {
-        Session session = SessionMnager.getInstance().getSession();
-        LOGGER.info("Getting all categories...");
-        Query<CategoriesEntity> myQuery = session.createQuery("from CategoriesEntity", CategoriesEntity.class);
-        return (ArrayList<CategoriesEntity>) myQuery.list();
+        ArrayList<CategoriesEntity> categoriesEntities = new ArrayList<>();
+        HttpURLConnection conn = null;
+        try {
+            URL url = new URL(
+                    "http://localhost:8080/api-rest/Categories");
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestProperty("Accept", "application/json");
+
+            if (conn.getResponseCode() == 200) {
+                Scanner scanner = new Scanner(conn.getInputStream());
+                String response = scanner.useDelimiter("\\Z").next();
+                scanner.close();
+
+                JSONArray jsonArray = new JSONArray(response);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    categoriesEntities.add(CategoriesEntity.JSONToCategory((JSONObject) jsonArray.get(i)));
+                }
+            } else
+                System.out.println("Connection failed.");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (conn != null)
+                conn.disconnect();
+        }
+        return categoriesEntities;
     }
 
     public ArrayList<ProductsEntity> getProductsByIdCategory(int category_id) {
@@ -80,20 +158,54 @@ public class DataBaseManager {
         myQuery.setParameter("category_id", category_id);
         return (ArrayList<ProductsEntity>) myQuery.list();
     }
-
-    public CategoriesEntity getCategorieEntityByName(String name) {
-        Session session = SessionMnager.getInstance().getSession();
-        LOGGER.info("Getting category by name: " + name);
-        Query<CategoriesEntity> myQuery = session.createQuery("from CategoriesEntity where categoryName = :name", CategoriesEntity.class);
-        myQuery.setParameter("name", name);
+    public boolean addProductsSeller(SellerProductsEntity product) {
+        HttpURLConnection conn = null;
+        String jsonInputString = product.toJSON();
         try {
-            return myQuery.getSingleResult();
-        } catch (NoResultException e) {
-            LOGGER.warning("No category found with name: " + name);
-            return null;
+            URL url = new URL("http://localhost:8080/api-rest/SellerProducts");
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/json; utf-8");
+            conn.setRequestProperty("Accept", "application/json");
+            conn.setDoOutput(true);
+            try (OutputStream os = conn.getOutputStream()) {
+                byte[] input = jsonInputString.getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
+            return conn.getResponseCode() == 200;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (conn != null)
+                conn.disconnect();
         }
+        return false;
     }
+    public boolean addOfferProductsSeller(SellerProductsEntity sellerProduct) {
+        HttpURLConnection conn = null;
+        String jsonInputString = null;
+        jsonInputString = sellerProduct.toJSON();
+        try {
+            URL url = new URL("http://localhost:8080/api-rest/SellerProducts/" + sellerProduct.getSellerProductId());
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("PUT");
+            conn.setRequestProperty("Content-Type", "application/json; utf-8");
+            conn.setRequestProperty("Accept", "application/json");
+            conn.setDoOutput(true);
 
+            try (OutputStream os = conn.getOutputStream()) {
+                byte[] input = jsonInputString.getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
+            return conn.getResponseCode() == 200;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (conn != null)
+                conn.disconnect();
+        }
+        return false;
+    }
     public ProductsEntity getProductByIdProduct(int product_id) {
         Session session = SessionMnager.getInstance().getSession();
         LOGGER.info("Getting product by ID: " + product_id);
@@ -148,59 +260,6 @@ public class DataBaseManager {
         return (ArrayList<ProductsEntity>) myQuery.list();
     }
 
-    public void addProductsSeller(SellerProductsEntity product) {
-        LOGGER.info("Adding new product to the seller...");
-        try (Session session = SessionMnager.getInstance().getSession()) {
-            session.beginTransaction();
-            session.persist(product);
-            session.getTransaction().commit();
-            LOGGER.info("Product added successfully.");
-        } catch (Exception e) {
-            LOGGER.log(Level.SEVERE, "Error adding product to the seller.", e);
-        }
-    }
-
-    public void addOfferProductsSeller(SellerProductsEntity sellerProduct) {
-        LOGGER.info("Adding offer to the seller's product...");
-        Session session = SessionMnager.getInstance().getSession();
-        Transaction transaction = null;
-        try {
-            transaction = session.beginTransaction();
-            if (sellerProduct != null) {
-                session.merge(sellerProduct);
-            }
-            transaction.commit();
-            LOGGER.info("Offer added successfully.");
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            LOGGER.log(Level.SEVERE, "Error adding offer to the seller's product.", e);
-        } finally {
-            session.close();
-        }
-    }
-
-    public void updateSeller(SellersEntity sellersEntity) {
-        LOGGER.info("Updating seller information...");
-        Session session = SessionMnager.getInstance().getSession();
-        Transaction transaction = null;
-        try {
-            transaction = session.beginTransaction();
-            if (sellersEntity != null) {
-                session.merge(sellersEntity);
-            }
-            transaction.commit();
-            LOGGER.info("Seller information updated successfully.");
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            LOGGER.log(Level.SEVERE, "Error updating seller information.", e);
-        } finally {
-            session.close();
-        }
-    }
 
     public ProductsEntity getProductsById(int idProduct) {
         LOGGER.info("Getting product by ID: " + idProduct);
