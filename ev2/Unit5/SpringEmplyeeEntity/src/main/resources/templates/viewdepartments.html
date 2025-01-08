@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Departments</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Localization</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="department:${departments}">
+        <td th:text="${department.deptno}"></td>
+        <td th:text="${department.dname}"></td>
+        <td th:text="${department.loc}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
