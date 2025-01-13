@@ -1,6 +1,8 @@
 package com.jjla2425.da.unit5.sellerappspring.model.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import org.hibernate.validator.constraints.URL;
 
 import java.util.Objects;
 
@@ -9,33 +11,50 @@ import java.util.Objects;
 public class SellersEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @NotNull(message = "Name can not be null")
     @Column(name = "seller_id")
     private int sellerId;
     @Basic
     @Column(name = "cif")
+    @Size(min = 2,max = 20,message = "CIF size must be between 2 and 20")
+    @NotNull(message = "Name can not be null")
     private String cif;
     @Basic
     @Column(name = "name")
+    @Size(min = 2,max = 100,message = "Name size must be between 2 and 100")
+    @NotNull(message = "Name can not be null")
     private String name;
     @Basic
     @Column(name = "business_name")
+    @Size(min = 2,max = 100,message = "Business name size must be between 2 and 100")
     private String businessName;
     @Basic
+    @Size(min = 2,max = 15,message = "Phone size must be between 2 and 15")
+    @Pattern(regexp = "^\\+?[0-9]*$", message = "The phone number must contain only digits and may start with '+'.")
     @Column(name = "phone")
     private String phone;
     @Basic
+    @Size(min = 2,max = 90,message = "Email size must be between 2 and 90")
+    @Email(message = "The Email must be valid.")
     @Column(name = "email")
     private String email;
     @Basic
+    @Size(min = 2,max = 50,message = "Plain Password size must be between 2 and 50")
     @Column(name = "plain_password")
+    @NotNull(message = "Name can not be null")
     private String plainPassword;
     @Basic
+    @Size(min = 2,max = 100,message = "Password size must be between 2 and 100")
     @Column(name = "password")
+    @NotNull(message = "Name can not be null")
     private String password;
     @Basic
+    @Size(min = 2,max = 255,message = "URL size must be between 2 and 255")
     @Column(name = "url")
+    @URL(message = "The URL must be valid.")
     private String url;
     @Basic
+    @NotNull(message = "Name can not be null")
     @Column(name = "pro")
     private boolean pro;
 

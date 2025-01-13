@@ -1,6 +1,7 @@
 package com.jjla2425.da.unit5.sellerappspring.model.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -11,6 +12,7 @@ import java.util.Objects;
 public class SellerProductsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @NotNull
     @Column(name = "seller_product_id")
     private int sellerProductId;
     @Basic
@@ -20,9 +22,16 @@ public class SellerProductsEntity {
     @Column(name = "product_id")
     private Integer productId;
     @Basic
+    @NotNull
+    @Digits(integer = 8, fraction = 2, message = "The price must have up to 8 digits before the decimal point and 2 digits after it.")
+    @Min(value = 0, message = "The price must be greater than or equal to 0.")
+    @Max(value = 99999999, message = "The price must be less than or equal to 99,999,999.99.")
     @Column(name = "price")
     private BigDecimal price;
     @Basic
+    @Digits(integer = 8, fraction = 2, message = "The offer price must have up to 8 digits before the decimal point and 2 digits after it.")
+    @Min(value = 0, message = "The offer price must be greater than or equal to 0.")
+    @Max(value = 99999999, message = "The offer price must be less than or equal to 99,999,999.99.")
     @Column(name = "offer_price")
     private BigDecimal offerPrice;
     @Basic
@@ -32,6 +41,7 @@ public class SellerProductsEntity {
     @Column(name = "offer_end_date")
     private Date offerEndDate;
     @Basic
+    @NotNull
     @Column(name = "stock")
     private int stock;
 

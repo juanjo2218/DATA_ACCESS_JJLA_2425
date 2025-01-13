@@ -1,6 +1,9 @@
 package com.jjla2425.da.unit5.sellerappspring.model.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
 
@@ -9,9 +12,13 @@ import java.util.Objects;
 public class CategoriesEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @NotNull(message = "Name can not be null")
     @Column(name = "category_id")
     private int categoryId;
     @Basic
+    @Size(min = 2,max = 50,message = "Name size must be between 2 and 50")
+    @NotEmpty(message = "Name can empty")
+    @NotNull(message = "Name can not be null")
     @Column(name = "category_name")
     private String categoryName;
 
