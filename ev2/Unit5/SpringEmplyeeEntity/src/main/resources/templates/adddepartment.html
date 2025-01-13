@@ -7,8 +7,12 @@
 </head>
 <body>
 <h1>Create New Departamento</h1>
-<form action="#" th:action="@{/addDepartment}" th:object="${department}" method="post">
+<form action="#" th:action="@{/adddepartment}" th:object="${department}" method="post">
 
+    <div class="form-group">
+        <label for="deptno">Id Department:</label>
+        <input type="number" id="deptno" name="deptno" required>
+    </div>
     <div class="form-group">
         <label for="dname">Name:</label>
         <input type="text" id="dname" name="dname" required>
