@@ -40,18 +40,18 @@ public class PageWeb
         model.addAttribute("employees",employeeEntities);
         return "viewemployees";
     }
-    @GetMapping("/adddepartmentd")
+    @GetMapping("/adddepartment")
     public String createDepartment(Model model) {
         model.addAttribute("department", new DeptEntity());
-        return "adddepartmentd";
+        return "adddepartment";
     }
 
-    @PostMapping("/adddepartmentd")
+    @PostMapping("/adddepartment")
     public String addDepartment(@ModelAttribute @Valid DeptEntity deptEntity) {
         if (!deptService.existsById(deptEntity.getDeptno())) {
             deptService.saveDepartment(deptEntity);
         }
-        return "adddepartmentd";
+        return "adddepartment";
     }
     @GetMapping("/addemployee")
     public String createEmployee(Model model) {
