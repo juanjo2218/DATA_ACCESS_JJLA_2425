@@ -3,6 +3,7 @@ package com.jjla2425.da.unit5.sellerappspring.services;
 import com.jjla2425.da.unit5.sellerappspring.model.daos.IProductsDAO;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.CategoriesEntity;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.ProductsEntity;
+import jakarta.persistence.NamedNativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -31,5 +32,9 @@ public class ProductsService {
     public ProductsEntity saveProduct(ProductsEntity productsEntity)
     {
         return productsDAO.save(productsEntity);
+    }
+
+    public List<ProductsEntity> getProductsSellerRemaining(int idCategory, int idSeller) {
+        return productsDAO.getProductsByCategoryAndSellerIdRemaning(idSeller, idCategory);
     }
 }

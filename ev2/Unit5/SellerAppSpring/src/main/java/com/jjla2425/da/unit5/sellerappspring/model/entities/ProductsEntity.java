@@ -8,6 +8,9 @@ import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
+@NamedNativeQuery(name = "ProductsEntity.getProductsByCategoryAndSellerIdRemaning",
+        query = "SELECT jjla_getproductssellerremaining( :p_idseller, :p_idcategory)",
+        resultClass = ProductsEntity.class)
 @Table(name = "products", schema = "public", catalog = "OnlineMarket")
 public class ProductsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)

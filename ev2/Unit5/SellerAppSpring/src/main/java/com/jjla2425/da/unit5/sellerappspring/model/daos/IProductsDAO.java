@@ -9,5 +9,7 @@ import java.util.List;
 
 @Repository
 public interface IProductsDAO extends CrudRepository<ProductsEntity,Integer> {
-   List<ProductsEntity> findAllByCategoryIdAndActive(int categoryId, boolean active);
+   List<ProductsEntity> getProductsByCategoryAndSellerIdRemaning(int p_idseller,int p_idcategory);
+
+   List<ProductsEntity> findAllByCategoryIdAndActive(int idCategory, boolean active);
 }

@@ -75,4 +75,8 @@ public class EmployeeService
         else
             return  ResponseEntity.notFound().build();
     }
+
+    public boolean existsById(int deptno) {
+        return employeeEntityDAO.existsById(deptno);
+    }
 }

@@ -1,9 +1,7 @@
 package com.jjla2425.da.unit5.sellerappspring.services;
 
 import com.jjla2425.da.unit5.sellerappspring.model.daos.ISellerProductsDAO;
-import com.jjla2425.da.unit5.sellerappspring.model.entities.ProductsEntity;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.SellerProductsEntity;
-import com.jjla2425.da.unit5.sellerappspring.model.entities.SellersEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -24,10 +22,6 @@ public class SellerProductService {
         Optional<SellerProductsEntity> sellerProduct = sellerProductsDAO.findById(id);
         return sellerProduct.isPresent() ? ResponseEntity.ok().body(sellerProduct.get()) : ResponseEntity.notFound().build();
     }
-//    public List<SellerProductsEntity> findAllProductsByCategoryAndActive(int idSellerProduct)
-//    {
-//        return (List<SellerProductsEntity>) sellerProductsDAO.findAllBySellerProductIdAndActive(idSellerProduct,true);
-//    }
     public ResponseEntity<?> updateSellerProduct(SellerProductsEntity sellerProductsEntity, int id)
     {
         Optional<SellerProductsEntity> sellerProduct = sellerProductsDAO.findById(id);
@@ -46,4 +40,8 @@ public class SellerProductService {
     {
         return sellerProductsDAO.save(sellerProductsEntity);
     }
+
+//    public List<SellerProductsEntity> findAllSellerProductsByIdSellerAndActive(int idSeller) {
+//        return sellerProductsDAO.findAllBySellerIdAndProductActive(idSeller);
+//    }
 }

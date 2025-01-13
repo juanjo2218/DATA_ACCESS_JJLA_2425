@@ -3,6 +3,7 @@ package com.jjla2425.da.unit5.sellerappspring.controllers;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.ProductsEntity;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.SellersEntity;
 import com.jjla2425.da.unit5.sellerappspring.services.ProductsService;
+import com.jjla2425.da.unit5.sellerappspring.services.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.query.Param;
@@ -18,6 +19,9 @@ public class ProductController
 {
     @Autowired
     private ProductsService productsService;
+    @Autowired
+    private SellerService sellerProductService;
+
     @GetMapping("/{id}")
     public ResponseEntity<ProductsEntity> findProductById(@PathVariable(value = "id") int id)
     {
@@ -29,11 +33,9 @@ public class ProductController
         return productsService.findAllProductsByCategoryAndActive(idCategory);
     }
 
-    @Procedure(procedureName = "jjla_getproductssellerremaining")
-    List<ProductsEntity> getProductsSellerRemaining(@Param("product_id") int idCategory,
-                                    @Param("new_price") int idSeller)
-    {
-
-        return null;
+    @GetMapping("/{idCategory}/{idSeller}")
+    public List<ProductsEntity> getProductsSellerRemaining(@PathVariable(value = "idCategory") Integer idCategory,
+                                                           @PathVariable (value = "idSeller") Integer idSeller) {
+        return productsService.getProductsSellerRemaining(idCategory,idSeller);
     }
 }

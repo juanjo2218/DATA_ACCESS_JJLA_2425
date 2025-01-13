@@ -78,4 +78,11 @@ public class DeptService
     {
         return deptEntityDAO.save(dept);
     }
+    public DeptEntity saveDepartment(DeptEntity deptEntity) {
+        return deptEntityDAO.save(deptEntity);
+    }
+
+    public boolean existsById(int deptno) {
+        return deptEntityDAO.existsById(deptno);
+    }
 }

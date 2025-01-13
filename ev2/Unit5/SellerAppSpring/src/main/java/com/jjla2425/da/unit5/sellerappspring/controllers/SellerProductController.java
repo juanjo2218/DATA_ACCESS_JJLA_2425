@@ -30,4 +30,9 @@ public class SellerProductController {
     {
         return sellerProductService.updateSellerProduct(sellerProductsEntity,id);
     }
+//    @GetMapping("/{idSeller}")
+//    public List<SellerProductsEntity> findAllSellerProductsByIdSeller( @PathVariable(value = "idSeller")int idSeller)
+//    {
+//        return sellerProductService.findAllSellerProductsByIdSellerAndActive(idSeller);
+//    }
 }

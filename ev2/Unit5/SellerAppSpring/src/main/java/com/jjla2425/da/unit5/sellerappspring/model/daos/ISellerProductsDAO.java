@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface ISellerProductsDAO extends CrudRepository<SellerProductsEntity,Integer> {
-//    List<SellerProductsEntity> findAllBySellerIdAndProductActive(int sellerId, boolean active);
+
 }

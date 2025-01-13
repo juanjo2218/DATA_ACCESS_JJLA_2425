@@ -1,6 +1,7 @@
 package com.jjla2425.da.unit5.sellerappspring.services;
 
 import com.jjla2425.da.unit5.sellerappspring.model.daos.ISellersDAO;
+import com.jjla2425.da.unit5.sellerappspring.model.entities.ProductsEntity;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.SellersEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.util.Optional;
 public class SellerService {
     @Autowired
     private ISellersDAO sellersDAO;
+
     public List<SellersEntity> findAllSellers()
     {
         return (List<SellersEntity>) sellersDAO.findAll();

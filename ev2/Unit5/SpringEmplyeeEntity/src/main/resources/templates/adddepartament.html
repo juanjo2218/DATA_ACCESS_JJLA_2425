@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add department</title>
+    <link rel="stylesheet" href=".css">
+</head>
+<body>
+<h1>Create New Departamento</h1>
+<form action="#" th:action="@{/adddepartmentd}" th:object="${department}" method="post">
+
+    <div class="form-group">
+        <label for="dname">Name:</label>
+        <input type="text" id="dname" name="dname" required>
+    </div>
+
+    <div class="form-group">
+        <label for="loc">Localization:</label>
+        <input type="text" id="loc" name="loc" required>
+    </div>
+
+    <button class="form_button" type="submit">Create Departamento</button>
+</form>
+</body>
+</html>
