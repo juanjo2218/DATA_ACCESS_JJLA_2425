@@ -1780,11 +1780,19 @@ ene 06, 2025 2:53:09 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager ge
 INFORMACIÓN: Getting active products for seller with ID: 1
 ene 06, 2025 2:53:09 A. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
 INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+<<<<<<< HEAD
 ene 08, 2025 12:39:18 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
 INFORMACIÓN: Initializing SessionFactory for Hibernate...
 ene 08, 2025 12:39:20 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
 INFORMACIÓN: SessionFactory initialized successfully.
 ene 08, 2025 12:39:20 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+=======
+ene 07, 2025 4:42:10 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 07, 2025 4:42:13 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 07, 2025 4:42:13 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getSellerByCIF
+>>>>>>> cd92ab56031ea492cdbf7d8e6848d7092c0ef1d3
 GRAVE: Error al obtener el vendedor con CIF: A12345678
 java.net.ConnectException: Connection refused: connect
 	at java.base/sun.nio.ch.Net.connect0(Native Method)
@@ -1799,6 +1807,7 @@ java.net.ConnectException: Connection refused: connect
 	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:281)
 	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:386)
 	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:408)
+<<<<<<< HEAD
 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1324)
 	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1257)
 	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1143)
@@ -2215,6 +2224,14 @@ java.net.ConnectException: Connection refused: connect
 	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1072)
 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1702)
 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1626)
+=======
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1308)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1241)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1127)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1056)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1686)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1610)
+>>>>>>> cd92ab56031ea492cdbf7d8e6848d7092c0ef1d3
 	at java.base/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:529)
 	at com.jjla2425.da.practica/com.jjla2425.da.practica.DataBase.DataBaseManager.getSellerByCIF(DataBaseManager.java:72)
 	at com.jjla2425.da.practica/com.jjla2425.da.practica.Controllers.LogInController.validatePassword(LogInController.java:36)
@@ -2276,3 +2293,26 @@ java.net.ConnectException: Connection refused: connect
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184)
 	at java.base/java.lang.Thread.run(Thread.java:840)
 
+<<<<<<< HEAD
+=======
+ene 07, 2025 4:42:44 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 07, 2025 4:42:46 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 07, 2025 4:43:11 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 5
+ene 07, 2025 4:46:36 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: Initializing SessionFactory for Hibernate...
+ene 07, 2025 4:46:38 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager <init>
+INFORMACIÓN: SessionFactory initialized successfully.
+ene 07, 2025 4:46:48 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 07, 2025 4:46:48 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+ene 07, 2025 4:47:26 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsRemainingSellerWithCategoryId
+INFORMACIÓN: Getting remaining products for seller ID: 1 and category ID: 3
+ene 07, 2025 4:48:01 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager getProductsSellerActive
+INFORMACIÓN: Getting active products for seller with ID: 1
+ene 07, 2025 4:48:01 P. M. com.jjla2425.da.practica.DataBase.DataBaseManager convertSellerProductsEntityToProductsEntity
+INFORMACIÓN: Converting SellerProductsEntity to ProductsEntity...
+>>>>>>> cd92ab56031ea492cdbf7d8e6848d7092c0ef1d3
