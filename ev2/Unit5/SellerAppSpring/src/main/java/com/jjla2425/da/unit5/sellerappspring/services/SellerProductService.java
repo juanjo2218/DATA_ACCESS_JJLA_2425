@@ -41,7 +41,7 @@ public class SellerProductService {
         return sellerProductsDAO.save(sellerProductsEntity);
     }
 
-//    public List<SellerProductsEntity> findAllSellerProductsByIdSellerAndActive(int idSeller) {
-//        return sellerProductsDAO.findAllBySellerIdAndProductActive(idSeller);
-//    }
+    public List<SellerProductsEntity> findAllSellerProductsByIdSellerAndActive(int idSeller) {
+        return sellerProductsDAO.getSellerProductsBySellerIdActives(idSeller);
+    }
 }

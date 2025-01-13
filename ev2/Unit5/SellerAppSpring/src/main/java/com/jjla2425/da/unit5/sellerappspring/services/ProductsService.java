@@ -35,6 +35,7 @@ public class ProductsService {
     }
 
     public List<ProductsEntity> getProductsSellerRemaining(int idCategory, int idSeller) {
-        return productsDAO.getProductsByCategoryAndSellerIdRemaning(idSeller, idCategory);
+        List<ProductsEntity> lp = productsDAO.getProductsByCategoryAndSellerIdRemaning(idSeller, idCategory);
+        return lp;
     }
 }

@@ -9,7 +9,7 @@ import java.util.Objects;
 
 @Entity
 @NamedNativeQuery(name = "ProductsEntity.getProductsByCategoryAndSellerIdRemaning",
-        query = "SELECT jjla_getproductssellerremaining( :p_idseller, :p_idcategory)",
+        query = "SELECT * from jjla_getproductssellerremaining(:sellerId, :categoryId)",
         resultClass = ProductsEntity.class)
 @Table(name = "products", schema = "public", catalog = "OnlineMarket")
 public class ProductsEntity {
@@ -17,7 +17,7 @@ public class ProductsEntity {
     @Id
     @NotNull(message = "Name can not be null")
     @Column(name = "product_id")
-    private int productId;
+    private Integer productId;
     @Basic
     @Size(min = 2,max = 100,message = "Name size must be between 2 and 100")
     @NotEmpty(message = "Name can empty")
@@ -35,11 +35,11 @@ public class ProductsEntity {
     @Column(name = "active")
     private boolean active;
 
-    public int getProductId() {
+    public Integer getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 

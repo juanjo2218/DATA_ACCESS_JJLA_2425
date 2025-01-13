@@ -8,6 +8,9 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
+@NamedNativeQuery(name = "SellerProductsEntity.getSellerProductsBySellerIdActives",
+        query = "SELECT * from jjla_get_sellerproductsactive(:sellerId)",
+        resultClass = SellerProductsEntity.class)
 @Table(name = "seller_products", schema = "public", catalog = "OnlineMarket")
 public class SellerProductsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
