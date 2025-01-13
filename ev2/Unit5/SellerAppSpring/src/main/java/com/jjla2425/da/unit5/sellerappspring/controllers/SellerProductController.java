@@ -25,10 +25,8 @@ public class SellerProductController {
         return sellerProductService.saveSellerProduct(sellerProductsEntity);
     }
     @PutMapping("/{id}")
-=======
-    public ResponseEntity<?> updateSellerProduct(@RequestBody SellerProductsEntity sellerProductsEntity,
+    public ResponseEntity<?> updateSellerProduct(@RequestBody SellerProductsEntity sellerProductsEntity,@Valid
                                                  @PathVariable(value = "id")int id)
->>>>>>> cd92ab56031ea492cdbf7d8e6848d7092c0ef1d3
     {
         return sellerProductService.updateSellerProduct(sellerProductsEntity,id);
     }
