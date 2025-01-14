@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="addproductstyle.css">
+    <title>Add Product</title>
+</head>
+<body>
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-item" onclick="goToMenu()">
+            <img src="img/menu.png" alt="Menu Icon" class="sidebar-icon" />
+            <p>Menu</p>
+        </div>
+        <div class="sidebar-item" onclick="goToAddProduct()">
+            <img src="img/addproduct.png" alt="Add Product Icon" class="sidebar-icon" />
+            <p>Add Product</p>
+        </div>
+        <div class="sidebar-item" onclick="goToAddOffer()">
+            <img src="img/offer.png" alt="Offer Icon" class="sidebar-icon" />
+            <p>Offer</p>
+        </div>
+        <div class="sidebar-item" onclick="goToLogin()">
+            <img src="img/exit.png" alt="Exit Icon" class="sidebar-icon" />
+            <p>Exit</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Add to Store</h1>
+
+        <form class="form-grid">
+            <div class="form-item">
+                <label for="category">Category:</label>
+                <select id="category" class="input-field">
+                    <option value="">Select Category</option>
+                    <!-- Add categories here -->
+                </select>
+            </div>
+            <div class="form-item">
+                <label for="product">Product:</label>
+                <select id="product" class="input-field">
+                    <option value="">Select Product</option>
+                    <!-- Add products here -->
+                </select>
+            </div>
+            <div class="form-item">
+                <label for="stock">Stock:</label>
+                <div class="slider-container">
+                    <input type="range" id="stock" class="slider" min="0" max="25" value="0" step="1">
+                    <span id="stockLabel">Units</span>
+                </div>
+            </div>
+            <div class="form-item">
+                <label for="price">Price:</label>
+                <input type="text" id="price" class="input-field" placeholder="Enter price">
+            </div>
+
+            <button type="submit" class="btn">Add</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // JavaScript functions for interactions, e.g., goToMenu(), goToAddProduct(), etc.
+</script>
+</body>
+</html>

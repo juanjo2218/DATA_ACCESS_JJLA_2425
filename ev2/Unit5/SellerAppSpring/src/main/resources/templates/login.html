@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Inicio de Sesión</title>
+</head>
+<body>
+<div class="container">
+    <h1>Inicio de Sesión</h1>
+    <div class="form-container">
+        <input type="text" id="CIFField" placeholder="Introduce tu CIF" value="A12345678" />
+        <input type="password" id="passwordField" placeholder="Contraseña" value="password1" />
+        <div class="checkbox-container">
+            <input type="checkbox" id="rememberCheck" />
+            <label for="rememberCheck">Remember me</label>
+        </div>
+        <button onclick="validatePassword()">Login</button>
+    </div>
+</div>
+</body>
+<script>
+    function validatePassword() {
+        // Obtener los valores de los campos
+        const CIF = document.getElementById('CIFField').value;
+        const password = document.getElementById('passwordField').value;
+        // Hacer una solicitud GET a la API para obtener la información del vendedor por su CIF
+        fetch('http://localhost:8080/api-rest/Sellers/' + CIF) // Suponiendo que tu API está en localhost:8080 y el endpoint es /sellers/{cif}
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('CIF no encontrado');
+                }
+                return response.json(); // Convertir la respuesta en JSON
+            })
+            .then(seller => {
+                // Aquí puedes verificar si la contraseña coincide con la del vendedor
+                if (seller.password === password) {
+                    alert('¡Bienvenido, vendedor!');
+                    // Redirigir o hacer algo más después de iniciar sesión
+                } else {
+                    alert('Contraseña incorrecta');
+                }
+            })
+            .catch(error => {
+                alert(error.message); // Mostrar el mensaje de error si no se encuentra el CIF o la solicitud falla
+                console.error('Error:', error);
+            });
+    }
+</script>
+</html>

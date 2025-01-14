@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="addofferstyle.css">
+    <title>Add Offer</title>
+</head>
+<body>
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-item" onclick="goToMenu()">
+            <img src="img/menu.png" alt="Menu Icon" class="sidebar-icon" />
+            <p>Menu</p>
+        </div>
+        <div class="sidebar-item" onclick="goToAddProductMenu()">
+            <img src="img/addproduct.png" alt="Add Product Icon" class="sidebar-icon" />
+            <p>Add Product</p>
+        </div>
+        <div class="sidebar-item">
+            <img src="img/offer.png" alt="Offer Icon" class="sidebar-icon" />
+            <p>Offer</p>
+        </div>
+        <div class="sidebar-item" onclick="goToLogin()">
+            <img src="img/exit.png" alt="Exit Icon" class="sidebar-icon" />
+            <p>Exit</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Add Offer</h1>
+
+        <form class="form-grid">
+            <div class="form-item">
+                <label for="product">Product:</label>
+                <select id="product" class="input-field">
+                    <option value="">Select Product</option>
+                    <!-- Add products here -->
+                </select>
+            </div>
+            <div class="form-item">
+                <label for="fromDate">From:</label>
+                <input type="date" id="fromDate" class="input-field">
+            </div>
+            <div class="form-item">
+                <label for="toDate">To:</label>
+                <input type="date" id="toDate" class="input-field">
+            </div>
+            <div class="form-item">
+                <label for="discount">Discount:</label>
+                <input type="text" id="discount" class="input-field" placeholder="Enter discount">
+            </div>
+
+            <button type="submit" class="btn">Add Offer</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // JavaScript functions for interactions, e.g., goToMenu(), goToAddProductMenu(), etc.
+</script>
+</body>
+</html>

@@ -19,8 +19,7 @@ public class ProductController
 {
     @Autowired
     private ProductsService productsService;
-    @Autowired
-    private SellerService sellerProductService;
+
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductsEntity> findProductById(@PathVariable(value = "id") int id)

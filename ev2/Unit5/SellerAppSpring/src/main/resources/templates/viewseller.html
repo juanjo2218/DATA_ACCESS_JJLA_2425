@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="viewsellerstyle.css">
+    <title>Menu Panel</title>
+</head>
+<body>
+<div class="menu-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-item">
+            <img src="img/menu.png" alt="Menu Icon" />
+            <p>Menu</p>
+        </div>
+        <div class="sidebar-item" onclick="goToAddProductMenu()">
+            <img src="img/addproduct.png" alt="Add Product Icon" />
+            <p>Add Product</p>
+        </div>
+        <div class="sidebar-item" onclick="goToAddOfferMenu()">
+            <img src="img/offer.png" alt="Offer Icon" />
+            <p>Offer</p>
+        </div>
+        <div class="sidebar-item" onclick="goToLogin()">
+            <img src="img/exit.png" alt="Exit Icon" />
+            <p>Exit</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Seller Data</h1>
+        <div class="form-grid">
+            <!-- Fill the fields with Thymeleaf expressions -->
+            <div class="form-item">
+                <label for="cifField">CIF:</label>
+                <input type="text" id="cifField" th:value="${seller.cif}" disabled />
+            </div>
+            <div class="form-item">
+                <label for="nameField">Name:</label>
+                <input type="text" id="nameField" th:value="${seller.name}" />
+            </div>
+            <div class="form-item">
+                <label for="businessNameField">Business name:</label>
+                <input type="text" id="businessNameField" th:value="${seller.businessName}" />
+            </div>
+            <div class="form-item">
+                <label for="phoneField">Phone:</label>
+                <input type="text" id="phoneField" th:value="${seller.phone}" />
+            </div>
+            <div class="form-item">
+                <label for="emailField">Email:</label>
+                <input type="text" id="emailField" th:value="${seller.email}" />
+            </div>
+            <div class="form-item">
+                <label for="URLField">URL:</label>
+                <input type="text" id="URLField" th:value="${seller.url}" />
+            </div>
+            <div class="form-item">
+                <label for="passwordFieldMenu">Password:</label>
+                <input type="password" id="passwordFieldMenu" />
+            </div>
+        </div>
+        <button onclick="updateDatabase()">Update</button>
+    </div>
+</div>
+</body>
+<script>
+    function goToAddProductMenu() {
+        alert("Navigating to Add Product Menu...");
+    }
+
+    function goToAddOfferMenu() {
+        alert("Navigating to Add Offer Menu...");
+    }
+
+    function goToLogin() {
+        alert("Navigating to Login...");
+    }
+
+    function updateDatabase() {
+        alert("Updating database...");
+    }
+</script>
+</html>

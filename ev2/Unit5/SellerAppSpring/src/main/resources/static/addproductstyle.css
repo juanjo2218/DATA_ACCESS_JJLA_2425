@@ -1,0 +1,146 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fdf5f0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Main container */
+.container {
+    display: flex;
+    gap: 20px;
+    max-width: 1000px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background-color: #e3d1b1;
+    padding: 20px;
+    width: 160px;
+    border-radius: 15px;
+}
+
+.sidebar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.3s;
+}
+
+.sidebar-icon {
+    width: 50px;
+    height: 50px;
+    opacity: 0.85;
+}
+
+.sidebar-item p {
+    font-size: 12px;
+    color: #6b4e3d;
+}
+
+.sidebar-item:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+/* Main Content Styles */
+.main-content {
+    background-color: #ffffff;
+    padding: 25px;
+    width: 420px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.main-content h1 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #703e36;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form Styles */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-item label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #703e36;
+    margin-bottom: 5px;
+}
+
+.input-field {
+    background-color: #f7ebe2;
+    border: 1px solid #d9bcb0;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-field:focus {
+    border-color: #f25c5c;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.slider {
+    width: 150px;
+}
+
+#stockLabel {
+    color: #333333;
+}
+
+/* Button Styles */
+.btn {
+    background: linear-gradient(to right, #ff7e5f, #f25c5c);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background: linear-gradient(to right, #f25c5c, #ff7e5f);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
