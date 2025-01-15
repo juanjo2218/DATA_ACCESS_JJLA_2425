@@ -37,8 +37,7 @@
                 <label for="product">Product:</label>
                 <select id="product" class="input-field">
                     <option value="">Select Product</option>
-                    <!-- Add products here -->
-                </select>
+                    <option th:each="sellerproduct : ${sellerproducts}" th:value="${sellerproduct.sellerProductId}" th:text="${sellerproduct.sellerProductId}"></option>                </select>
             </div>
             <div class="form-item">
                 <label for="fromDate">From:</label>

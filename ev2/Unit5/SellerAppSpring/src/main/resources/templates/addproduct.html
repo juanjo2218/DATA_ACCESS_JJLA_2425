@@ -32,21 +32,30 @@
     <div class="main-content">
         <h1>Add to Store</h1>
 
-        <form class="form-grid">
+        <form class="form-grid" id="addProductForm" method="GET" action="/addproduct">
+            <!-- Category Selection -->
             <div class="form-item">
                 <label for="category">Category:</label>
-                <select id="category" class="input-field">
+                <select id="category" class="input-field" name="categoryId" onchange="updateProductList()">
                     <option value="">Select Category</option>
-                    <!-- Add categories here -->
+                    <th:block th:each="category : ${categories}">
+                        <option th:value="${category.categoryId}" th:text="${category.categoryName}"
+                                th:selected="${category.categoryId == selectedCategoryId}"></option>
+                    </th:block>
                 </select>
             </div>
+
+            <!-- Product Selection -->
             <div class="form-item">
                 <label for="product">Product:</label>
-                <select id="product" class="input-field">
+                <select id="product" class="input-field" name="productId">
                     <option value="">Select Product</option>
-                    <!-- Add products here -->
+                    <th:block th:each="product : ${products}">
+                        <option th:value="${product.productId}" th:text="${product.productName}"></option>
+                    </th:block>
                 </select>
             </div>
+
             <div class="form-item">
                 <label for="stock">Stock:</label>
                 <div class="slider-container">
@@ -54,6 +63,7 @@
                     <span id="stockLabel">Units</span>
                 </div>
             </div>
+
             <div class="form-item">
                 <label for="price">Price:</label>
                 <input type="text" id="price" class="input-field" placeholder="Enter price">
@@ -65,7 +75,9 @@
 </div>
 
 <script>
-    // JavaScript functions for interactions, e.g., goToMenu(), goToAddProduct(), etc.
+    function updateProductList() {
+        document.getElementById('addProductForm').submit();
+    }
 </script>
 </body>
 </html>
