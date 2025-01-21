@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -35,18 +36,19 @@ public class WebController {
     }
     @GetMapping("/viewseller")
     public String viewSeller(@RequestParam(value = "cif", required = true) String CIF, Model model) {
-        // Buscar el seller por el CIF
         SellersEntity seller = sellerService.findSellerBycif(CIF).getBody();
 
-        // Si no se encuentra el seller, redirigir a una página de error o mostrar un mensaje
         if (seller == null) {
             model.addAttribute("error", "Seller not found");
-            return "error"; // Redirigir a una página de error
+            return "error";
         }
-
-        // Pasar el objeto seller al modelo para usarlo en la plantilla
         model.addAttribute("seller", seller);
-        return "viewseller"; // Nombre de la plantilla Thymeleaf
+        return "viewseller";
+    }
+    @PostMapping("/viewseller")
+    public String updateSeller(@RequestParam(value = "cif", required = true) String CIF,SellersEntity seller) {
+        sellerService.updateSeller(seller,CIF);
+        return "viewseller";
     }
 
     @GetMapping("/addproduct")

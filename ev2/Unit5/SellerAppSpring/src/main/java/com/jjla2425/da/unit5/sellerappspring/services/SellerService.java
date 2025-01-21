@@ -33,10 +33,12 @@ public class SellerService {
             seller.get().setEmail(sellersEntity.getEmail());
             seller.get().setName(sellersEntity.getName());
             seller.get().setPhone(sellersEntity.getPhone());
-            seller.get().setPassword(sellersEntity.getPassword());
-            seller.get().setPlainPassword(sellersEntity.getPlainPassword());
+            if (sellersEntity.getPassword()!= null)
+                seller.get().setPassword(sellersEntity.getPassword());
             seller.get().setPro(sellersEntity.isPro());
             seller.get().setUrl(sellersEntity.getUrl());
+            System.out.println("Datos del vendedor a guardar: " + seller.get());
+
             sellersDAO.save(seller.get());
             return ResponseEntity.ok().body("Update");
         }
