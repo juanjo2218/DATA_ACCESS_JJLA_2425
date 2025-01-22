@@ -37,8 +37,6 @@ public class SellerService {
                 seller.get().setPassword(sellersEntity.getPassword());
             seller.get().setPro(sellersEntity.isPro());
             seller.get().setUrl(sellersEntity.getUrl());
-            System.out.println("Datos del vendedor a guardar: " + seller.get());
-
             sellersDAO.save(seller.get());
             return ResponseEntity.ok().body("Update");
         }

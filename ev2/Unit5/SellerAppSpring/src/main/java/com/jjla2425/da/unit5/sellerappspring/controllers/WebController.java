@@ -9,6 +9,8 @@ import com.jjla2425.da.unit5.sellerappspring.services.SellerProductService;
 import com.jjla2425.da.unit5.sellerappspring.services.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,13 +32,13 @@ public class WebController {
     @Autowired
     private ProductsService productsService;
     @GetMapping("/")
-    public String showLogin(Model model)
+    public String showLogin(@AuthenticationPrincipal UserDetails user , Model model)
     {
         return "login";
     }
     @GetMapping("/viewseller")
-    public String viewSeller(@RequestParam(value = "cif", required = true) String CIF, Model model) {
-        SellersEntity seller = sellerService.findSellerBycif(CIF).getBody();
+    public String viewSeller(@AuthenticationPrincipal UserDetails user , Model model) {
+        SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).getBody();
 
         if (seller == null) {
             model.addAttribute("error", "Seller not found");
@@ -46,9 +48,9 @@ public class WebController {
         return "viewseller";
     }
     @PostMapping("/viewseller")
-    public String updateSeller(@RequestParam(value = "cif", required = true) String CIF,SellersEntity seller) {
-        sellerService.updateSeller(seller,CIF);
-        return "viewseller";
+    public String updateSeller(@AuthenticationPrincipal UserDetails user,SellersEntity seller) {
+        sellerService.updateSeller(seller,user.getUsername());
+        return "redirect:/viewseller";
     }
 
     @GetMapping("/addproduct")
@@ -66,9 +68,9 @@ public class WebController {
     }
 
     @GetMapping("/addoffer")
-    public String addOffer(@RequestParam(value = "cif", required = true) String CIF,Model model)
+    public String addOffer(@AuthenticationPrincipal UserDetails user,Model model)
     {
-        SellersEntity sellersEntity = sellerService.findSellerBycif(CIF).getBody();
+        SellersEntity sellersEntity = sellerService.findSellerBycif(user.getUsername()).getBody();
         model.addAttribute("sellerproducts", sellerProductService.findAllSellerProductsByIdSellerAndActive(sellersEntity.getSellerId()));
         model.addAttribute("seller",sellerService.findSellerBycif(sellersEntity.getCif()));
         return "addoffer";
