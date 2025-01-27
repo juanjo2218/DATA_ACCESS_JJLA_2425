@@ -9,16 +9,24 @@
 <body>
 <div class="container">
     <h1>Login</h1>
-    <div class="form-container">
-        <input type="text" id="username" placeholder="CIF:" value="A12345678" />
-        <input type="password" id="password" placeholder="Password" value="password1" />
+    <form th:action="@{/login}" method="post">
+        <div class="form-item">
+            <label for="username">CIF:</label>
+            <input type="text" id="username" name="username" placeholder="Enter CIF" required />
+        </div>
+
+        <div class="form-item">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required />
+        </div>
+
         <div class="checkbox-container">
-            <input type="checkbox" id="rememberCheck" />
+            <input type="checkbox" id="rememberCheck" name="remember-me" />
             <label for="rememberCheck">Remember me</label>
         </div>
-        <button>Login</button>
-    </div>
+
+        <button type="submit">Login</button>
+    </form>
 </div>
 </body>
-
 </html>
