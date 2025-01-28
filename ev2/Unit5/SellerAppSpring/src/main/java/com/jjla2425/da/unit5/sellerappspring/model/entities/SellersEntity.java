@@ -26,15 +26,15 @@ public class SellersEntity {
     private String name;
     @Basic
     @Column(name = "business_name")
-    @Size(min = 2,max = 100,message = "Business name size must be between 2 and 100")
+    @Size(max = 100,message = "Business name size must be max 100")
     private String businessName;
     @Basic
-    @Size(min = 2,max = 15,message = "Phone size must be between 2 and 15")
+    @Size(max = 15,message = "Phone size must be max 15")
     @Pattern(regexp = "^\\+?[0-9]*$", message = "The phone number must contain only digits and may start with '+'.")
     @Column(name = "phone")
     private String phone;
     @Basic
-    @Size(min = 2,max = 90,message = "Email size must be between 2 and 90")
+    @Size(max = 90,message = "Email size must be max 90")
     @Email(message = "The Email must be valid.")
     @Column(name = "email")
     private String email;
@@ -49,7 +49,7 @@ public class SellersEntity {
     @NotNull(message = "Name can not be null")
     private String password;
     @Basic
-    @Size(min = 2,max = 255,message = "URL size must be between 2 and 255")
+    @Size(max = 255,message = "URL size must be max 255")
     @Column(name = "url")
     @URL(message = "The URL must be valid.")
     private String url;

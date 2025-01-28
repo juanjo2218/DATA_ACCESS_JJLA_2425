@@ -3,6 +3,7 @@ package com.jjla2425.da.unit5.sellerappspring.services;
 import com.jjla2425.da.unit5.sellerappspring.model.daos.ISellersDAO;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.ProductsEntity;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.SellersEntity;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -33,8 +34,11 @@ public class SellerService {
             seller.get().setEmail(sellersEntity.getEmail());
             seller.get().setName(sellersEntity.getName());
             seller.get().setPhone(sellersEntity.getPhone());
-            if (sellersEntity.getPassword()!= null)
-                seller.get().setPassword(sellersEntity.getPassword());
+            if (!sellersEntity.getPassword().isEmpty())
+            {
+                seller.get().setPassword(DigestUtils.md5Hex(sellersEntity.getPassword()).toUpperCase());
+                seller.get().setPlainPassword(sellersEntity.getPassword());
+            }
             seller.get().setPro(sellersEntity.isPro());
             seller.get().setUrl(sellersEntity.getUrl());
             sellersDAO.save(seller.get());
