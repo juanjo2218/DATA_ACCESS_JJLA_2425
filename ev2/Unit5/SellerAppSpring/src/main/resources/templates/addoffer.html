@@ -10,20 +10,27 @@
 <div class="container">
     <!-- Sidebar -->
     <div class="sidebar">
-        <div class="sidebar-item" onclick="goToMenu()">
-            <img src="img/menu.png" alt="Menu Icon" class="sidebar-icon" />
+        <div class="sidebar-item">
+            <a href="http://localhost:8080/viewseller" class="sidebar-item">
+                <img src="img/menu.png" alt="Menu Icon" class="sidebar-icon" />
+            </a>
             <p>Menu</p>
         </div>
-        <div class="sidebar-item" onclick="goToAddProductMenu()">
-            <img src="img/addproduct.png" alt="Add Product Icon" class="sidebar-icon" />
+        <div class="sidebar-item">
+            <a href="http://localhost:8080/addproduct" class="sidebar-item">
+                <img src="img/addproduct.png" alt="Add Product Icon" />
+            </a>
             <p>Add Product</p>
         </div>
         <div class="sidebar-item">
             <img src="img/offer.png" alt="Offer Icon" class="sidebar-icon" />
             <p>Offer</p>
         </div>
-        <div class="sidebar-item" onclick="goToLogin()">
-            <img src="img/exit.png" alt="Exit Icon" class="sidebar-icon" />
+        <div class="sidebar-item">
+            <form th:action="@{/logout}" method="post" id="logoutForm">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            </form>
+            <img src="img/exit.png" alt="Exit Icon" onclick="document.getElementById('logoutForm').submit();" style="cursor: pointer;" />
             <p>Exit</p>
         </div>
     </div>
@@ -57,9 +64,5 @@
         </form>
     </div>
 </div>
-
-<script>
-    // JavaScript functions for interactions, e.g., goToMenu(), goToAddProductMenu(), etc.
-</script>
 </body>
 </html>

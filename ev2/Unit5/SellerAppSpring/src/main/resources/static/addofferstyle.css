@@ -41,7 +41,7 @@ body {
     transition: transform 0.2s, opacity 0.3s;
 }
 
-.sidebar-icon {
+.sidebar-item img {
     width: 50px;
     height: 50px;
     opacity: 0.85;
