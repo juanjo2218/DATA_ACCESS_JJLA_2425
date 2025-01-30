@@ -47,6 +47,7 @@
                 <div class="form-item">
                     <label for="nameField">Name:</label>
                     <input type="text" id="nameField" name="name" th:value="${seller.name}" />
+                    <span th:errors="*{name}" class="error-message"></span>
                 </div>
 
                 <div class="form-item">
@@ -56,21 +57,28 @@
 
                 <div class="form-item">
                     <label for="phoneField">Phone:</label>
-                    <input type="tel" id="phoneField" name="phone"  pattern="[0-9]+" title="Only numbers"  th:value="${seller.phone}" />
+                    <input type="text" id="phoneField" th:field="*{phone}" class="form-control" />
+                    <span th:errors="*{phone}" class="error-message"></span>
                 </div>
 
                 <div class="form-item">
                     <label for="emailField">Email:</label>
-                    <input type="email" id="emailField" name="email" th:value="${seller.email}" />
+                    <input type="text" id="emailField" th:field="*{email}" class="form-control" />
+                    <span th:errors="*{email}" class="error-message"></span>
                 </div>
-
                 <div class="form-item">
                     <label for="URLField">URL:</label>
-                    <input type="url" id="URLField" name="url" th:value="${seller.url}" />
+                    <input type="text" id="URLField" name="url" th:value="${seller.url}" />
+                    <span th:errors="*{url}" class="error-message"></span>
                 </div>
                 <div class="form-item">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password"/>
+                    <label for="newPassword">New Password:</label>
+                    <input type="password" id="newPassword" name="newPassword"/>
+                </div>
+                <div class="form-item">
+                    <label for="repeatNewPassword">Repeat New Password:</label>
+                    <input type="password" id="repeatNewPassword" name="repeatNewPassword"/>
+                    <span th:if="${#fields.hasErrors('passwordsMatch')}" th:errors="*{passwordsMatch}" class="error-message"></span>
                 </div>
             </div>
             <button type="submit">Update</button>

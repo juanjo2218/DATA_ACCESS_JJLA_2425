@@ -41,12 +41,12 @@ public class SellersEntity {
     @Basic
     @Size(min = 2,max = 50,message = "Plain Password size must be between 2 and 50")
     @Column(name = "plain_password")
-    @NotNull(message = "Name can not be null")
+    @NotNull(message = "Plain Password can not be null")
     private String plainPassword;
     @Basic
     @Size(min = 2,max = 100,message = "Password size must be between 2 and 100")
     @Column(name = "password")
-    @NotNull(message = "Name can not be null")
+    @NotNull(message = "Password can not be null")
     private String password;
     @Basic
     @Size(max = 255,message = "URL size must be max 255")
@@ -54,7 +54,7 @@ public class SellersEntity {
     @URL(message = "The URL must be valid.")
     private String url;
     @Basic
-    @NotNull(message = "Name can not be null")
+    @NotNull(message = "Pro can not be null")
     @Column(name = "pro")
     private boolean pro;
 

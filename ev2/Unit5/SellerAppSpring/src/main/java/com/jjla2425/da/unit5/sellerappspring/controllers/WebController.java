@@ -1,5 +1,6 @@
 package com.jjla2425.da.unit5.sellerappspring.controllers;
 
+import com.jjla2425.da.unit5.sellerappspring.model.DTOS.SellerDTO;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.CategoriesEntity;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.ProductsEntity;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.SellersEntity;
@@ -7,16 +8,15 @@ import com.jjla2425.da.unit5.sellerappspring.services.CategoriesService;
 import com.jjla2425.da.unit5.sellerappspring.services.ProductsService;
 import com.jjla2425.da.unit5.sellerappspring.services.SellerProductService;
 import com.jjla2425.da.unit5.sellerappspring.services.SellerService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,7 +38,7 @@ public class WebController {
     }
     @GetMapping("/viewseller")
     public String viewSeller(@AuthenticationPrincipal UserDetails user , Model model) {
-        SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).getBody();
+        SellerDTO seller =SellerDTO.toDTO(sellerService.findSellerBycif(user.getUsername()).getBody()) ;
 
         if (seller == null) {
             model.addAttribute("error", "Seller not found");
@@ -48,10 +48,20 @@ public class WebController {
         return "viewseller";
     }
     @PostMapping("/viewseller")
-    public String updateSeller(@AuthenticationPrincipal UserDetails user,SellersEntity seller) {
-        sellerService.updateSeller(seller,user.getUsername());
+    public String updateSeller(@AuthenticationPrincipal UserDetails user,
+                               @Valid @ModelAttribute("seller") SellerDTO sellerDTO,
+                               BindingResult bindingResult,
+                               Model model)
+    {
+        if (bindingResult.hasErrors()) {
+            bindingResult.getAllErrors().forEach(error -> System.out.println(error.getDefaultMessage()));
+            model.addAttribute("seller", sellerDTO);
+            return "viewseller";
+        }
+        sellerService.updateSeller(sellerDTO, user.getUsername());
         return "redirect:/viewseller";
     }
+
 
     @GetMapping("/addproduct")
     public String addProduct(@RequestParam(value = "categoryId", required = false) Integer categoryId, Model model) {
@@ -76,3 +86,6 @@ public class WebController {
         return "addoffer";
     }
 }
+
+
+
