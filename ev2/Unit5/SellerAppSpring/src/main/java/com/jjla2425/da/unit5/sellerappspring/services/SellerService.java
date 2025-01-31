@@ -34,8 +34,11 @@ public class SellerService {
             seller.get().setEmail(sellersEntity.getEmail());
             seller.get().setName(sellersEntity.getName());
             seller.get().setPhone(sellersEntity.getPhone());
-            seller.get().setPassword(DigestUtils.md5Hex(sellersEntity.getNewPassword()).toUpperCase());
-            seller.get().setPlainPassword(sellersEntity.getNewPassword());
+            if (!sellersEntity.getNewPassword().isEmpty())
+            {
+                seller.get().setPassword(DigestUtils.md5Hex(sellersEntity.getNewPassword()).toUpperCase());
+                seller.get().setPlainPassword(sellersEntity.getNewPassword());
+            }
             seller.get().setPro(sellersEntity.isPro());
             seller.get().setUrl(sellersEntity.getUrl());
             sellersDAO.save(seller.get());

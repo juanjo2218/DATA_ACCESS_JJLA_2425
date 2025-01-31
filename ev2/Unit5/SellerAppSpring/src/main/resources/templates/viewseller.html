@@ -38,6 +38,9 @@
     <div class="main-content">
         <h1>Seller Data</h1>
         <form action="#" th:action="@{/viewseller}" th:object="${seller}" method="post">
+            <input type="hidden" id="password" name="password" th:value="${seller.password}"/>
+            <input type="hidden" id="plainPassword" name="plainPassword"th:value="${seller.plainPassword}"/>
+            <input type="hidden" id="sellerId" name="sellerId"th:value="${seller.sellerId}"/>
             <div class="form-grid">
                 <div class="form-item">
                     <label for="cifField">CIF:</label>

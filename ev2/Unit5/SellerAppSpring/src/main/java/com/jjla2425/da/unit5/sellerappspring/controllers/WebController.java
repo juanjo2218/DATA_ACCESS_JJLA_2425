@@ -32,7 +32,7 @@ public class WebController {
     @Autowired
     private ProductsService productsService;
     @GetMapping("/login")
-    public String showLogin(@AuthenticationPrincipal UserDetails user , Model model)
+    public String showLogin(@AuthenticationPrincipal UserDetails user, Model model)
     {
         return "login";
     }
