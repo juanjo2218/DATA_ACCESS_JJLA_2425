@@ -11,17 +11,17 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="sidebar-item">
-            <a href="http://localhost:8080/viewseller" class="sidebar-item">
+            <a th:href="@{/viewseller}" class="sidebar-item">
                 <img src="img/menu.png" alt="Menu Icon" class="sidebar-icon" />
             </a>
             <p>Menu</p>
         </div>
-        <div class="sidebar-item" onclick="goToAddProduct()">
+        <div class="sidebar-item" >
             <img src="img/addproduct.png" alt="Add Product Icon" class="sidebar-icon" />
             <p>Add Product</p>
         </div>
         <div class="sidebar-item">
-            <a href="http://localhost:8080/addoffer" class="sidebar-item">
+            <a th:href="@{/addoffer}" class="sidebar-item">
                 <img src="img/offer.png" alt="Offer Icon" />
             </a>
             <p>Offer</p>

@@ -69,7 +69,7 @@ public class WebController {
 
 
     @GetMapping("/addproduct")
-    public String addProduct(@RequestParam(value = "categoryId", required = false) Integer categoryId, Model model) {
+    public String addProduct(@AuthenticationPrincipal UserDetails user,@RequestParam(value = "categoryId", required = false) Integer categoryId, Model model) {
         List<CategoriesEntity> categories = categoriesService.findAllCategories();
         model.addAttribute("categories", categories);
 
