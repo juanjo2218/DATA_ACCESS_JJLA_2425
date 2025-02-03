@@ -144,7 +144,7 @@ public class SellersEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SellersEntity that = (SellersEntity) o;
-        return sellerId == that.sellerId && Objects.equals(cif, that.cif) && Objects.equals(name, that.name) && Objects.equals(businessName, that.businessName) && Objects.equals(phone, that.phone) && Objects.equals(email, that.email) && Objects.equals(plainPassword, that.plainPassword) && Objects.equals(password, that.password);
+        return sellerId == that.sellerId && Objects.equals(cif, that.cif) && Objects.equals(name, that.name) && Objects.equals(businessName, that.businessName) && Objects.equals(phone, that.phone) && Objects.equals(email, that.email) ;
     }
 
     @Override

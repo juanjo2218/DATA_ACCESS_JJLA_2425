@@ -37,6 +37,9 @@
     </div>
     <div class="main-content">
         <h1>Seller Data</h1>
+        <div th:if="${successMessage}" class="alert success-alert">
+            <p th:text="${successMessage}"></p>
+        </div>
         <form action="#" th:action="@{/viewseller}" th:object="${seller}" method="post">
             <input type="hidden" id="password" name="password" th:value="${seller.password}"/>
             <input type="hidden" id="plainPassword" name="plainPassword"th:value="${seller.plainPassword}"/>
@@ -49,38 +52,40 @@
 
                 <div class="form-item">
                     <label for="nameField">Name:</label>
-                    <input type="text" id="nameField" name="name" th:value="${seller.name}" />
+                    <input maxlength="100" type="text" id="nameField" name="name" th:value="${seller.name}" />
                     <span th:errors="*{name}" class="error-message"></span>
                 </div>
 
                 <div class="form-item">
                     <label for="businessNameField">Business name:</label>
-                    <input type="text" id="businessNameField" name="businessName" th:value="${seller.businessName}" />
+                    <input maxlength="100" type="text" id="businessNameField" name="businessName" th:value="${seller.businessName}" />
                 </div>
 
                 <div class="form-item">
                     <label for="phoneField">Phone:</label>
-                    <input type="text" id="phoneField" th:field="*{phone}" class="form-control" />
+                    <input type="tel" id="phoneField" th:field="*{phone}" class="form-control" />
                     <span th:errors="*{phone}" class="error-message"></span>
                 </div>
 
                 <div class="form-item">
                     <label for="emailField">Email:</label>
-                    <input type="text" id="emailField" th:field="*{email}" class="form-control" />
+                    <input maxlength="90" type="text" id="emailField" th:field="*{email}" class="form-control" />
                     <span th:errors="*{email}" class="error-message"></span>
                 </div>
                 <div class="form-item">
                     <label for="URLField">URL:</label>
-                    <input type="text" id="URLField" name="url" th:value="${seller.url}" />
+                    <input type="url" maxlength="255" id="URLField" name="url" th:value="${seller.url}" />
                     <span th:errors="*{url}" class="error-message"></span>
                 </div>
                 <div class="form-item">
                     <label for="newPassword">New Password:</label>
-                    <input type="password" id="newPassword" name="newPassword"/>
+                    <input maxlength="100" type="password" id="newPassword" name="newPassword"/>
+                    <span th:errors="*{newPassword}" class="error-message"></span>
                 </div>
                 <div class="form-item">
                     <label for="repeatNewPassword">Repeat New Password:</label>
-                    <input type="password" id="repeatNewPassword" name="repeatNewPassword"/>
+                    <input maxlength="50" type="password" id="repeatNewPassword" name="repeatNewPassword"/>
+                    <span th:errors="*{repeatNewPassword}" class="error-message"></span>
                     <span th:if="${#fields.hasErrors('passwordsMatch')}" th:errors="*{passwordsMatch}" class="error-message"></span>
                 </div>
             </div>

@@ -53,7 +53,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                //.requiresChannel( channel -> channel.anyRequest().requiresSecure() )
+                .requiresChannel( channel -> channel.anyRequest().requiresSecure() )
                 .authorizeHttpRequests(auth -> auth
                         // free access to the REST API
                         .requestMatchers("/api-rest/**").permitAll()

@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -32,18 +33,14 @@ public class WebController {
     @Autowired
     private ProductsService productsService;
     @GetMapping("/login")
-    public String showLogin(@AuthenticationPrincipal UserDetails user, Model model)
+    public String showLogin(@AuthenticationPrincipal UserDetails user)
     {
         return "login";
     }
     @GetMapping("/viewseller")
     public String viewSeller(@AuthenticationPrincipal UserDetails user , Model model) {
-        SellerDTO seller =SellerDTO.toDTO(sellerService.findSellerBycif(user.getUsername()).getBody()) ;
+        SellerDTO seller = SellerDTO.toDTO(sellerService.findSellerBycif(user.getUsername()).getBody()) ;
 
-        if (seller == null) {
-            model.addAttribute("error", "Seller not found");
-            return "error";
-        }
         model.addAttribute("seller", seller);
         return "viewseller";
     }
@@ -51,6 +48,7 @@ public class WebController {
     public String updateSeller(@AuthenticationPrincipal UserDetails user,
                                @Valid @ModelAttribute("seller") SellerDTO sellerDTO,
                                BindingResult bindingResult,
+                               RedirectAttributes redirectAttributes,
                                Model model)
     {
         if (bindingResult.hasErrors()) {
@@ -58,9 +56,16 @@ public class WebController {
             model.addAttribute("seller", sellerDTO);
             return "viewseller";
         }
+
+        if (sellerDTO.equals(SellerDTO.toDTO(sellerService.findSellerBycif(user.getUsername()).getBody()))) {
+            redirectAttributes.addFlashAttribute("successMessage", "No changes detected.");
+            return "redirect:/viewseller";
+        }
         sellerService.updateSeller(sellerDTO, user.getUsername());
+        redirectAttributes.addFlashAttribute("successMessage", "Seller data updated successfully!");
         return "redirect:/viewseller";
     }
+
 
 
     @GetMapping("/addproduct")
