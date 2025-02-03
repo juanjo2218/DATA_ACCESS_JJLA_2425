@@ -3,6 +3,7 @@ package com.jjla2425.da.unit5.sellerappspring.controllers;
 import com.jjla2425.da.unit5.sellerappspring.model.DTOS.SellerDTO;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.CategoriesEntity;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.ProductsEntity;
+import com.jjla2425.da.unit5.sellerappspring.model.entities.SellerProductsEntity;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.SellersEntity;
 import com.jjla2425.da.unit5.sellerappspring.services.CategoriesService;
 import com.jjla2425.da.unit5.sellerappspring.services.ProductsService;
@@ -69,19 +70,31 @@ public class WebController {
 
 
     @GetMapping("/addproduct")
-    public String addProduct(@AuthenticationPrincipal UserDetails user,@RequestParam(value = "categoryId", required = false) Integer categoryId, Model model) {
+    public String addProduct(@AuthenticationPrincipal UserDetails user,@RequestParam(value = "categoryId", required = false) Integer categoryId,@RequestParam(value = "productId", required = false) Integer productId, Model model) {
         List<CategoriesEntity> categories = categoriesService.findAllCategories();
         model.addAttribute("categories", categories);
-
+        model.addAttribute("sellerproduct", new SellerProductsEntity());
+        List<ProductsEntity> products = null;
         if (categoryId != null && categoryId != 0) {
-            List<ProductsEntity> products = productsService.findAllProductsByCategoryAndActive(categoryId);
+            products = productsService.getProductsSellerRemaining(categoryId,sellerService.findSellerBycif(user.getUsername()).getBody().getSellerId());
             model.addAttribute("products", products);
-            model.addAttribute("selectedCategoryId", categoryId);  // Pasa el ID de la categoría seleccionada
+            model.addAttribute("selectedCategoryId", categoryId);
         }
-
+        model.addAttribute("products", products);
         return "addproduct";
     }
-
+    @PostMapping("/addproduct")
+    public String addProduct(@AuthenticationPrincipal UserDetails user,@Valid @ModelAttribute("sellerproduct") SellerProductsEntity sellerProduct,BindingResult bindingResult,Model model) {
+        if (bindingResult.hasErrors()) {
+            bindingResult.getAllErrors().forEach(error -> System.out.println(error.getDefaultMessage()));
+            model.addAttribute("sellerproduct", sellerProduct);
+            model.addAttribute("categories",  categoriesService.findAllCategories());
+            return "addproduct";
+        }
+        model.addAttribute("selectedCategoryId", productsService.findProductById(sellerProduct.getProductId()).getBody().getCategoryId());
+        sellerProductService.updateSellerProduct(sellerProduct, sellerProduct.getProductId());
+        return "redirect:/addproduct";
+    }
     @GetMapping("/addoffer")
     public String addOffer(@AuthenticationPrincipal UserDetails user,Model model)
     {
