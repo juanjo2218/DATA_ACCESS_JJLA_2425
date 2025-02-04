@@ -22,10 +22,11 @@ public class SellerProductsEntity {
     @Column(name = "seller_id")
     private Integer sellerId;
     @Basic
+    @NotNull(message = "Product can not be null,please choose a product")
     @Column(name = "product_id")
     private Integer productId;
     @Basic
-    @NotNull
+    @NotNull(message = "Price can not be null")
     @Digits(integer = 8, fraction = 2, message = "The price must have up to 8 digits before the decimal point and 2 digits after it.")
     @Min(value = 0, message = "The price must be greater than or equal to 0.")
     @Max(value = 99999999, message = "The price must be less than or equal to 99,999,999.99.")
@@ -44,16 +45,13 @@ public class SellerProductsEntity {
     @Column(name = "offer_end_date")
     private Date offerEndDate;
     @Basic
-    @NotNull
+    @NotNull(message = "Stock can not be null")
     @Column(name = "stock")
     private int stock;
 
-    public SellerProductsEntity(Integer sellerId,Integer productId,BigDecimal price,int stock)
+    public SellerProductsEntity(Integer sellerId)
     {
         this.sellerId = sellerId;
-        this.productId = productId;
-        this.price = price;
-        this.stock = stock;
     }
     public SellerProductsEntity()
     {}

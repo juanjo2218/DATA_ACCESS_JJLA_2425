@@ -15,11 +15,7 @@ import java.util.Optional;
 public class SellerService {
     @Autowired
     private ISellersDAO sellersDAO;
-
-    public List<SellersEntity> findAllSellers()
-    {
-        return (List<SellersEntity>) sellersDAO.findAll();
-    }
+    
     public ResponseEntity<SellersEntity> findSellerBycif(String CIF)
     {
         Optional<SellersEntity> seller = sellersDAO.findByCif(CIF);

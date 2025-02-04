@@ -71,12 +71,13 @@ public class WebController {
 
     @GetMapping("/addproduct")
     public String addProduct(@AuthenticationPrincipal UserDetails user,@RequestParam(value = "categoryId", required = false) Integer categoryId,@RequestParam(value = "productId", required = false) Integer productId, Model model) {
+        SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).getBody();
         List<CategoriesEntity> categories = categoriesService.findAllCategories();
         model.addAttribute("categories", categories);
-        model.addAttribute("sellerproduct", new SellerProductsEntity());
+        model.addAttribute("sellerproduct", new SellerProductsEntity(seller.getSellerId()));
         List<ProductsEntity> products = null;
         if (categoryId != null && categoryId != 0) {
-            products = productsService.getProductsSellerRemaining(categoryId,sellerService.findSellerBycif(user.getUsername()).getBody().getSellerId());
+            products = productsService.getProductsSellerRemaining(categoryId,seller.getSellerId());
             model.addAttribute("products", products);
             model.addAttribute("selectedCategoryId", categoryId);
         }
@@ -84,23 +85,21 @@ public class WebController {
         return "addproduct";
     }
     @PostMapping("/addproduct")
-    public String addProduct(@AuthenticationPrincipal UserDetails user,@Valid @ModelAttribute("sellerproduct") SellerProductsEntity sellerProduct,BindingResult bindingResult,Model model) {
+    public String addProduct(@AuthenticationPrincipal UserDetails user, RedirectAttributes redirectAttributes, @Valid @ModelAttribute("sellerproduct") SellerProductsEntity sellerProduct,BindingResult bindingResult,Model model) {
         if (bindingResult.hasErrors()) {
             bindingResult.getAllErrors().forEach(error -> System.out.println(error.getDefaultMessage()));
-            model.addAttribute("sellerproduct", sellerProduct);
             model.addAttribute("categories",  categoriesService.findAllCategories());
             return "addproduct";
         }
-        model.addAttribute("selectedCategoryId", productsService.findProductById(sellerProduct.getProductId()).getBody().getCategoryId());
-        sellerProductService.updateSellerProduct(sellerProduct, sellerProduct.getProductId());
+        sellerProductService.saveSellerProduct(sellerProduct);
+        redirectAttributes.addFlashAttribute("successMessage", "SellerProduct added successfully!");
         return "redirect:/addproduct";
     }
     @GetMapping("/addoffer")
     public String addOffer(@AuthenticationPrincipal UserDetails user,Model model)
     {
-        SellersEntity sellersEntity = sellerService.findSellerBycif(user.getUsername()).getBody();
-        model.addAttribute("sellerproducts", sellerProductService.findAllSellerProductsByIdSellerAndActive(sellersEntity.getSellerId()));
-        model.addAttribute("seller",sellerService.findSellerBycif(sellersEntity.getCif()));
+        model.addAttribute("sellerproduct", new SellerProductsEntity());
+        model.addAttribute("sellerproducts", new SellerProductsEntity());
         return "addoffer";
     }
 }

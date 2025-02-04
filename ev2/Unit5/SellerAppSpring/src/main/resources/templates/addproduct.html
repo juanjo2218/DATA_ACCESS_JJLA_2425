@@ -38,9 +38,11 @@
     <!-- Main Content -->
     <div class="main-content">
         <h1>Add to Store</h1>
-
+        <div th:if="${successMessage}" class="alert success-alert">
+            <p th:text="${successMessage}"></p>
+        </div>
         <form class="form-grid" id="addProductForm" th:object="${sellerproduct}" method="post" action="#" th:action="@{/addproduct}">
-            <!-- Category Selection -->
+            <input type="hidden" id="sellerId" name="sellerId"th:value="${sellerproduct.sellerId}"/>
             <div class="form-item">
                 <label for="categoryId">Category:</label>
                 <select id="categoryId" class="input-field" name="categoryId" onchange="updateProductList()">
@@ -63,20 +65,22 @@
                             th:text="${product.productName}">
                     </option>
                 </select>
+                <span th:errors="*{productId}" class="error-message"></span>
             </div>
 
             <div class="form-item">
                 <label for="stock">Stock:</label>
                 <div class="slider-container">
-                    <input type="range" id="stock" class="slider" min="0" max="25" value="0" step="1">
+                    <input type="range"  th:field="*{stock}" id="stock" class="slider" min="0" max="1000" value="0" step="1">
                     <span id="stockLabel">Units</span>
                     <span th:errors="*{stock}" class="error-message"></span>
                 </div>
             </div>
-
             <div class="form-item">
                 <label for="price">Price:</label>
-                <input type="text" id="price" class="input-field" placeholder="Enter price">
+                <input type="number" id="price" class="input-field" placeholder="Enter price"
+                       th:field="*{price}" step="0.01"  pattern="^\d+(\.\d{1,2})?$">
+                <span th:errors="*{price}" class="error-message"></span>
             </div>
             <button type="submit" class="btn">Add</button>
         </form>
