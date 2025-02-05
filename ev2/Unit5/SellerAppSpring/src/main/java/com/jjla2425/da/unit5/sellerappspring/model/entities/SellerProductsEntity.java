@@ -15,7 +15,7 @@ import java.util.Objects;
 public class SellerProductsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @NotNull
+    @NotNull(message = "SellerProduct can not be null,please choose a product")
     @Column(name = "seller_product_id")
     private int sellerProductId;
     @Basic

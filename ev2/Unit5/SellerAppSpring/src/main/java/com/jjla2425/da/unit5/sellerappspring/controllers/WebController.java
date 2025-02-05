@@ -70,7 +70,7 @@ public class WebController {
 
 
     @GetMapping("/addproduct")
-    public String addProduct(@AuthenticationPrincipal UserDetails user,@RequestParam(value = "categoryId", required = false) Integer categoryId,@RequestParam(value = "productId", required = false) Integer productId, Model model) {
+    public String addProduct(@AuthenticationPrincipal UserDetails user,@RequestParam(value = "categoryId", required = false) Integer categoryId, Model model) {
         SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).getBody();
         List<CategoriesEntity> categories = categoriesService.findAllCategories();
         model.addAttribute("categories", categories);
@@ -85,7 +85,11 @@ public class WebController {
         return "addproduct";
     }
     @PostMapping("/addproduct")
-    public String addProduct(@AuthenticationPrincipal UserDetails user, RedirectAttributes redirectAttributes, @Valid @ModelAttribute("sellerproduct") SellerProductsEntity sellerProduct,BindingResult bindingResult,Model model) {
+    public String addProduct(@AuthenticationPrincipal UserDetails user,
+                             RedirectAttributes redirectAttributes,
+                             @Valid @ModelAttribute("sellerproduct") SellerProductsEntity sellerProduct,
+                             BindingResult bindingResult,Model model)
+    {
         if (bindingResult.hasErrors()) {
             bindingResult.getAllErrors().forEach(error -> System.out.println(error.getDefaultMessage()));
             model.addAttribute("categories",  categoriesService.findAllCategories());
@@ -98,9 +102,27 @@ public class WebController {
     @GetMapping("/addoffer")
     public String addOffer(@AuthenticationPrincipal UserDetails user,Model model)
     {
+        SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).getBody();
         model.addAttribute("sellerproduct", new SellerProductsEntity());
-        model.addAttribute("sellerproducts", new SellerProductsEntity());
+        model.addAttribute("sellerproducts", productsService.getProductsBySellerID(seller.getSellerId()));
         return "addoffer";
+    }
+    @PostMapping("/addoffer")
+    public String addOffer(@AuthenticationPrincipal UserDetails user,
+                             RedirectAttributes redirectAttributes,
+                             @Valid @ModelAttribute("sellerproduct") SellerProductsEntity sellerProduct,
+                             BindingResult bindingResult,Model model)
+    {
+        SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).getBody();
+        if (bindingResult.hasErrors()) {
+            bindingResult.getAllErrors().forEach(error -> System.out.println(error.getDefaultMessage()));
+            model.addAttribute("sellerproducts", productsService.getProductsBySellerID(seller.getSellerId()));
+            return "addoffer";
+        }
+        sellerProduct.setSellerId(seller.getSellerId());
+        sellerProductService.updateSellerProduct(sellerProduct);
+        redirectAttributes.addFlashAttribute("successMessage", "SellerProductOffer updated successfully!");
+        return "redirect:/addoffer";
     }
 }
 

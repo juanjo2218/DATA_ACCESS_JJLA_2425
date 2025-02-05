@@ -38,4 +38,8 @@ public class ProductsService {
         List<ProductsEntity> productsByCategoryAndSellerIdRemaning = productsDAO.getProductsByCategoryAndSellerIdRemaning(idSeller, idCategory);
         return productsByCategoryAndSellerIdRemaning;
     }
+    public List<ProductsEntity> getProductsBySellerID(int idSeller) {
+        List<ProductsEntity> productsBySellerId = productsDAO.getProductsSellerId(idSeller);
+        return productsBySellerId;
+    }
 }

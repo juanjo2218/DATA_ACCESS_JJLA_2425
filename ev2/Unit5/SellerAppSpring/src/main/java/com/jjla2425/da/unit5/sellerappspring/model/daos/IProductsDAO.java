@@ -12,4 +12,5 @@ public interface IProductsDAO extends CrudRepository<ProductsEntity,Integer> {
    List<ProductsEntity> getProductsByCategoryAndSellerIdRemaning(int sellerId,int categoryId);
 
    List<ProductsEntity> findAllByCategoryIdAndActive(int idCategory, boolean active);
+   List<ProductsEntity> getProductsSellerId(int sellerId);
 }

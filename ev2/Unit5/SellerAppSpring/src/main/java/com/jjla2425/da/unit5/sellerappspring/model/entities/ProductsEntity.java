@@ -11,6 +11,9 @@ import java.util.Objects;
 @NamedNativeQuery(name = "ProductsEntity.getProductsByCategoryAndSellerIdRemaning",
         query = "SELECT * from jjla_getproductssellerremaining(:sellerId, :categoryId)",
         resultClass = ProductsEntity.class)
+@NamedNativeQuery(name = "ProductsEntity.getProductsSellerId",
+        query = "SELECT * from jjla_get_activeproductsbysellerid(:sellerId)",
+        resultClass = ProductsEntity.class)
 @Table(name = "products", schema = "public", catalog = "OnlineMarket")
 public class ProductsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)

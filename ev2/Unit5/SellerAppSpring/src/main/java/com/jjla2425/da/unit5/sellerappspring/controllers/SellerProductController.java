@@ -28,7 +28,7 @@ public class SellerProductController {
     public ResponseEntity<?> updateSellerProduct(@RequestBody SellerProductsEntity sellerProductsEntity,@Valid
                                                  @PathVariable(value = "id")int id)
     {
-        return sellerProductService.updateSellerProduct(sellerProductsEntity,id);
+        return sellerProductService.updateSellerProduct(sellerProductsEntity);
     }
     @GetMapping("/{idSeller}")
     public List<SellerProductsEntity> findAllSellerProductsByIdSeller( @PathVariable(value = "idSeller")int idSeller)

@@ -22,9 +22,9 @@ public class SellerProductService {
         Optional<SellerProductsEntity> sellerProduct = sellerProductsDAO.findById(id);
         return sellerProduct.isPresent() ? ResponseEntity.ok().body(sellerProduct.get()) : ResponseEntity.notFound().build();
     }
-    public ResponseEntity<?> updateSellerProduct(SellerProductsEntity sellerProductsEntity, int id)
+    public ResponseEntity<?> updateSellerProduct(SellerProductsEntity sellerProductsEntity)
     {
-        Optional<SellerProductsEntity> sellerProduct = sellerProductsDAO.findById(id);
+        Optional<SellerProductsEntity> sellerProduct = sellerProductsDAO.findBySellerIdAndProductId(sellerProductsEntity.getSellerId(),sellerProductsEntity.getProductId());
         if (sellerProduct.isPresent())
         {
             sellerProduct.get().setOfferEndDate(sellerProductsEntity.getOfferEndDate());

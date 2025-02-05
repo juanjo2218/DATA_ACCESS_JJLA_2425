@@ -38,22 +38,29 @@
     <!-- Main Content -->
     <div class="main-content">
         <h1>Add Offer</h1>
-
-        <form class="form-grid">
+        <div th:if="${successMessage}" class="alert success-alert">
+            <p th:text="${successMessage}"></p>
+        </div>
+        <form class="form-grid" id="addOfferForm" th:object="${sellerproduct}" method="post" action="#" th:action="@{/addoffer}">
             <div class="form-item">
-                <label for="product">Product:</label>
-                <select id="product" class="input-field">
+                <label for="sellerProductId">Product:</label>
+                <select id="sellerProductId" class="input-field" name="sellerProductId">
                     <option value="">Select Product</option>
-                    <option th:each="sellerproduct : ${sellerproducts}" th:value="${sellerproduct.sellerProductId}" th:text="${sellerproduct.sellerProductId}"></option>
+                    <option th:each="sellerproduct : ${sellerproducts}"
+                            th:value="${sellerproduct.productId}"
+                            th:text="${sellerproduct.productName}"></option>
                 </select>
+                <span th:errors="*{sellerProductId}" class="error-message"></span>
             </div>
             <div class="form-item">
                 <label for="fromDate">From:</label>
-                <input type="date" id="fromDate" class="input-field">
+                <input th:field="*{offerStartDate}" type="date" id="fromDate" class="input-field">
+                <span th:errors="*{offerStartDate}" class="error-message"></span>
             </div>
             <div class="form-item">
                 <label for="toDate">To:</label>
-                <input type="date" id="toDate" class="input-field">
+                <input th:field="*{offerEndDate}" type="date" id="toDate" class="input-field">
+                <span th:errors="*{offerEndDate}" class="error-message"></span>
             </div>
             <div class="form-item">
                 <label for="discount">Discount:</label>
