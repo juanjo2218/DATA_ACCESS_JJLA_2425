@@ -90,12 +90,24 @@
     function updateProductList() {
         const categoryId = document.getElementById('categoryId').value;
         if (categoryId) {
-            window.location.href = '/addproduct?categoryId=' + categoryId;
+            const currentUrl = new URL(window.location.href);
+            currentUrl.searchParams.set('categoryId', categoryId);
+            window.location.href = currentUrl.toString();
+        }
+    }
+    function disableProductList() {
+        const productSelect = document.getElementById('productId');
+        if (productSelect.options.length <= 1) {
+            productSelect.disabled = true;
+        } else {
+            productSelect.disabled = false;
         }
     }
     document.getElementById('stock').addEventListener('input', function() {
         document.getElementById('stockLabel').textContent = this.value + ' Units';
     });
+    document.addEventListener("DOMContentLoaded", disableProductList);
+
 </script>
 </body>
 </html>
