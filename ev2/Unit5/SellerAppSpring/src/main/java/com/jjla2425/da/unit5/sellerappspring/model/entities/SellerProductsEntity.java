@@ -1,5 +1,7 @@
 package com.jjla2425.da.unit5.sellerappspring.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.jjla2425.da.unit5.sellerappspring.Utils;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
@@ -39,9 +41,11 @@ public class SellerProductsEntity {
     @Column(name = "offer_price")
     private BigDecimal offerPrice;
     @Basic
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "offer_start_date")
     private Date offerStartDate;
     @Basic
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "offer_end_date")
     private Date offerEndDate;
     @Basic
@@ -49,6 +53,10 @@ public class SellerProductsEntity {
     @Column(name = "stock")
     private int stock;
 
+    //AssertTrue(message = "Offer start date must be before or equal to offer end date, and cannot be in the past")
+    //public boolean isOfferDatesValid() {
+        //return Utils.getProductsSellerInThisDate(sellerId,offerStartDate.toLocalDate(),offerEndDate.toLocalDate(),productId);
+    //}
     public SellerProductsEntity(Integer sellerId)
     {
         this.sellerId = sellerId;

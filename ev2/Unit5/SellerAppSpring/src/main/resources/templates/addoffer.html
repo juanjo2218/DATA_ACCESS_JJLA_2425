@@ -43,30 +43,30 @@
         </div>
         <form class="form-grid" id="addOfferForm" th:object="${sellerproduct}" method="post" action="#" th:action="@{/addoffer}">
             <div class="form-item">
-                <label for="sellerProductId">Product:</label>
-                <select id="sellerProductId" class="input-field" name="sellerProductId">
+                <label for="productId">Product:</label>
+                <select id="productId" class="input-field" name="productId">
                     <option value="">Select Product</option>
                     <option th:each="sellerproduct : ${sellerproducts}"
                             th:value="${sellerproduct.productId}"
                             th:text="${sellerproduct.productName}"></option>
                 </select>
-                <span th:errors="*{sellerProductId}" class="error-message"></span>
+                <span th:errors="*{productId}" class="error-message"></span>
             </div>
             <div class="form-item">
                 <label for="fromDate">From:</label>
-                <input th:field="*{offerStartDate}" type="date" id="fromDate" class="input-field">
+                <input value="" th:field="*{offerStartDate}" type="date" id="fromDate" class="input-field">
                 <span th:errors="*{offerStartDate}" class="error-message"></span>
             </div>
             <div class="form-item">
                 <label for="toDate">To:</label>
-                <input th:field="*{offerEndDate}" type="date" id="toDate" class="input-field">
+                <input value="" th:field="*{offerEndDate}" type="date" id="toDate" class="input-field">
                 <span th:errors="*{offerEndDate}" class="error-message"></span>
             </div>
             <div class="form-item">
                 <label for="discount">Discount:</label>
                 <input type="text" id="discount" class="input-field" placeholder="Enter discount">
             </div>
-
+            <input type="hidden" id="price" name="price" th:value="${sellerproduct.price ?: 0}" />
             <button type="submit" class="btn">Add Offer</button>
         </form>
     </div>
