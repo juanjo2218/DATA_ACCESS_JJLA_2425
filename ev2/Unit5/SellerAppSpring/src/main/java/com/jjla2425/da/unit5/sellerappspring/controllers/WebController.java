@@ -22,7 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
-@Controller
+@Controller()
 public class WebController {
     @Autowired
     private SellerService sellerService;

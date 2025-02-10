@@ -41,7 +41,7 @@
         <div th:if="${successMessage}" class="alert success-alert">
             <p th:text="${successMessage}"></p>
         </div>
-        <form class="form-grid" id="addProductForm" th:object="${sellerproduct}" method="post" action="#" th:action="@{/addproduct}">
+        <form class="form-grid" id="addProductForm" th:object="${sellerproduct}" method="post" th:action="@{/addproduct}" onsubmit="return validateForm()">
             <input type="hidden" id="sellerId" name="sellerId"th:value="${sellerproduct.sellerId}"/>
             <div class="form-item">
                 <label for="categoryId">Category:</label>
@@ -53,6 +53,7 @@
                             th:selected="${category.categoryId == selectedCategoryId}">
                     </option>
                 </select>
+                <span id="categoryError" class="error-message"></span>
             </div>
             <!-- Product Selection -->
             <div class="form-item">
@@ -64,13 +65,14 @@
                             th:text="${product.productName}">
                     </option>
                 </select>
+                <span id="productError" class="error-message"></span>
                 <span th:errors="*{productId}" class="error-message"></span>
             </div>
 
             <div class="form-item">
                 <label for="stock">Stock:</label>
                 <div class="slider-container">
-                    <input type="range"  th:field="*{stock}" id="stock" class="slider" min="0" max="1000" value="0" step="1">
+                    <input type="range"   th:field="*{stock}" id="stock" class="slider" min="0" max="1000" value="0" step="1">
                     <span id="stockLabel">Units</span>
                     <span th:errors="*{stock}" class="error-message"></span>
                 </div>
@@ -78,7 +80,8 @@
             <div class="form-item">
                 <label for="price">Price:</label>
                 <input type="number" id="price" class="input-field" placeholder="Enter price"
-                       th:field="*{price}" step="0.01"  pattern="^\d+(\.\d{1,2})?$">
+                       step="0.01" pattern="^\d+(\.\d{1,2})?$" min="0" max="99999999" th:field="*{price}">
+                <span id="priceError" class="error-message"></span>
                 <span th:errors="*{price}" class="error-message"></span>
             </div>
             <button type="submit" class="btn">Add</button>
@@ -87,13 +90,67 @@
 </div>
 
 <script>
+    function validateForm() {
+        let isValid = true;
+
+        // Validar categoría
+        const category = document.getElementById("categoryId");
+        const categoryError = document.getElementById("categoryError");
+        if (category.value === "") {
+            categoryError.textContent = "You must select a category!";
+            isValid = false;
+        } else {
+            categoryError.textContent = "";
+        }
+
+        // Validar producto
+        const product = document.getElementById("productId");
+        const productError = document.getElementById("productError");
+        if (product.value === "") {
+            productError.textContent = "Please select a product!";
+            isValid = false;
+        } else {
+            productError.textContent = "";
+        }
+
+        // Validar precio
+        const price = document.getElementById("price");
+        const priceError = price.nextElementSibling;
+        if (price.value === "" || price.value < 0 || price.value > 99999999) {
+            priceError.textContent = "Price must be between 0 and 99,999,999.";
+            isValid = false;
+        } else {
+            priceError.textContent = "";
+        }
+
+        return isValid; // Si es false, previene el envío del formulario
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const stockInput = document.getElementById('stock');
+        const stockLabel = document.getElementById('stockLabel');
+        if (stockInput && stockLabel) {
+            stockLabel.textContent = stockInput.value + ' Units';
+            stockInput.addEventListener('input', function () {
+                stockLabel.textContent = this.value + ' Units';
+            });
+        }
+    });
+    disableProductList();
+    document.addEventListener("DOMContentLoaded", disableProductList);
     function updateProductList() {
         const categoryId = document.getElementById('categoryId').value;
-        if (categoryId) {
-            const currentUrl = new URL(window.location.href);
-            currentUrl.searchParams.set('categoryId', categoryId);
-            window.location.href = currentUrl.toString();
+        const productSelect = document.getElementById('productId');
+
+        if (!categoryId) {
+            productSelect.innerHTML = '<option value="">Select Product</option>';
+            productSelect.disabled = true;
+            return;
         }
+
+        const currentUrl = new URL(window.location.href);
+        currentUrl.searchParams.set('categoryId', categoryId);
+        window.location.href = currentUrl.toString();
     }
     function disableProductList() {
         const productSelect = document.getElementById('productId');
@@ -103,11 +160,6 @@
             productSelect.disabled = false;
         }
     }
-    document.getElementById('stock').addEventListener('input', function() {
-        document.getElementById('stockLabel').textContent = this.value + ' Units';
-    });
-    document.addEventListener("DOMContentLoaded", disableProductList);
-
 </script>
 </body>
 </html>
