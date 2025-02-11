@@ -4,9 +4,12 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jjla2425.da.unit5.sellerappspring.Utils;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Locale;
 import java.util.Objects;
 
 @Entity
@@ -24,7 +27,6 @@ public class SellerProductsEntity {
     @Column(name = "seller_id")
     private Integer sellerId;
     @Basic
-    @NotNull(message = "Product can not be null,please choose a product")
     @Column(name = "product_id")
     private Integer productId;
     @Basic
@@ -41,13 +43,15 @@ public class SellerProductsEntity {
     @Column(name = "offer_price")
     private BigDecimal offerPrice;
     @Basic
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "offer_start_date")
-    private Date offerStartDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate offerStartDate;
+
     @Basic
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "offer_end_date")
-    private Date offerEndDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate offerEndDate;
+
     @Basic
     @NotNull(message = "Stock can not be null")
     @Column(name = "stock")
@@ -56,6 +60,19 @@ public class SellerProductsEntity {
     //AssertTrue(message = "Offer start date must be before or equal to offer end date, and cannot be in the past")
     //public boolean isOfferDatesValid() {
         //return Utils.getProductsSellerInThisDate(sellerId,offerStartDate.toLocalDate(),offerEndDate.toLocalDate(),productId);
+    //}
+    @AssertTrue(message = "Product can not be null,please choose a product")
+    public boolean productIdIsNotNull() {
+        return productId != null;
+    }
+    @AssertTrue(message = "Offer start date and end date can not be null")
+    public boolean isOfferDatesNotNulls() {
+        return offerStartDate != null && offerEndDate != null;
+    }
+
+    //@AssertTrue(message = "Offer start date and end date can not be null")
+    //public boolean canPutOfferInThisDate() {
+        //return Utils.getProductsSellerInThisDate(sellerId,offerStartDate,offerEndDate,productId);
     //}
     public SellerProductsEntity(Integer sellerId)
     {
@@ -104,19 +121,19 @@ public class SellerProductsEntity {
         this.offerPrice = offerPrice;
     }
 
-    public Date getOfferStartDate() {
+    public LocalDate getOfferStartDate() {
         return offerStartDate;
     }
 
-    public void setOfferStartDate(Date offerStartDate) {
+    public void setOfferStartDate(LocalDate offerStartDate) {
         this.offerStartDate = offerStartDate;
     }
 
-    public Date getOfferEndDate() {
+    public LocalDate getOfferEndDate() {
         return offerEndDate;
     }
 
-    public void setOfferEndDate(Date offerEndDate) {
+    public void setOfferEndDate(LocalDate offerEndDate) {
         this.offerEndDate = offerEndDate;
     }
 

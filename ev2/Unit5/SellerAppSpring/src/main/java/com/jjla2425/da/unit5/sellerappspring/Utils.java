@@ -9,39 +9,40 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class Utils {
     static SellerProductService sellerProductService;
     public static boolean getProductsSellerInThisDate(int sellerId, LocalDate fromDate, LocalDate toDate, int productId) {
         List<SellerProductsEntity> productsSeller = sellerProductService.findAllSellerProductsByIdSellerAndActive(sellerId);
-        Date fromDateAsDate = Date.from(fromDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
-        Date toDateAsDate = Date.from(toDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        LocalDate fromDateAsDate = LocalDate.from(fromDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        LocalDate toDateAsDate = LocalDate.from(toDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
         for (SellerProductsEntity productEntity : productsSeller) {
             if (productEntity.getProductId() == productId) {
                 continue;
             }
-            Date offerStartDate = productEntity.getOfferStartDate();
-            Date offerEndDate = productEntity.getOfferEndDate();
+            LocalDate offerStartDate = productEntity.getOfferStartDate();
+            LocalDate offerEndDate = productEntity.getOfferEndDate();
 
             if (offerStartDate == null && offerEndDate == null) {
                 continue;
             }
             if (offerStartDate != null && offerEndDate == null)
             {
-                if (!toDateAsDate.before(offerStartDate))
+                if (!toDateAsDate.isBefore(offerStartDate))
                 {
                     return true;
                 }
             }
             if (offerStartDate == null && offerEndDate != null) {
-                if (!fromDateAsDate.after(offerEndDate)) {
+                if (!fromDateAsDate.isAfter(offerEndDate)) {
                     return true;
                 }
             }
             if (offerStartDate != null && offerEndDate != null) {
-                boolean startOverlap = !toDateAsDate.before(offerStartDate);
-                boolean endOverlap = !fromDateAsDate.after(offerEndDate);
+                boolean startOverlap = !toDateAsDate.isBefore(offerStartDate);
+                boolean endOverlap = !fromDateAsDate.isAfter(offerEndDate);
 
                 if (startOverlap && endOverlap)
                 {

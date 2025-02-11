@@ -15,8 +15,7 @@ public class SellerDTO extends SellersEntity {
     @Size(max = 50,message = "The password cannot be longer than 50 characters")
     private String repeatNewPassword;
 
-    @Transient
-    private boolean passwordsMatch;
+
 
     @AssertTrue(message = "Passwords must match")
     public boolean isPasswordsMatch() {

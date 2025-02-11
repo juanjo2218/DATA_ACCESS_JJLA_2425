@@ -38,12 +38,22 @@ body {
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s, opacity 0.3s;
+    padding: 10px;  /* Ajuste para mejorar el área clickeable */
+    width: 100%;    /* Asegura que ocupe todo el ancho disponible */
+    display: flex;  /* Utilizamos flexbox para alinear mejor los elementos */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;  /* Asegura que el item esté en el nivel correcto */
+    z-index: 10;         /* Evita que otros elementos lo cubran */
 }
 
 .sidebar-icon {
     width: 50px;
     height: 50px;
     opacity: 0.85;
+    display: block;  /* Evita cualquier espacio debajo de la imagen */
+    margin: 0 auto;  /* Asegura que la imagen esté centrada */
 }
 
 .sidebar-item p {

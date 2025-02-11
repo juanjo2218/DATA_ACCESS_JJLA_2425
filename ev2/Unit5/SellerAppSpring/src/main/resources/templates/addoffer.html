@@ -50,18 +50,20 @@
                             th:value="${sellerproduct.productId}"
                             th:text="${sellerproduct.productName}"></option>
                 </select>
-                <span th:errors="*{productId}" class="error-message"></span>
+                <span th:if="${#fields.hasErrors('productIdIsNotNull')}" th:errors="*{productIdIsNotNull}" class="error-message"></span>
             </div>
             <div class="form-item">
                 <label for="fromDate">From:</label>
                 <input value="" th:field="*{offerStartDate}" type="date" id="fromDate" class="input-field">
                 <span th:errors="*{offerStartDate}" class="error-message"></span>
+                <span th:if="${#fields.hasErrors('offerDatesNotNulls')}" th:errors="*{offerDatesNotNulls}" class="error-message"></span>
             </div>
             <div class="form-item">
                 <label for="toDate">To:</label>
                 <input value="" th:field="*{offerEndDate}" type="date" id="toDate" class="input-field">
-                <span th:errors="*{offerEndDate}" class="error-message"></span>
+                <span th:if="${#fields.hasErrors('offerDatesNotNulls')}" th:errors="*{offerDatesNotNulls}" class="error-message"></span>
             </div>
+
             <div class="form-item">
                 <label for="discount">Discount:</label>
                 <input type="text" id="discount" class="input-field" placeholder="Enter discount">
