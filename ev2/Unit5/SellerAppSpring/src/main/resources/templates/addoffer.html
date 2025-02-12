@@ -42,21 +42,24 @@
             <p th:text="${successMessage}"></p>
         </div>
         <form class="form-grid" id="addOfferForm" th:object="${sellerproduct}" method="post" action="#" th:action="@{/addoffer}">
+            <input type="hidden" id="sellerId" name="sellerId" th:value="${sellerproduct.sellerId}"/>
             <div class="form-item">
                 <label for="productId">Product:</label>
-                <select id="productId" class="input-field" name="productId">
-                    <option value="">Select Product</option>
+                <select id="productId" class="input-field" name="productId" >
+                    <option value="" disabled selected>Select Product</option>
                     <option th:each="sellerproduct : ${sellerproducts}"
                             th:value="${sellerproduct.productId}"
-                            th:text="${sellerproduct.productName}"></option>
+                            th:text="${sellerproduct.productName}">
+                    </option>
                 </select>
-                <span th:if="${#fields.hasErrors('productIdIsNotNull')}" th:errors="*{productIdIsNotNull}" class="error-message"></span>
+                <span th:if="${#fields.hasErrors('productIdValid')}" th:errors="*{productIdValid}" class="error-message"></span>
             </div>
             <div class="form-item">
                 <label for="fromDate">From:</label>
                 <input value="" th:field="*{offerStartDate}" type="date" id="fromDate" class="input-field">
                 <span th:errors="*{offerStartDate}" class="error-message"></span>
                 <span th:if="${#fields.hasErrors('offerDatesNotNulls')}" th:errors="*{offerDatesNotNulls}" class="error-message"></span>
+                <span th:if="${#fields.hasErrors('offerDatesValid')}" th:errors="*{offerDatesValid}" class="error-message"></span>
             </div>
             <div class="form-item">
                 <label for="toDate">To:</label>

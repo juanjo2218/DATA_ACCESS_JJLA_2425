@@ -57,12 +57,8 @@ public class SellerProductsEntity {
     @Column(name = "stock")
     private int stock;
 
-    //AssertTrue(message = "Offer start date must be before or equal to offer end date, and cannot be in the past")
-    //public boolean isOfferDatesValid() {
-        //return Utils.getProductsSellerInThisDate(sellerId,offerStartDate.toLocalDate(),offerEndDate.toLocalDate(),productId);
-    //}
-    @AssertTrue(message = "Product can not be null,please choose a product")
-    public boolean productIdIsNotNull() {
+    @AssertTrue(message = "Product can not be null, please choose a product")
+    public boolean isProductIdValid() {
         return productId != null;
     }
     @AssertTrue(message = "Offer start date and end date can not be null")
@@ -70,10 +66,15 @@ public class SellerProductsEntity {
         return offerStartDate != null && offerEndDate != null;
     }
 
-    //@AssertTrue(message = "Offer start date and end date can not be null")
-    //public boolean canPutOfferInThisDate() {
-        //return Utils.getProductsSellerInThisDate(sellerId,offerStartDate,offerEndDate,productId);
-    //}
+    @AssertTrue(message = "Offer start l")
+    public boolean isOfferDatesValid() {
+        if (productId == null)
+            return false;
+        if (offerStartDate == null || offerEndDate == null)
+            return false;
+        return !Utils.getProductsSellerInThisDate(sellerId, offerStartDate, offerEndDate, productId);
+    }
+
     public SellerProductsEntity(Integer sellerId)
     {
         this.sellerId = sellerId;

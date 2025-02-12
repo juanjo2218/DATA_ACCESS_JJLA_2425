@@ -103,7 +103,7 @@ public class WebController {
     public String addOffer(@AuthenticationPrincipal UserDetails user,Model model)
     {
         SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).getBody();
-        model.addAttribute("sellerproduct", new SellerProductsEntity());
+        model.addAttribute("sellerproduct", new SellerProductsEntity(seller.getSellerId()));
         model.addAttribute("sellerproducts", productsService.getProductsBySellerID(seller.getSellerId()));
         return "addoffer";
     }
@@ -119,7 +119,6 @@ public class WebController {
             model.addAttribute("sellerproducts", productsService.getProductsBySellerID(seller.getSellerId()));
             return "addoffer";
         }
-        sellerProduct.setSellerId(seller.getSellerId());
         sellerProductService.updateSellerProduct(sellerProduct);
         redirectAttributes.addFlashAttribute("successMessage", "SellerProductOffer updated successfully!");
         return "redirect:/addoffer";

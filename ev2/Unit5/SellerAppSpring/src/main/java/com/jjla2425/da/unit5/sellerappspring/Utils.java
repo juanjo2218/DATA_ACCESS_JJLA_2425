@@ -1,55 +1,66 @@
 package com.jjla2425.da.unit5.sellerappspring;
 
-import com.jjla2425.da.unit5.sellerappspring.model.daos.ISellerProductsDAO;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.SellerProductsEntity;
 import com.jjla2425.da.unit5.sellerappspring.services.SellerProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
+@Component
 public class Utils {
-    static SellerProductService sellerProductService;
+
+    private static SellerProductService sellerProductService;
+
+    // Constructor para inyectar el servicio
+    @Autowired
+    public Utils(SellerProductService sellerProductService) {
+        Utils.sellerProductService = sellerProductService;
+    }
+
     public static boolean getProductsSellerInThisDate(int sellerId, LocalDate fromDate, LocalDate toDate, int productId) {
         List<SellerProductsEntity> productsSeller = sellerProductService.findAllSellerProductsByIdSellerAndActive(sellerId);
-        LocalDate fromDateAsDate = LocalDate.from(fromDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
-        LocalDate toDateAsDate = LocalDate.from(toDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
         for (SellerProductsEntity productEntity : productsSeller) {
             if (productEntity.getProductId() == productId) {
-                continue;
+                continue;  // Skip the current product
             }
+
             LocalDate offerStartDate = productEntity.getOfferStartDate();
             LocalDate offerEndDate = productEntity.getOfferEndDate();
 
+            // If no offer dates are set, skip the product
             if (offerStartDate == null && offerEndDate == null) {
                 continue;
             }
-            if (offerStartDate != null && offerEndDate == null)
-            {
-                if (!toDateAsDate.isBefore(offerStartDate))
-                {
-                    return true;
-                }
-            }
-            if (offerStartDate == null && offerEndDate != null) {
-                if (!fromDateAsDate.isAfter(offerEndDate)) {
-                    return true;
-                }
-            }
-            if (offerStartDate != null && offerEndDate != null) {
-                boolean startOverlap = !toDateAsDate.isBefore(offerStartDate);
-                boolean endOverlap = !fromDateAsDate.isAfter(offerEndDate);
 
-                if (startOverlap && endOverlap)
-                {
-                    return true;
+            // If there's no end date, only check if the offer's start date overlaps with the new offer's end date
+            if (offerStartDate != null && offerEndDate == null) {
+                if (!toDate.isBefore(offerStartDate)) {
+                    return true;  // There is an overlap
+                }
+            }
+
+            // If there's no start date, only check if the offer's end date overlaps with the new offer's start date
+            else if (offerStartDate == null) {
+                if (!fromDate.isAfter(offerEndDate)) {
+                    return true;  // There is an overlap
+                }
+            }
+
+            // If both start and end dates are present, check for overlapping intervals
+            else {
+                boolean isStartOverlap = !toDate.isBefore(offerStartDate);
+                boolean isEndOverlap = !fromDate.isAfter(offerEndDate);
+
+                if (isStartOverlap && isEndOverlap) {
+                    return true;  // There is an overlap
                 }
             }
         }
-        return false;
+
+        return false;  // No overlaps found
     }
 }
