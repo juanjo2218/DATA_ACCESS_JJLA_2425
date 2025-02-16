@@ -1,7 +1,6 @@
 package com.jjla2425.da.unit5.sellerappspring.model.entities;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.jjla2425.da.unit5.sellerappspring.Utils;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import org.springframework.format.annotation.DateTimeFormat;

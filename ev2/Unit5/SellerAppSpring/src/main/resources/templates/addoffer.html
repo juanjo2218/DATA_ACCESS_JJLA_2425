@@ -66,12 +66,18 @@
                 <input value="" th:field="*{offerEndDate}" type="date" id="toDate" class="input-field">
                 <span th:if="${#fields.hasErrors('offerDatesNotNulls')}" th:errors="*{offerDatesNotNulls}" class="error-message"></span>
             </div>
-
+            <div class="form-item">
+                <label for="price">Price:</label>
+                <input type="text" id="price" th:value="${sellerproduct.price ?: 0}" class="input-field" placeholder="Enter discount" readonly>
+            </div>
+            <div class="form-item">
+                <label for="offerPrice">Offer Price:</label>
+                <input type="text" id="offerPrice" th:value="${sellerproduct.offerPrice ?: 0}" class="input-field" placeholder="Enter discount">
+            </div>
             <div class="form-item">
                 <label for="discount">Discount:</label>
                 <input type="text" id="discount" class="input-field" placeholder="Enter discount">
             </div>
-            <input type="hidden" id="price" name="price" th:value="${sellerproduct.price ?: 0}" />
             <button type="submit" class="btn">Add Offer</button>
         </form>
     </div>
