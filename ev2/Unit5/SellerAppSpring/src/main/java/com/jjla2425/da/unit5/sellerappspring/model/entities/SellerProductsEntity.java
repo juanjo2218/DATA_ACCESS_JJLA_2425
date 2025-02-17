@@ -1,4 +1,5 @@
 package com.jjla2425.da.unit5.sellerappspring.model.entities;
+import com.jjla2425.da.unit5.sellerappspring.MyUtils;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -54,7 +55,8 @@ public class SellerProductsEntity {
     @NotNull(message = "Stock can not be null")
     @Column(name = "stock")
     private int stock;
-
+    @Transient
+    private double discount;
     @AssertTrue(message = "Product can not be null, please choose a product")
     public boolean isProductIdValid() {
         return productId != null;
@@ -72,7 +74,13 @@ public class SellerProductsEntity {
     }
     public SellerProductsEntity()
     {}
+    public double getDiscount() {
+        return discount;
+    }
 
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
     public int getSellerProductId() {
         return sellerProductId;
     }

@@ -45,7 +45,7 @@
             <input type="hidden" id="sellerId" name="sellerId" th:value="${sellerproduct.sellerId}"/>
             <div class="form-item">
                 <label for="productId">Product:</label>
-                <select id="productId" class="input-field" name="productId" onchange="updateProductList()">
+                <select required id="productId" class="input-field" name="productId" onchange="updateProductList()">
                     <option value=""> Select Product </option>
                     <option th:each="sellerproduct : ${sellerproducts}"
                             th:value="${sellerproduct.productId}"
@@ -58,14 +58,14 @@
             <div class="form-item">
                 <label for="fromDate">From:</label>
                 <input value="" th:field="*{offerStartDate}" type="date" id="fromDate" class="input-field"
-                       min="" />
+                       min=""  required/>
                 <span th:errors="*{offerStartDate}" class="error-message"></span>
                 <span th:if="${#fields.hasErrors('offerDatesNotNulls')}" th:errors="*{offerDatesNotNulls}" class="error-message"></span>
             </div>
             <div class="form-item">
                 <label for="toDate">To:</label>
                 <input value="" th:field="*{offerEndDate}" type="date" id="toDate" class="input-field"
-                       min="" />
+                       min="" required/>
                 <span th:if="${#fields.hasErrors('offerDatesNotNulls')}" th:errors="*{offerDatesNotNulls}" class="error-message"></span>
             </div>
 
@@ -75,12 +75,15 @@
             </div>
             <div class="form-item">
                 <label for="discount">Discount (%):</label>
-                <input  min="0" step="0.01" type="number" id="discount" class="input-field" placeholder="Enter discount" oninput="calculateOfferPrice()">
+                <input th:field="*{discount}"  min="0" step="0.01" type="number" id="discount" class="input-field" placeholder="Enter discount" oninput="calculateOfferPrice()">
+                <span th:errors="*{discount}" class="error-message"></span>
+
             </div>
             <div class="form-item">
                 <label for="offerPrice">Offer Price:</label>
                 <input type="number" min="0" step="0.01" id="offerPrice" class="input-field" placeholder="Offer Price"
                        th:field="*{offerPrice}" oninput="restrictOfferPrice()">
+                <span th:errors="*{discount}" class="error-message"></span>
             </div>
             <button type="submit" class="btn">Add Offer</button>
         </form>

@@ -152,17 +152,10 @@ public class WebController {
         if (MyUtils.checkOfferDateOverlap(seller.getSellerId(), offerStartDate, offerEndDate, sellerProduct.getProductId())) {
             bindingResult.rejectValue("offerStartDate", "offerDates.conflict", "An existing offer already overlaps with the selected dates.");
         }
-        if (MyUtils.checkOfferDateOverlap(seller.getSellerId(), offerStartDate, offerEndDate, sellerProduct.getProductId())) {
-            bindingResult.rejectValue("offerStartDate", "offerStartDate.conflict", "An existing offer already overlaps with the selected dates.");
-        }
-        double percentage = sellerProduct.getOfferPrice()
-                .divide(sellerProduct.getPrice(), 4, RoundingMode.HALF_UP)
-                .multiply(new BigDecimal("100"))
-                .doubleValue();
         int difference = (int)ChronoUnit.DAYS.between(offerStartDate, offerEndDate);
         double maxdiscount = MyUtils.getMaxDiscount(difference);
-        if (maxdiscount < percentage)
-            bindingResult.rejectValue("offerPrice", "offerPrice.conflict", "For "+ difference +  " days the max discount is " + maxdiscount + ".");
+        if (maxdiscount < sellerProduct.getDiscount())
+            bindingResult.rejectValue("discount", "offerPrice.conflict", "For "+ difference +  " days the max discount is " + maxdiscount + ".");
         if (bindingResult.hasErrors()) {
             model.addAttribute("sellerproducts", productsService.getProductsBySellerID(seller.getSellerId()));
             return "addoffer";
