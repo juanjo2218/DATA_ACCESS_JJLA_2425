@@ -45,42 +45,236 @@
             <input type="hidden" id="sellerId" name="sellerId" th:value="${sellerproduct.sellerId}"/>
             <div class="form-item">
                 <label for="productId">Product:</label>
-                <select id="productId" class="input-field" name="productId" >
-                    <option value="" disabled selected>Select Product</option>
+                <select id="productId" class="input-field" name="productId" onchange="updateProductList()">
+                    <option value=""> Select Product </option>
                     <option th:each="sellerproduct : ${sellerproducts}"
                             th:value="${sellerproduct.productId}"
-                            th:text="${sellerproduct.productName}">
+                            th:text="${sellerproduct.productName}"
+                            th:selected="${sellerproduct.productId == sellerproductSelected?.productId}">
                     </option>
                 </select>
                 <span th:if="${#fields.hasErrors('productIdValid')}" th:errors="*{productIdValid}" class="error-message"></span>
             </div>
             <div class="form-item">
                 <label for="fromDate">From:</label>
-                <input value="" th:field="*{offerStartDate}" type="date" id="fromDate" class="input-field">
+                <input value="" th:field="*{offerStartDate}" type="date" id="fromDate" class="input-field"
+                       min="" />
                 <span th:errors="*{offerStartDate}" class="error-message"></span>
                 <span th:if="${#fields.hasErrors('offerDatesNotNulls')}" th:errors="*{offerDatesNotNulls}" class="error-message"></span>
-                <span th:if="${#fields.hasErrors('offerDatesValid')}" th:errors="*{offerDatesValid}" class="error-message"></span>
             </div>
             <div class="form-item">
                 <label for="toDate">To:</label>
-                <input value="" th:field="*{offerEndDate}" type="date" id="toDate" class="input-field">
+                <input value="" th:field="*{offerEndDate}" type="date" id="toDate" class="input-field"
+                       min="" />
                 <span th:if="${#fields.hasErrors('offerDatesNotNulls')}" th:errors="*{offerDatesNotNulls}" class="error-message"></span>
             </div>
+
             <div class="form-item">
                 <label for="price">Price:</label>
-                <input type="text" id="price" th:value="${sellerproduct.price ?: 0}" class="input-field" placeholder="Enter discount" readonly>
+                <input  type="number" id="price" th:field="*{price}" th:value="${sellerproduct.price ?: 0}" class="input-field" readonly>
+            </div>
+            <div class="form-item">
+                <label for="discount">Discount (%):</label>
+                <input  min="0" step="0.01" type="number" id="discount" class="input-field" placeholder="Enter discount" oninput="calculateOfferPrice()">
             </div>
             <div class="form-item">
                 <label for="offerPrice">Offer Price:</label>
-                <input type="text" id="offerPrice" th:value="${sellerproduct.offerPrice ?: 0}" class="input-field" placeholder="Enter discount">
-            </div>
-            <div class="form-item">
-                <label for="discount">Discount:</label>
-                <input type="text" id="discount" class="input-field" placeholder="Enter discount">
+                <input type="number" min="0" step="0.01" id="offerPrice" class="input-field" placeholder="Offer Price"
+                       th:field="*{offerPrice}" oninput="restrictOfferPrice()">
             </div>
             <button type="submit" class="btn">Add Offer</button>
         </form>
     </div>
 </div>
+<script>
+    function getMaxDiscount(daysDiff) {
+        if (daysDiff >= 30) return 20;
+        else if (daysDiff >= 3) return 30;
+        return 50;
+    }
+
+    function updateProductList() {
+        const productSelect = document.getElementById('productId');
+        const selectedProductId = productSelect.value;
+        if (selectedProductId) {
+            const currentUrl = new URL(window.location.href);
+            currentUrl.searchParams.set('productId', selectedProductId);
+            window.location.href = currentUrl.toString();
+        }
+    }
+    document.getElementById('productId').addEventListener('change', function () {
+        setTimeout(autoCalculateDiscount, 300);
+    });
+    function calculateDiscount() {
+        const price = parseFloat(document.getElementById('price').value) || 0;
+        const offerPrice = parseFloat(document.getElementById('offerPrice').value) || 0;
+        const discountInput = document.getElementById('discount');
+
+        if (offerPrice > 0 && offerPrice <= price) {
+            let discount = ((price - offerPrice) / price) * 100;
+
+            const fromDate = document.getElementById('fromDate').value;
+            const toDate = document.getElementById('toDate').value;
+
+            if (fromDate && toDate) {
+                const start = new Date(fromDate);
+                const end = new Date(toDate);
+                if (start < end) {
+                    const daysDiff = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+                    const maxDiscount = getMaxDiscount(daysDiff);
+
+                    if (discount > maxDiscount) {
+                        discount = maxDiscount;
+                        discountInput.value = maxDiscount.toFixed(2);
+                        document.getElementById('offerPrice').value = (price - (price * (maxDiscount / 100))).toFixed(2);
+                    } else {
+                        discountInput.value = discount.toFixed(2);
+                    }
+                }
+            } else {
+                discountInput.value = discount.toFixed(2);
+            }
+        }
+    }
+    function restrictOfferPrice() {
+        const price = parseFloat(document.getElementById('price').value) || 0;
+        const offerPriceInput = document.getElementById('offerPrice');
+        let offerPrice = parseFloat(offerPriceInput.value) || 0;
+        // Calcular el número de días de la oferta
+        const fromDate = document.getElementById('fromDate').value;
+        const toDate = document.getElementById('toDate').value;
+
+        let maxDiscount = 0;
+        if (fromDate && toDate) {
+            const start = new Date(fromDate);
+            const end = new Date(toDate);
+            const daysDiff = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+            maxDiscount = getMaxDiscount(daysDiff);
+        }
+
+        const minOfferPrice = price * (1 - maxDiscount / 100);
+        if (offerPrice < minOfferPrice) {
+            offerPrice = minOfferPrice;
+            offerPriceInput.value = offerPrice.toFixed(2);
+        }
+    }
+    function calculateOfferPrice() {
+        const price = parseFloat(document.getElementById('price').value) || 0;
+        const discountInput = document.getElementById('discount');
+        const offerPriceInput = document.getElementById('offerPrice');
+
+        let discount = parseFloat(discountInput.value.replace(',', '.')) || 0;
+        discount = Math.min(discount, 100);
+
+        const fromDate = document.getElementById('fromDate').value;
+        const toDate = document.getElementById('toDate').value;
+
+        if (fromDate && toDate) {
+            const start = new Date(fromDate);
+            const end = new Date(toDate);
+            if (start < end) {
+                const daysDiff = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+                const maxDiscount = getMaxDiscount(daysDiff);
+
+                if (discount > maxDiscount) {
+                    discount = maxDiscount;
+                    discountInput.value = maxDiscount.toFixed(2);
+                }
+            }
+        }
+
+        let offerPrice = price - (price * (discount / 100));
+        offerPrice = Math.min(offerPrice, price);
+        offerPriceInput.value = offerPrice.toFixed(2);
+    }
+
+    document.getElementById('productId').addEventListener('change', function () {
+        setTimeout(autoCalculateDiscount, 300);
+    });
+
+    function autoCalculateDiscount() {
+        const priceInput = document.getElementById('price');
+        const offerPriceInput = document.getElementById('offerPrice');
+        const discountInput = document.getElementById('discount');
+
+        const price = parseFloat(priceInput.value) || 0;
+        const offerPrice = parseFloat(offerPriceInput.value) || 0;
+
+        if (price > 0 && offerPrice > 0 && offerPrice < price) {
+            const discount = ((price - offerPrice) / price) * 100;
+            discountInput.value = discount.toFixed(2);
+        }
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        const fromDateInput = document.getElementById('fromDate');
+        const toDateInput = document.getElementById('toDate');
+        const discountInput = document.getElementById('discount');
+        const offerPriceInput = document.getElementById('offerPrice');
+        const today = new Date().toISOString().split('T')[0];
+        fromDateInput.min = today;
+        toDateInput.min = today;
+        const price = parseFloat(document.getElementById('price').value) || 0;
+        let offerPrice = parseFloat(offerPriceInput.value) || 0;
+        if (offerPrice === 0) {
+            const fromDate = fromDateInput.value;
+            const toDate = toDateInput.value;
+
+            let maxDiscount = 0;
+            if (fromDate && toDate) {
+                const start = new Date(fromDate);
+                const end = new Date(toDate);
+                const daysDiff = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+                maxDiscount = getMaxDiscount(daysDiff);
+            }
+            const minOfferPrice = price * (1 - maxDiscount / 100);
+            offerPrice = minOfferPrice;
+            offerPriceInput.value = offerPrice.toFixed(2);
+        }
+        function toggleDiscountAndOfferPrice() {
+            if (fromDateInput.value && toDateInput.value) {
+                discountInput.disabled = false;
+                offerPriceInput.disabled = false;
+            } else {
+                discountInput.value = '';
+                offerPriceInput.value = '';
+                discountInput.disabled = true;
+                offerPriceInput.disabled = true;
+            }
+        }
+        function restrictTo30Days() {
+            const fromDate = new Date(fromDateInput.value);
+            const maxDate = new Date(fromDate);
+            maxDate.setDate(fromDate.getDate() + 30);
+            toDateInput.max = maxDate.toISOString().split('T')[0];
+            toDateInput.min = fromDateInput.value;
+        }
+        if (fromDateInput.value) {
+            restrictTo30Days();
+        }
+        fromDateInput.addEventListener('change', function () {
+            if (fromDateInput.value) {
+                toDateInput.disabled = false;
+                restrictTo30Days();
+            } else {
+                toDateInput.value = '';
+                toDateInput.disabled = true;
+            }
+            toggleDiscountAndOfferPrice();
+        });
+        toDateInput.addEventListener('change', function () {
+            restrictTo30Days();
+            toggleDiscountAndOfferPrice();
+        });
+        if (!fromDateInput.value) {
+            toDateInput.disabled = true;
+        }
+        toggleDiscountAndOfferPrice();
+    });
+    window.addEventListener('DOMContentLoaded', autoCalculateDiscount);
+    document.getElementById('fromDate').addEventListener('change', calculateOfferPrice);
+    document.getElementById('toDate').addEventListener('change', calculateOfferPrice);
+    document.getElementById('discount').addEventListener('input', calculateOfferPrice);
+    document.getElementById('offerPrice').addEventListener('input', calculateDiscount);
+</script>
 </body>
 </html>

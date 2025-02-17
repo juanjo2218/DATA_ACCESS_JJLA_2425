@@ -1,6 +1,4 @@
 package com.jjla2425.da.unit5.sellerappspring.model.entities;
-
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -8,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -60,20 +59,16 @@ public class SellerProductsEntity {
     public boolean isProductIdValid() {
         return productId != null;
     }
-    @AssertTrue(message = "Offer start date and end date can not be null")
+    @AssertTrue(message = "Offer start date and end date can not be null or the difference cannot be more than 30 days.")
     public boolean isOfferDatesNotNulls() {
-        return offerStartDate != null && offerEndDate != null;
-    }
-
-    @AssertTrue(message = "Offer start l")
-    public boolean isOfferDatesValid() {
-        if (productId == null)
+        if (sellerId == null || productId == null)
             return false;
-        if (offerStartDate == null || offerEndDate == null)
+        if (offerStartDate == null || offerEndDate == null) {
             return false;
-        return !Utils.getProductsSellerInThisDate(sellerId, offerStartDate, offerEndDate, productId);
-    }
+        }
 
+        return ChronoUnit.DAYS.between(offerStartDate, offerEndDate) < 30;
+    }
     public SellerProductsEntity(Integer sellerId)
     {
         this.sellerId = sellerId;

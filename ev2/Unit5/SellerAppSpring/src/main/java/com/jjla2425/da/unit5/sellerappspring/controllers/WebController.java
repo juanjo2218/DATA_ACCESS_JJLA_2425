@@ -1,5 +1,6 @@
 package com.jjla2425.da.unit5.sellerappspring.controllers;
 
+import com.jjla2425.da.unit5.sellerappspring.MyUtils;
 import com.jjla2425.da.unit5.sellerappspring.model.DTOS.SellerDTO;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.CategoriesEntity;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.ProductsEntity;
@@ -20,7 +21,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.Optional;
 
 @Controller()
 public class WebController {
@@ -33,25 +38,26 @@ public class WebController {
 
     @Autowired
     private ProductsService productsService;
+
     @GetMapping("/login")
-    public String showLogin(@AuthenticationPrincipal UserDetails user)
-    {
+    public String showLogin(@AuthenticationPrincipal UserDetails user) {
         return "login";
     }
+
     @GetMapping("/viewseller")
-    public String viewSeller(@AuthenticationPrincipal UserDetails user , Model model) {
-        SellerDTO seller = SellerDTO.toDTO(sellerService.findSellerBycif(user.getUsername()).getBody()) ;
+    public String viewSeller(@AuthenticationPrincipal UserDetails user, Model model) {
+        SellerDTO seller = SellerDTO.toDTO(sellerService.findSellerBycif(user.getUsername()).getBody());
 
         model.addAttribute("seller", seller);
         return "viewseller";
     }
+
     @PostMapping("/viewseller")
     public String updateSeller(@AuthenticationPrincipal UserDetails user,
                                @Valid @ModelAttribute("seller") SellerDTO sellerDTO,
                                BindingResult bindingResult,
                                RedirectAttributes redirectAttributes,
-                               Model model)
-    {
+                               Model model) {
         if (bindingResult.hasErrors()) {
             bindingResult.getAllErrors().forEach(error -> System.out.println(error.getDefaultMessage()));
             model.addAttribute("seller", sellerDTO);
@@ -68,54 +74,83 @@ public class WebController {
     }
 
 
-
     @GetMapping("/addproduct")
-    public String addProduct(@AuthenticationPrincipal UserDetails user,@RequestParam(value = "categoryId", required = false) Integer categoryId, Model model) {
+    public String addProduct(@AuthenticationPrincipal UserDetails user, @RequestParam(value = "categoryId", required = false) Integer categoryId, Model model) {
         SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).getBody();
         List<CategoriesEntity> categories = categoriesService.findAllCategories();
         model.addAttribute("categories", categories);
         model.addAttribute("sellerproduct", new SellerProductsEntity(seller.getSellerId()));
         List<ProductsEntity> products = null;
         if (categoryId != null && categoryId != 0) {
-            products = productsService.getProductsSellerRemaining(categoryId,seller.getSellerId());
+            products = productsService.getProductsSellerRemaining(categoryId, seller.getSellerId());
             model.addAttribute("products", products);
             model.addAttribute("selectedCategoryId", categoryId);
         }
         model.addAttribute("products", products);
         return "addproduct";
     }
+
     @PostMapping("/addproduct")
     public String addProduct(@AuthenticationPrincipal UserDetails user,
                              RedirectAttributes redirectAttributes,
                              @Valid @ModelAttribute("sellerproduct") SellerProductsEntity sellerProduct,
-                             BindingResult bindingResult,Model model)
-    {
+                             BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             bindingResult.getAllErrors().forEach(error -> System.out.println(error.getDefaultMessage()));
-            model.addAttribute("categories",  categoriesService.findAllCategories());
+            model.addAttribute("categories", categoriesService.findAllCategories());
             return "addproduct";
         }
         sellerProductService.saveSellerProduct(sellerProduct);
         redirectAttributes.addFlashAttribute("successMessage", "SellerProduct added successfully!");
         return "redirect:/addproduct";
     }
+
     @GetMapping("/addoffer")
-    public String addOffer(@AuthenticationPrincipal UserDetails user,Model model)
-    {
+    public String addOffer(@AuthenticationPrincipal UserDetails user,
+                           @RequestParam(value = "productId", required = false) Integer productId,
+                           Model model) {
         SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).getBody();
-        model.addAttribute("sellerproduct", new SellerProductsEntity(seller.getSellerId()));
+        SellerProductsEntity sellerProductsEntity = new SellerProductsEntity(seller.getSellerId());
+        if (productId != null && productId != 0) {
+            Optional<SellerProductsEntity> optionalSellerProduct = sellerProductService.findBySellerIdAndProductId(seller.getSellerId(), productId);
+            if (optionalSellerProduct.isPresent()) {
+                sellerProductsEntity = optionalSellerProduct.get();
+            }
+        }
+        model.addAttribute("sellerproduct", sellerProductsEntity);
         model.addAttribute("sellerproducts", productsService.getProductsBySellerID(seller.getSellerId()));
+        model.addAttribute("sellerproductSelected", sellerProductsEntity);
         return "addoffer";
     }
+
     @PostMapping("/addoffer")
     public String addOffer(@AuthenticationPrincipal UserDetails user,
-                             RedirectAttributes redirectAttributes,
-                             @Valid @ModelAttribute("sellerproduct") SellerProductsEntity sellerProduct,
-                             BindingResult bindingResult,Model model)
-    {
+                           RedirectAttributes redirectAttributes,
+                           @Valid @ModelAttribute("sellerproduct") SellerProductsEntity sellerProduct,
+                           BindingResult bindingResult,
+                           Model model) {
+
+        // Obtener el vendedor
         SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).getBody();
+        LocalDate offerStartDate = sellerProduct.getOfferStartDate();
+        LocalDate offerEndDate = sellerProduct.getOfferEndDate();
+        LocalDate today = LocalDate.now();
+
+        // Validación de fechas
+        if (offerStartDate.isBefore(today)) {
+            bindingResult.rejectValue("offerStartDate", "offerStartDate.invalid", "Offer start date cannot be in the past.");
+        }
+        if (offerEndDate.isBefore(offerStartDate)) {
+            bindingResult.rejectValue("offerEndDate", "offerEndDate.invalid", "Offer end date cannot be before the start date.");
+        }
+        if (offerStartDate.isAfter(offerEndDate)) {
+            bindingResult.rejectValue("offerStartDate", "offerStartDate.invalid", "Offer start date cannot be after the end date.");
+        }
+        if (MyUtils.checkOfferDateOverlap(seller.getSellerId(), offerStartDate, offerEndDate, sellerProduct.getProductId())) {
+            bindingResult.rejectValue("offerStartDate", "offerDates.conflict", "An existing offer already overlaps with the selected dates.");
+        }
+
         if (bindingResult.hasErrors()) {
-            bindingResult.getAllErrors().forEach(error -> System.out.println(error.getDefaultMessage()));
             model.addAttribute("sellerproducts", productsService.getProductsBySellerID(seller.getSellerId()));
             return "addoffer";
         }
@@ -123,6 +158,7 @@ public class WebController {
         redirectAttributes.addFlashAttribute("successMessage", "SellerProductOffer updated successfully!");
         return "redirect:/addoffer";
     }
+
 }
 
 

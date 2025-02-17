@@ -36,6 +36,10 @@ public class SellerProductService {
         else
             return  ResponseEntity.notFound().build();
     }
+    public Optional<SellerProductsEntity> findBySellerIdAndProductId(int sellerId, int productId)
+    {
+        return sellerProductsDAO.findBySellerIdAndProductId(sellerId,productId);
+    }
     public SellerProductsEntity  saveSellerProduct(SellerProductsEntity sellerProductsEntity)
     {
         return sellerProductsDAO.save(sellerProductsEntity);
