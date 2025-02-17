@@ -61,12 +61,9 @@ public class SellerProductsEntity {
     }
     @AssertTrue(message = "Offer start date and end date can not be null or the difference cannot be more than 30 days.")
     public boolean isOfferDatesNotNulls() {
-        if (sellerId == null || productId == null)
-            return false;
         if (offerStartDate == null || offerEndDate == null) {
             return false;
         }
-
         return ChronoUnit.DAYS.between(offerStartDate, offerEndDate) < 30;
     }
     public SellerProductsEntity(Integer sellerId)

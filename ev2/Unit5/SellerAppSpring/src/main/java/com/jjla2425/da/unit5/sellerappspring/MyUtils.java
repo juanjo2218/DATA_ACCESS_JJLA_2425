@@ -46,5 +46,9 @@ public class MyUtils {
 
         return false;
     }
-
+    public static double getMaxDiscount(int daysDiff) {
+        if (daysDiff >= 30) return 20;
+        else if (daysDiff >= 3) return 30;
+        return 50;
+    }
 }
