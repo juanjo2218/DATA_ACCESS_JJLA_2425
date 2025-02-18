@@ -74,6 +74,7 @@ public class SecurityConfig {
                             response.sendRedirect(contextPath + "/login?logout");
                         })
                 )
+                .csrf(csrf -> csrf.disable())
                 .httpBasic(withDefaults());
 
         return http.build();
