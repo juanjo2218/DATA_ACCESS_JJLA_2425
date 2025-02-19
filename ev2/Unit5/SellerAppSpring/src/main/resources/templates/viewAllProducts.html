@@ -30,7 +30,7 @@
         <tr th:each="sellerproduct:${sellerproducts}">
             <td th:text="${sellerproduct.productName}"></td>
             <div th:if="${checkSelected.booleanValue()}">
-                <td th:if="${checkSelected.booleanValue()}"s th:text="${ sellerproduct.offerPrice}"></td>
+                <td th:if="${checkSelected.booleanValue()}" th:text="${ sellerproduct.offerPrice}"></td>
             </div>
             <div th:if="${!checkSelected.booleanValue()}">
                 <td  th:text="${ sellerproduct.price}"></td>
