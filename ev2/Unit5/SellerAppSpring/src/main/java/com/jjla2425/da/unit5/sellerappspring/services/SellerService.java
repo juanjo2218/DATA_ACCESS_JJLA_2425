@@ -1,7 +1,10 @@
 package com.jjla2425.da.unit5.sellerappspring.services;
 
 import com.jjla2425.da.unit5.sellerappspring.model.DTOS.SellerDTO;
+import com.jjla2425.da.unit5.sellerappspring.model.DTOS.SellerExamenDTO;
+import com.jjla2425.da.unit5.sellerappspring.model.daos.ISellerProductsDAO;
 import com.jjla2425.da.unit5.sellerappspring.model.daos.ISellersDAO;
+import com.jjla2425.da.unit5.sellerappspring.model.entities.SellerProductsEntity;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.SellersEntity;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +18,8 @@ import java.util.Optional;
 public class SellerService {
     @Autowired
     private ISellersDAO sellersDAO;
-    
+    @Autowired
+    private ISellerProductsDAO sellerProductsDAO;
     public ResponseEntity<SellersEntity> findSellerBycif(String CIF)
     {
         Optional<SellersEntity> seller = sellersDAO.findByCif(CIF);
@@ -64,5 +68,17 @@ public class SellerService {
         }
         else
             return  ResponseEntity.notFound().build();
+    }
+
+    public List <SellerExamenDTO> findSellersByProductId(int idProduct) {
+        List<SellerProductsEntity> sellerProductsEntities =  sellerProductsDAO.findByProductId(idProduct);
+        List <SellerExamenDTO> sellers = null;
+        for (SellerProductsEntity sellerProductsEntity : sellerProductsEntities) {
+            assert false;
+            Optional<SellersEntity> sellers1 = sellersDAO.findById(sellerProductsEntity.getSellerId());
+            sellers.add(new SellerExamenDTO(sellers1.get().getSellerId(),
+                    sellers1.get().getCif(),sellers1.get().getPhone(),sellers1.get().getEmail()));
+        }
+        return sellers;
     }
 }

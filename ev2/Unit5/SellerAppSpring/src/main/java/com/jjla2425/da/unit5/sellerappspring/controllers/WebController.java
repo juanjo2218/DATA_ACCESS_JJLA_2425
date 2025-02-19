@@ -12,7 +12,6 @@ import com.jjla2425.da.unit5.sellerappspring.services.SellerProductService;
 import com.jjla2425.da.unit5.sellerappspring.services.SellerService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -21,8 +20,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -164,7 +161,29 @@ public class WebController {
         redirectAttributes.addFlashAttribute("successMessage", "SellerProductOffer updated successfully!");
         return "redirect:/addoffer";
     }
-
+    @GetMapping("/viewAllProducts")
+    public String viewAllProducts(@AuthenticationPrincipal UserDetails user,Model model, @RequestParam(value = "check", required = false) boolean check)
+    {
+        SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).getBody();
+        List<SellerProductsEntity> sellerProductsEntities = sellerProductService.findAllSellerProductsByIdSellerAndActive(seller.getSellerId());
+        List<ProductsEntity> productsEntities = productsService.getProductsBySellerID(seller.getSellerId());
+        if (check)
+        {
+            sellerProductsEntities = sellerProductService.findAllSellerProductsByIdSellerAndActiveExamen(seller.getSellerId(), true);
+        }
+        for (int i = 0; i <sellerProductsEntities.size() ; i++) {
+            for (int j = 0; j <productsEntities.size() ; j++) {
+                if (sellerProductsEntities.get(i).getProductId() == productsEntities.get(j).getProductId())
+                {
+                    sellerProductsEntities.get(i).setProductName(productsEntities.get(j).getProductName());
+                    sellerProductsEntities.get(i).setCategory(categoriesService.findCategoryById(productsEntities.get(j).getCategoryId()).getBody().getCategoryName());
+                }
+            }
+        }
+        model.addAttribute("checkSelected", check);
+        model.addAttribute("sellerproducts",sellerProductsEntities);
+        return "viewAllProducts";
+    }
 }
 
 

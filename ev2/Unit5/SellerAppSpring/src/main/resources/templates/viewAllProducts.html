@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="examen.css">
+
+</head>
+<body>
+<div class="container">
+    <h1>Product List</h1>
+    <table>
+        <thead>
+        <tr>
+
+            <th>Name</th>
+            <th id="price">
+                <div th:if="${checkSelected.booleanValue()}">
+                    <p th:text="OfferPrice"></p>
+                </div>
+                <div th:if="${!checkSelected.booleanValue()}">
+                    <p th:text="Price"></p>
+                </div>
+
+            </th>
+            <th>Category</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="sellerproduct:${sellerproducts}">
+            <td th:text="${sellerproduct.productName}"></td>
+            <div th:if="${checkSelected.booleanValue()}">
+                <td th:if="${checkSelected.booleanValue()}"s th:text="${ sellerproduct.offerPrice}"></td>
+            </div>
+            <div th:if="${!checkSelected.booleanValue()}">
+                <td  th:text="${ sellerproduct.price}"></td>
+            </div>
+            <td  th:text="${ sellerproduct.price}"></td>
+            <td th:text="${sellerproduct.category}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <label>
+        <input onchange="ViewOfferActive()"  th:checked="${checkSelected.booleanValue()}" id="check" type="checkbox">Show only offers
+    </label>
+</div>
+</body>
+<script>
+    function ViewOfferActive() {
+        const check = document.getElementById('check').checked;
+        const currentUrl = new URL(window.location.href);
+        currentUrl.searchParams.set('check', check);
+        window.location.href = currentUrl.toString();
+    }
+</script>
+</html>

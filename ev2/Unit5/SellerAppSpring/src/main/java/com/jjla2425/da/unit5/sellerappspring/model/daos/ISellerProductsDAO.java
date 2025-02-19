@@ -12,4 +12,5 @@ public interface ISellerProductsDAO extends CrudRepository<SellerProductsEntity,
     List<SellerProductsEntity> getSellerProductsBySellerIdActives(int sellerId);
 
     Optional<SellerProductsEntity> findBySellerIdAndProductId(int sellerId,int productId);
+    List<SellerProductsEntity> findByProductId(int productId);
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,5 +48,27 @@ public class SellerProductService {
 
     public List<SellerProductsEntity> findAllSellerProductsByIdSellerAndActive(int idSeller) {
         return sellerProductsDAO.getSellerProductsBySellerIdActives(idSeller);
+    }
+
+    public List<SellerProductsEntity> findAllSellerProductsByIdSellerAndActiveExamen(int idSeller,boolean check) {
+        List<SellerProductsEntity> sellerProductsEntities = sellerProductsDAO.getSellerProductsBySellerIdActives(idSeller);
+        if (check)
+        {
+            LocalDate today = LocalDate.now();
+            for (int i = 0; i < sellerProductsEntities.size(); i++) {
+                if (sellerProductsEntities.get(i).getOfferStartDate() != null)
+                {
+                    if (sellerProductsEntities.get(i).getOfferStartDate().isBefore(today))
+                    {
+                        sellerProductsEntities.remove(sellerProductsEntities.get(i));
+                        i--;
+                    }
+                }
+            }
+        }
+        return sellerProductsEntities;
+    }
+    public List<SellerProductsEntity> findByProductId(int productId) {
+        return sellerProductsDAO.findByProductId(productId);
     }
 }

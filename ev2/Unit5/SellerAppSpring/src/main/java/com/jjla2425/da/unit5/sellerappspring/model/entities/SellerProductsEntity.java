@@ -57,6 +57,27 @@ public class SellerProductsEntity {
     private int stock;
     @Transient
     private double discount;
+    @Transient
+    private String category;
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    @Transient
+    private String productName;
     @AssertTrue(message = "Product can not be null, please choose a product")
     public boolean isProductIdValid() {
         return productId != null;

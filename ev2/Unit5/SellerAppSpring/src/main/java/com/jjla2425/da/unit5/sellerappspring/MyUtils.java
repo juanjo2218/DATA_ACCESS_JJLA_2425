@@ -1,5 +1,6 @@
 package com.jjla2425.da.unit5.sellerappspring;
 
+import com.jjla2425.da.unit5.sellerappspring.model.entities.ProductsEntity;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.SellerProductsEntity;
 import com.jjla2425.da.unit5.sellerappspring.services.SellerProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,4 +52,6 @@ public class MyUtils {
         else if (daysDiff >= 3) return 30;
         return 50;
     }
+
+
 }
