@@ -70,7 +70,7 @@ public class SellerService {
             return  ResponseEntity.notFound().build();
     }
 
-    public List <SellerExamenDTO> findSellersByProductId(int idProduct) {
+    public List<SellerExamenDTO> findSellersByProductId(int idProduct) {
         List<SellerProductsEntity> sellerProductsEntities =  sellerProductsDAO.findByProductId(idProduct);
         List <SellerExamenDTO> sellers = null;
         for (SellerProductsEntity sellerProductsEntity : sellerProductsEntities) {
