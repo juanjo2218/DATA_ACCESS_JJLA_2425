@@ -58,6 +58,23 @@ public class SellersEntity {
     @Column(name = "pro")
     private boolean pro;
 
+    public SellersEntity(int sellerId, String cif, String name, String businessName,
+                         String phone, String email, String plainPassword, String password,
+                         String url, boolean pro) {
+        this.sellerId = sellerId;
+        this.cif = cif;
+        this.name = name;
+        this.businessName = businessName;
+        this.phone = phone;
+        this.email = email;
+        this.plainPassword = plainPassword;
+        this.password = password;
+        this.url = url;
+        this.pro = pro;
+    }
+    public SellersEntity()
+    {}
+
     public String getUrl() {
         return url;
     }

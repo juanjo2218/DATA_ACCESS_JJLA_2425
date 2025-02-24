@@ -1,0 +1,96 @@
+openapi: "3.0.3"
+info:
+  title: "SellerAppSpring API"
+  description: "SellerAppSpring API"
+  version: "1.0.0"
+servers:
+  - url: "https://SellerAppSpring"
+paths:
+  /api-rest/Sellers/{cif}:
+    get:
+      summary: "GET api-rest/Sellers/{cif}"
+      operationId: "findEmployeeByCIF"
+      parameters:
+        - name: "cif"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SellersEntity"
+    put:
+      summary: "PUT api-rest/Sellers/{cif}"
+      operationId: "updateSeller"
+      parameters:
+        - name: "cif"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SellersEntity"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "object"
+  /api-rest/Sellers/{idProduct}:
+    get:
+      summary: "GET api-rest/Sellers/{idProduct}"
+      operationId: "findAllSellerProductsByIdSeller"
+      parameters:
+        - name: "idProduct"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int32"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/SellerExamenDTO"
+components:
+  schemas:
+    SellersEntity:
+      type: "object"
+      properties:
+        sellerId:
+          type: "integer"
+          format: "int32"
+        cif:
+          type: "string"
+        name:
+          type: "string"
+        businessName:
+          type: "string"
+        phone:
+          type: "string"
+        email:
+          type: "string"
+        plainPassword:
+          type: "string"
+        password:
+          type: "string"
+        url:
+          type: "string"
+        pro:
+          type: "boolean"
+    SellerExamenDTO:
+      type: "object"
+      properties: { }

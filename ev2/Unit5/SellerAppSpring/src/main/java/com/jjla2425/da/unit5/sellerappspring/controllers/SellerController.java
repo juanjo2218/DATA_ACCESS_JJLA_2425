@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api-rest/Sellers")
@@ -19,13 +20,14 @@ public class SellerController
     @GetMapping("/{cif}")
     public ResponseEntity<SellersEntity> findEmployeeByCIF(@PathVariable(value = "cif") String CIF)
     {
-        return sellerService.findSellerBycif(CIF);
+        Optional<SellersEntity> seller = sellerService.findSellerBycif(CIF);
+        return seller.isPresent()  ? ResponseEntity.ok().body(seller.get()) : ResponseEntity.notFound().build();
     }
     @PutMapping("/{cif}")
     public ResponseEntity<?> updateSeller(@RequestBody SellersEntity sellersEntity,@Valid
                                             @PathVariable(value = "cif")String CIF)
     {
-        return sellerService.updateSeller(sellersEntity,CIF);
+        return sellerService.updateSeller(sellersEntity,CIF).isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok().body("Update");
     }
     @GetMapping("/{idProduct}")
     public List<SellerExamenDTO> findAllSellerProductsByIdSeller(@PathVariable(value = "idProduct")int idProduct)

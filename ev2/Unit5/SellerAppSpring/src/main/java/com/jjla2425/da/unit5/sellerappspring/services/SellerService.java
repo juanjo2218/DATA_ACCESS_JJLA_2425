@@ -20,10 +20,9 @@ public class SellerService {
     private ISellersDAO sellersDAO;
     @Autowired
     private ISellerProductsDAO sellerProductsDAO;
-    public ResponseEntity<SellersEntity> findSellerBycif(String CIF)
+    public Optional<SellersEntity> findSellerBycif(String CIF)
     {
-        Optional<SellersEntity> seller = sellersDAO.findByCif(CIF);
-        return seller.isPresent() ? ResponseEntity.ok().body(seller.get()) : ResponseEntity.notFound().build();
+        return sellersDAO.findByCif(CIF);
     }
     public ResponseEntity<?> updateSeller(SellerDTO sellersEntity, String CIF)
     {
@@ -47,11 +46,15 @@ public class SellerService {
         else
             return  ResponseEntity.notFound().build();
     }
-    public ResponseEntity<?> updateSeller(SellersEntity sellersEntity, String CIF)
+    public Optional<SellersEntity> updateSeller(SellersEntity sellersEntity, String CIF)
     {
         Optional<SellersEntity> seller = sellersDAO.findByCif(CIF);
         if (seller.isPresent())
         {
+            if (sellersEntity.getPassword() == null || sellersEntity.getPassword().isEmpty() ||
+                    sellersEntity.getName() == null || sellersEntity.getName().isEmpty()) {
+                return Optional.empty();
+            }
             seller.get().setBusinessName(sellersEntity.getBusinessName());
             seller.get().setEmail(sellersEntity.getEmail());
             seller.get().setName(sellersEntity.getName());
@@ -64,10 +67,10 @@ public class SellerService {
             seller.get().setPro(sellersEntity.isPro());
             seller.get().setUrl(sellersEntity.getUrl());
             sellersDAO.save(seller.get());
-            return ResponseEntity.ok().body("Update");
+            return seller;
         }
         else
-            return  ResponseEntity.notFound().build();
+            return  Optional.empty();
     }
 
     public List<SellerExamenDTO> findSellersByProductId(int idProduct) {

@@ -44,7 +44,7 @@ public class WebController {
 
     @GetMapping("/viewseller")
     public String viewSeller(@AuthenticationPrincipal UserDetails user, Model model) {
-        SellerDTO seller = SellerDTO.toDTO(sellerService.findSellerBycif(user.getUsername()).getBody());
+        SellerDTO seller = SellerDTO.toDTO(sellerService.findSellerBycif(user.getUsername()).get());
 
         model.addAttribute("seller", seller);
         return "viewseller";
@@ -62,7 +62,7 @@ public class WebController {
             return "viewseller";
         }
 
-        if (sellerDTO.equals(SellerDTO.toDTO(sellerService.findSellerBycif(user.getUsername()).getBody()))) {
+        if (sellerDTO.equals(SellerDTO.toDTO(sellerService.findSellerBycif(user.getUsername()).get()))) {
             redirectAttributes.addFlashAttribute("successMessage", "No changes detected.");
             return "redirect:/viewseller";
         }
@@ -74,7 +74,7 @@ public class WebController {
 
     @GetMapping("/addproduct")
     public String addProduct(@AuthenticationPrincipal UserDetails user, @RequestParam(value = "categoryId", required = false) Integer categoryId, Model model) {
-        SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).getBody();
+        SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).get();
         List<CategoriesEntity> categories = categoriesService.findAllCategories();
         model.addAttribute("categories", categories);
         model.addAttribute("sellerproduct", new SellerProductsEntity(seller.getSellerId()));
@@ -107,7 +107,7 @@ public class WebController {
     public String addOffer(@AuthenticationPrincipal UserDetails user,
                            @RequestParam(value = "productId", required = false) Integer productId,
                            Model model) {
-        SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).getBody();
+        SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).get();
         SellerProductsEntity sellerProductsEntity = new SellerProductsEntity(seller.getSellerId());
         if (productId != null && productId != 0) {
             Optional<SellerProductsEntity> optionalSellerProduct = sellerProductService.findBySellerIdAndProductId(seller.getSellerId(), productId);
@@ -129,7 +129,7 @@ public class WebController {
                            Model model) {
 
 
-        SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).getBody();
+        SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).get();
         if (bindingResult.hasErrors()) {
             model.addAttribute("sellerproducts", productsService.getProductsBySellerID(seller.getSellerId()));
             return "addoffer";
@@ -164,7 +164,7 @@ public class WebController {
     @GetMapping("/viewAllProducts")
     public String viewAllProducts(@AuthenticationPrincipal UserDetails user,Model model, @RequestParam(value = "check", required = false) boolean check)
     {
-        SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).getBody();
+        SellersEntity seller = sellerService.findSellerBycif(user.getUsername()).get();
         List<SellerProductsEntity> sellerProductsEntities = sellerProductService.findAllSellerProductsByIdSellerAndActive(seller.getSellerId());
         List<ProductsEntity> productsEntities = productsService.getProductsBySellerID(seller.getSellerId());
         if (check)
