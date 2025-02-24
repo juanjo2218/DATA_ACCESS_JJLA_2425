@@ -27,7 +27,8 @@ public class SellerController
     public ResponseEntity<?> updateSeller(@RequestBody SellersEntity sellersEntity,@Valid
                                             @PathVariable(value = "cif")String CIF)
     {
-        return sellerService.updateSeller(sellersEntity,CIF).isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok().body("Update");
+        Optional<SellersEntity> seller = sellerService.updateSeller(sellersEntity,CIF);
+        return seller.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok().body("Update");
     }
     @GetMapping("/{idProduct}")
     public List<SellerExamenDTO> findAllSellerProductsByIdSeller(@PathVariable(value = "idProduct")int idProduct)

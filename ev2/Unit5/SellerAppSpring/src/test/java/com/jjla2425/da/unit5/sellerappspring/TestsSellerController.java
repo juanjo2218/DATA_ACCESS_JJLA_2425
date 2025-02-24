@@ -4,12 +4,12 @@ import com.jjla2425.da.unit5.sellerappspring.controllers.SellerController;
 import com.jjla2425.da.unit5.sellerappspring.model.daos.ISellersDAO;
 import com.jjla2425.da.unit5.sellerappspring.model.entities.SellersEntity;
 import com.jjla2425.da.unit5.sellerappspring.services.SellerService;
+import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.ResponseEntity;
 
 import java.util.Optional;
@@ -20,8 +20,6 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest()
 class TestsSellerController {
-    @Mock
-    private ISellersDAO sellersDAO;
     @Mock
     private SellerService sellerService;
     @InjectMocks
@@ -43,7 +41,7 @@ class TestsSellerController {
                 false  // pro
         );
 
-        when(sellersDAO.findByCif(CIF)).thenReturn(Optional.of(seller));
+        when(sellerService.findSellerBycif(CIF)).thenReturn(Optional.of(seller));
 
         ResponseEntity<SellersEntity> result =
                 sellerController.findEmployeeByCIF(CIF);
@@ -55,7 +53,7 @@ class TestsSellerController {
     void findSellerByCIFNotExists_Controller() {
         String CIF = "A87654321";
 
-        when(sellersDAO.findByCif(CIF)).thenReturn(Optional.empty());
+        when(sellerService.findSellerBycif(CIF)).thenReturn(Optional.empty());
 
         // Request
         ResponseEntity<SellersEntity> result = sellerController.findEmployeeByCIF(CIF);
@@ -76,12 +74,12 @@ class TestsSellerController {
                 "nuevaClave", "NEW_ENCRYPTED_PASSWORD", "http://nueva-url.com", true
         );
 
-        when(sellersDAO.findByCif(CIF)).thenReturn(Optional.of(existingSeller));
-        when(sellersDAO.save(any(SellersEntity.class))).thenReturn(updatedSeller);
+        when(sellerService.findSellerBycif(CIF)).thenReturn(Optional.of(existingSeller));
+        when(sellerService.updateSeller(updatedSeller,CIF)).thenReturn(Optional.of(updatedSeller));
 
         ResponseEntity<?> result = sellerController.updateSeller(updatedSeller,CIF);
         assertEquals(200, result.getStatusCodeValue());
-        assertEquals(updatedSeller, result.getBody());
+        assertEquals("Update", result.getBody());
     }
     @Test
     void updateSellerByIdNotExists_Controller() {
@@ -90,7 +88,7 @@ class TestsSellerController {
                 1099, "A87654321", "nuevo nombre", "nueva empresa", "987654321", "email@test.com",
                 "nuevaClave", "NEW_ENCRYPTED_PASSWORD", "http://nueva-url.com", true
         );
-        when(sellersDAO.findByCif(CIF)).thenReturn(Optional.empty());
+        when(sellerService.findSellerBycif(CIF)).thenReturn(Optional.empty());
         ResponseEntity<?> result = sellerController.updateSeller(updatedSeller,CIF);
         assertEquals(404, result.getStatusCodeValue());
     }
@@ -100,12 +98,12 @@ class TestsSellerController {
     void updateSellerInvalidData_Controller() {
         String CIF = "A12345678";
         SellersEntity invalidSeller = new SellersEntity();
+        invalidSeller.setCif(CIF);
 
-        when(sellersDAO.findByCif(CIF)).thenReturn(Optional.of(invalidSeller));
-        when(sellersDAO.save(any(SellersEntity.class))).thenReturn(invalidSeller);
+        when(sellerService.updateSeller(invalidSeller,CIF)).thenReturn(Optional.empty());
 
         ResponseEntity<?> result = sellerController.updateSeller(invalidSeller, CIF);
-        assertEquals(400, result.getStatusCodeValue());
+        assertEquals(404, result.getStatusCodeValue());
     }
 
 }
