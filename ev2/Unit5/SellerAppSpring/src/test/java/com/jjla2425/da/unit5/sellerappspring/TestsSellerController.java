@@ -7,7 +7,9 @@ import com.jjla2425.da.unit5.sellerappspring.services.SellerService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.ResponseEntity;
 
 import java.util.Optional;
@@ -16,8 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-
-@SpringBootTest(classes = SellerAppSpringApplication.class)
+@SpringBootTest()
 class TestsSellerController {
     @Mock
     private ISellersDAO sellersDAO;
